@@ -1,0 +1,263 @@
+{
+  "kind": "bounded_osm_import_engineering_integration",
+  "recorded": "2026-11-01",
+  "simedape_acceleration": false,
+  "import": {
+    "status": "published",
+    "source": {
+      "path": "/home/dean/workspace/phd/htc-platform/tools/sao-paulo/input/sao_paulo.osm",
+      "sha256": "e6e924b3196dba4c55e021661e23f9848d24b54a55bfdd1eea99e6614ebf67c8"
+    },
+    "selection": {
+      "bbox": [
+        -46.7342,
+        -23.6334,
+        -46.7317,
+        -23.6295
+      ],
+      "strategy": "whole_intersecting_ways",
+      "ways": [
+        "4774379",
+        "4774380",
+        "4774398",
+        "4774399",
+        "4774401",
+        "4774402",
+        "4806461",
+        "4806558",
+        "495554374",
+        "8456568",
+        "947831127"
+      ],
+      "nodes": 169,
+      "extent": {
+        "west": -46.7355988,
+        "south": -23.6336447,
+        "east": -46.7302215,
+        "north": -23.6263371
+      },
+      "truncated": false,
+      "selected_sha256": "c1bdca2e0abcdad51e0d1864ef26cee94473ad897ff04b25118cb839df917a44"
+    },
+    "statistics": {
+      "source_nodes": 18177123,
+      "source_ways": 2722395,
+      "source_relations": 32206,
+      "eligible_intersecting_ways": 11
+    },
+    "network": {
+      "directed_links": 34,
+      "simulation_nodes": 17,
+      "weak_components": 1,
+      "component_sizes": [
+        17
+      ],
+      "length_metres": 6293.8751396841035,
+      "source_way_to_directed_links": {
+        "4774379": 6,
+        "4774380": 2,
+        "4774398": 2,
+        "4774399": 4,
+        "4774401": 2,
+        "4774402": 6,
+        "4806461": 2,
+        "4806558": 4,
+        "495554374": 2,
+        "8456568": 2,
+        "947831127": 2
+      }
+    },
+    "preview_sha256": "498070f63501289656c58aa8fc3ba975767c925761348d95fd08c8f3f54652df"
+  },
+  "diagnostics": [
+    {
+      "level": "warning",
+      "code": "DEFAULT_SPEED",
+      "entity": "way/4774379",
+      "message": "Missing maxspeed: the bounded profile uses 30 km/h."
+    },
+    {
+      "level": "warning",
+      "code": "LANE_PROFILE",
+      "entity": "way/4774379",
+      "message": "The bounded MICRO profile uses one lane; original source tags are retained."
+    },
+    {
+      "level": "warning",
+      "code": "DEFAULT_SPEED",
+      "entity": "way/4774380",
+      "message": "Missing maxspeed: the bounded profile uses 30 km/h."
+    },
+    {
+      "level": "warning",
+      "code": "LANE_PROFILE",
+      "entity": "way/4774380",
+      "message": "The bounded MICRO profile uses one lane; original source tags are retained."
+    },
+    {
+      "level": "warning",
+      "code": "DEFAULT_SPEED",
+      "entity": "way/4774398",
+      "message": "Missing maxspeed: the bounded profile uses 30 km/h."
+    },
+    {
+      "level": "warning",
+      "code": "LANE_PROFILE",
+      "entity": "way/4774398",
+      "message": "The bounded MICRO profile uses one lane; original source tags are retained."
+    },
+    {
+      "level": "warning",
+      "code": "DEFAULT_SPEED",
+      "entity": "way/4774399",
+      "message": "Missing maxspeed: the bounded profile uses 30 km/h."
+    },
+    {
+      "level": "warning",
+      "code": "LANE_PROFILE",
+      "entity": "way/4774399",
+      "message": "The bounded MICRO profile uses one lane; original source tags are retained."
+    },
+    {
+      "level": "warning",
+      "code": "DEFAULT_SPEED",
+      "entity": "way/4774401",
+      "message": "Missing maxspeed: the bounded profile uses 30 km/h."
+    },
+    {
+      "level": "warning",
+      "code": "LANE_PROFILE",
+      "entity": "way/4774401",
+      "message": "The bounded MICRO profile uses one lane; original source tags are retained."
+    },
+    {
+      "level": "warning",
+      "code": "DEFAULT_SPEED",
+      "entity": "way/4774402",
+      "message": "Missing maxspeed: the bounded profile uses 30 km/h."
+    },
+    {
+      "level": "warning",
+      "code": "LANE_PROFILE",
+      "entity": "way/4774402",
+      "message": "The bounded MICRO profile uses one lane; original source tags are retained."
+    },
+    {
+      "level": "warning",
+      "code": "DEFAULT_SPEED",
+      "entity": "way/4806461",
+      "message": "Missing maxspeed: the bounded profile uses 30 km/h."
+    },
+    {
+      "level": "warning",
+      "code": "LANE_PROFILE",
+      "entity": "way/4806461",
+      "message": "The bounded MICRO profile uses one lane; original source tags are retained."
+    },
+    {
+      "level": "warning",
+      "code": "DEFAULT_SPEED",
+      "entity": "way/4806558",
+      "message": "Missing maxspeed: the bounded profile uses 30 km/h."
+    },
+    {
+      "level": "warning",
+      "code": "LANE_PROFILE",
+      "entity": "way/4806558",
+      "message": "The bounded MICRO profile uses one lane; original source tags are retained."
+    },
+    {
+      "level": "warning",
+      "code": "LANE_PROFILE",
+      "entity": "way/495554374",
+      "message": "The bounded MICRO profile uses one lane; original source tags are retained."
+    },
+    {
+      "level": "warning",
+      "code": "LANE_PROFILE",
+      "entity": "way/8456568",
+      "message": "The bounded MICRO profile uses one lane; original source tags are retained."
+    },
+    {
+      "level": "warning",
+      "code": "DEFAULT_SPEED",
+      "entity": "way/947831127",
+      "message": "Missing maxspeed: the bounded profile uses 30 km/h."
+    },
+    {
+      "level": "warning",
+      "code": "LANE_PROFILE",
+      "entity": "way/947831127",
+      "message": "The bounded MICRO profile uses one lane; original source tags are retained."
+    }
+  ],
+  "engine_and_http": {
+    "status": "passed",
+    "run_id": "089d73f5d13d456485c939bb14093dee",
+    "scenario": "default:osm-neighbourhood-v1",
+    "series": 34,
+    "variables": [
+      "count",
+      "speed",
+      "acceleration",
+      "deceleration",
+      "gap",
+      "flow"
+    ],
+    "checked_http_values": 36720,
+    "missing_values_preserved": 24036,
+    "departed_cars": 16,
+    "engine_sha256": "04696778768a2bff7ca9cbb9f0adf0daa949488d16f1190f2c66050329350a6b",
+    "view_http_render": "passed",
+    "browser_interaction": "not tested"
+  },
+  "replay": {
+    "status": "passed",
+    "scenario_id": "simedape-089d73f5d13d456485c939bb14093dee",
+    "run_id": "089d73f5d13d456485c939bb14093dee",
+    "links": 34,
+    "nodes": 17,
+    "segments": 30,
+    "vehicles": 16,
+    "receipt_sha256": "17d84337d42f72e6b1954b979515d47fb6d4dd56a31e260a77ba5038c53e3874",
+    "committed_sha256": "95945d3dba7247c43c35db0c9c95bf043d28e1f8326140b3b980c9e3eee39714",
+    "browser_interaction": "not tested"
+  },
+  "map_geometry": {
+    "status": "passed",
+    "scenario_id": "simedape-089d73f5d13d456485c939bb14093dee",
+    "mode": "osm",
+    "links": 34,
+    "segments": 30,
+    "normal_worker_position_comparisons": 630,
+    "maximum_curve_chord_deviation_metres": 89.57728873866137,
+    "osm_way_ids": [
+      "4774379",
+      "4774380",
+      "4774398",
+      "4774399",
+      "4774401",
+      "4774402",
+      "4806461",
+      "4806558",
+      "495554374",
+      "8456568",
+      "947831127"
+    ],
+    "layer": "PathLayer",
+    "link_picking_metadata": "passed",
+    "browser_webgl": "not tested by this script"
+  },
+  "tests": {
+    "command": "python -m unittest discover -s tools/osm_scenario/tests -v",
+    "passed": 18
+  },
+  "evidence_directory": "/tmp/htc-osm-import-check-20261101-v2",
+  "retained_source_snapshot": "tools/osm_scenario/examples/sao-paulo-neighbourhood.osm",
+  "remaining": [
+    "HTC View import endpoints/screen",
+    "Fresh browser/WebGL acceptance",
+    "Unsupported road rules and broader traffic profile",
+    "Live playback/pacing integration"
+  ]
+}

@@ -1,0 +1,6967 @@
+{
+  "stations": {
+    "60634869": {
+      "name": "Carandiru",
+      "railway": "stop",
+      "lat": -23.509163,
+      "lon": -46.624929,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "60634870": {
+      "name": "Portuguesa - Tietê",
+      "railway": "stop",
+      "lat": -23.5156407,
+      "lon": -46.6251282,
+      "station_type": "subway",
+      "operator": "",
+      "line": ""
+    },
+    "60634883": {
+      "name": "Armênia",
+      "railway": "stop",
+      "lat": -23.5255041,
+      "lon": -46.6293526,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "60716276": {
+      "name": "Sé",
+      "railway": "stop",
+      "lat": -23.5507643,
+      "lon": -46.6329189,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "60734140": {
+      "name": "Luz",
+      "railway": "stop",
+      "lat": -23.5351689,
+      "lon": -46.6348473,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "64035259": {
+      "name": "República",
+      "railway": "stop",
+      "lat": -23.5440229,
+      "lon": -46.6426405,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "163192877": {
+      "name": "Santana",
+      "railway": "stop",
+      "lat": -23.5020677,
+      "lon": -46.6247204,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "171925381": {
+      "name": "Jardim São Paulo - Ayrton Senna",
+      "railway": "stop",
+      "lat": -23.492483,
+      "lon": -46.6170446,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "171932199": {
+      "name": "Parada Inglesa",
+      "railway": "stop",
+      "lat": -23.4865022,
+      "lon": -46.6085978,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "171933597": {
+      "name": "Tucuruvi",
+      "railway": "stop",
+      "lat": -23.4800823,
+      "lon": -46.60325,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "173978268": {
+      "name": "Carrão – Assaí Atacadista",
+      "railway": "stop",
+      "lat": -23.5379365,
+      "lon": -46.5642605,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "173978278": {
+      "name": "Penha - Lojas Besni",
+      "railway": "stop",
+      "lat": -23.5335913,
+      "lon": -46.542487,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "173978287": {
+      "name": "Vila Matilde",
+      "railway": "stop",
+      "lat": -23.5319607,
+      "lon": -46.5308695,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "173978296": {
+      "name": "Guilhermina-Esperança",
+      "railway": "stop",
+      "lat": -23.5294012,
+      "lon": -46.5166038,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "173978308": {
+      "name": "Patriarca • Vila Ré",
+      "railway": "stop",
+      "lat": -23.5311855,
+      "lon": -46.5015615,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "173978322": {
+      "name": "Artur Alvim",
+      "railway": "stop",
+      "lat": -23.5403065,
+      "lon": -46.4847176,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "173981565": {
+      "name": "Corinthians-Itaquera",
+      "railway": "stop",
+      "lat": -23.5423408,
+      "lon": -46.4710733,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "173992082": {
+      "name": "Tatuapé",
+      "railway": "stop",
+      "lat": -23.5405499,
+      "lon": -46.5764473,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "173995296": {
+      "name": "Belém",
+      "railway": "stop",
+      "lat": -23.5429756,
+      "lon": -46.5895297,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "173997509": {
+      "name": "Pedro II",
+      "railway": "stop",
+      "lat": -23.5497225,
+      "lon": -46.6259356,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "173997515": {
+      "name": "Brás",
+      "railway": "stop",
+      "lat": -23.5479213,
+      "lon": -46.6157969,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "175684361": {
+      "name": "Anhangabaú",
+      "railway": "stop",
+      "lat": -23.5480088,
+      "lon": -46.6390308,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "175688340": {
+      "name": "Santa Cecília",
+      "railway": "stop",
+      "lat": -23.5393395,
+      "lon": -46.6489737,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "175691647": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "stop",
+      "lat": -23.5252434,
+      "lon": -46.6673937,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "175995653": {
+      "name": "Marechal Deodoro",
+      "railway": "stop",
+      "lat": -23.5339115,
+      "lon": -46.6557827,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "176004373": {
+      "name": "Japão - Liberdade",
+      "railway": "stop",
+      "lat": -23.5549556,
+      "lon": -46.6357176,
+      "station_type": "subway",
+      "operator": "",
+      "line": ""
+    },
+    "177370382": {
+      "name": "Granja Julieta",
+      "railway": "stop",
+      "lat": -23.627158,
+      "lon": -46.7115512,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181763110": {
+      "name": "Capão Redondo",
+      "railway": "stop",
+      "lat": -23.6588586,
+      "lon": -46.7677529,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181763124": {
+      "name": "Campo Limpo",
+      "railway": "stop",
+      "lat": -23.6488796,
+      "lon": -46.7587289,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181763144": {
+      "name": "Vila das Belezas",
+      "railway": "stop",
+      "lat": -23.6402832,
+      "lon": -46.7457694,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181763161": {
+      "name": "Giovanni Gronchi",
+      "railway": "stop",
+      "lat": -23.6440419,
+      "lon": -46.7337285,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181763188": {
+      "name": "Santo Amaro",
+      "railway": "stop",
+      "lat": -23.6556856,
+      "lon": -46.7209184,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181784907": {
+      "name": "Socorro",
+      "railway": "stop",
+      "lat": -23.6623543,
+      "lon": -46.7113761,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181784919": {
+      "name": "Jurubatuba",
+      "railway": "stop",
+      "lat": -23.6771813,
+      "lon": -46.7023734,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181791553": {
+      "name": "Berrini",
+      "railway": "stop",
+      "lat": -23.6040448,
+      "lon": -46.6964881,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181795299": {
+      "name": "Pinheiros",
+      "railway": "stop",
+      "lat": -23.5659351,
+      "lon": -46.7031493,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181795308": {
+      "name": "Hebraica-Rebouças",
+      "railway": "stop",
+      "lat": -23.5732997,
+      "lon": -46.6989264,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181795318": {
+      "name": "Cidade Jardim",
+      "railway": "stop",
+      "lat": -23.5851526,
+      "lon": -46.6911258,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181795324": {
+      "name": "Vila Olímpia",
+      "railway": "stop",
+      "lat": -23.5927615,
+      "lon": -46.692527,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181800566": {
+      "name": "Presidente Altino",
+      "railway": "stop",
+      "lat": -23.5313512,
+      "lon": -46.7616743,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181829279": {
+      "name": "Perus",
+      "railway": "stop",
+      "lat": -23.4046912,
+      "lon": -46.7538832,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "181829434": {
+      "name": "Lapa (Linha 7)",
+      "railway": "stop",
+      "lat": -23.5174147,
+      "lon": -46.7044036,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "184047839": {
+      "name": "Osasco",
+      "railway": "stop",
+      "lat": -23.5278311,
+      "lon": -46.7759232,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "184047883": {
+      "name": "Comandante Sampaio",
+      "railway": "stop",
+      "lat": -23.5258388,
+      "lon": -46.7953355,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "184047950": {
+      "name": "Carapicuíba",
+      "railway": "stop",
+      "lat": -23.5191929,
+      "lon": -46.8346278,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "246649660": {
+      "name": "Tiradentes",
+      "railway": "stop",
+      "lat": -23.5309623,
+      "lon": -46.6321397,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "247904866": {
+      "name": "Jabaquara",
+      "railway": "stop",
+      "lat": -23.646336,
+      "lon": -46.6410302,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "247905094": {
+      "name": "Conceição",
+      "railway": "stop",
+      "lat": -23.6349865,
+      "lon": -46.6412793,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "247905099": {
+      "name": "São Judas",
+      "railway": "stop",
+      "lat": -23.6257989,
+      "lon": -46.6409021,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "247905102": {
+      "name": "Saúde – Ultrafarma",
+      "railway": "stop",
+      "lat": -23.6182313,
+      "lon": -46.6391705,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "247905106": {
+      "name": "Praça da Árvore",
+      "railway": "stop",
+      "lat": -23.6104394,
+      "lon": -46.637901,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "247905111": {
+      "name": "Santa Cruz",
+      "railway": "stop",
+      "lat": -23.5990533,
+      "lon": -46.6366725,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "247905116": {
+      "name": "Vila Mariana",
+      "railway": "stop",
+      "lat": -23.58919,
+      "lon": -46.6346528,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "247905119": {
+      "name": "Ana Rosa",
+      "railway": "stop",
+      "lat": -23.5812738,
+      "lon": -46.6383478,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "248816022": {
+      "name": "Tatuapé",
+      "railway": "stop",
+      "lat": -23.5403186,
+      "lon": -46.5765028,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "274042233": {
+      "name": "Barueri",
+      "railway": "stop",
+      "lat": -23.5125923,
+      "lon": -46.8742424,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "274042294": {
+      "name": "Jardim Silveira",
+      "railway": "stop",
+      "lat": -23.523493,
+      "lon": -46.8934442,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "286071585": {
+      "name": "Juventus - Mooca",
+      "railway": "stop",
+      "lat": -23.5579278,
+      "lon": -46.6082613,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "318585656": {
+      "name": "Suzano",
+      "railway": "stop",
+      "lat": -23.5339859,
+      "lon": -46.3085706,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "318590688": {
+      "name": "Jundiapeba",
+      "railway": "stop",
+      "lat": -23.5428255,
+      "lon": -46.257368,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "318591170": {
+      "name": "Braz Cubas",
+      "railway": "stop",
+      "lat": -23.5359974,
+      "lon": -46.2243488,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "318591487": {
+      "name": "Mogi das Cruzes",
+      "railway": "stop",
+      "lat": -23.5218483,
+      "lon": -46.19859,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "318591917": {
+      "name": "Estudantes",
+      "railway": "stop",
+      "lat": -23.5158296,
+      "lon": -46.1851826,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330719934": {
+      "name": "Itaquaquecetuba",
+      "railway": "stop",
+      "lat": -23.4854705,
+      "lon": -46.3488962,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330720415": {
+      "name": "Aracaré",
+      "railway": "stop",
+      "lat": -23.4994311,
+      "lon": -46.3390941,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330720751": {
+      "name": "Calmon Viana",
+      "railway": "stop",
+      "lat": -23.5255342,
+      "lon": -46.3326754,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330721635": {
+      "name": "Jardim Romano",
+      "railway": "stop",
+      "lat": -23.485462,
+      "lon": -46.3864773,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330721737": {
+      "name": "Engenheiro Manoel Feio",
+      "railway": "stop",
+      "lat": -23.4794628,
+      "lon": -46.3685234,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330721886": {
+      "name": "Itaim Paulista",
+      "railway": "stop",
+      "lat": -23.4940608,
+      "lon": -46.4021678,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330722194": {
+      "name": "Jardim Helena - Vila Mara",
+      "railway": "stop",
+      "lat": -23.4927534,
+      "lon": -46.4215248,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330722494": {
+      "name": "São Miguel Paulista",
+      "railway": "stop",
+      "lat": -23.4905356,
+      "lon": -46.4444829,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330722968": {
+      "name": "Comendador Ermelino",
+      "railway": "stop",
+      "lat": -23.4852849,
+      "lon": -46.4828597,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330723453": {
+      "name": "USP Leste",
+      "railway": "stop",
+      "lat": -23.4855368,
+      "lon": -46.5008682,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330733313": {
+      "name": "José Bonifácio",
+      "railway": "stop",
+      "lat": -23.5392991,
+      "lon": -46.4322176,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330733503": {
+      "name": "Dom Bosco",
+      "railway": "stop",
+      "lat": -23.541774,
+      "lon": -46.4488171,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "330736297": {
+      "name": "Corinthians-Itaquera",
+      "railway": "stop",
+      "lat": -23.5420777,
+      "lon": -46.4711247,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "499647559": {
+      "name": "Chácara Klabin",
+      "railway": "stop",
+      "lat": -23.5923854,
+      "lon": -46.6306225,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "605663479": {
+      "name": "Brigadeiro",
+      "railway": "stop",
+      "lat": -23.5685438,
+      "lon": -46.6476837,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "605663490": {
+      "name": "Trianon-Masp",
+      "railway": "stop",
+      "lat": -23.5632422,
+      "lon": -46.6541854,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "605663530": {
+      "name": "Consolação",
+      "railway": "stop",
+      "lat": -23.5577354,
+      "lon": -46.6604929,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "605663555": {
+      "name": "Clínicas",
+      "railway": "stop",
+      "lat": -23.5539779,
+      "lon": -46.6709502,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "605663569": {
+      "name": "Santuário Nossa Senhora de Fátima - Sumaré",
+      "railway": "stop",
+      "lat": -23.5509452,
+      "lon": -46.6776625,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "605663613": {
+      "name": "Vila Madalena",
+      "railway": "station",
+      "lat": -23.5464956,
+      "lon": -46.6911243,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "652635451": {
+      "name": "Vergueiro",
+      "railway": "stop",
+      "lat": -23.5687123,
+      "lon": -46.6399025,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "652635456": {
+      "name": "Paraíso",
+      "railway": "stop",
+      "lat": -23.5753455,
+      "lon": -46.6409011,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656064495": {
+      "name": "Largo Treze",
+      "railway": "stop",
+      "lat": -23.6544721,
+      "lon": -46.7101184,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656071074": {
+      "name": "Higienópolis-Mackenzie (Linha 4)",
+      "railway": "stop",
+      "lat": -23.5489447,
+      "lon": -46.6523017,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656072831": {
+      "name": "Paulista - Pernambucanas",
+      "railway": "stop",
+      "lat": -23.5552211,
+      "lon": -46.6623125,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656261487": {
+      "name": "Quitaúna",
+      "railway": "stop",
+      "lat": -23.5227599,
+      "lon": -46.8070694,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656263840": {
+      "name": "Jardim Belval",
+      "railway": "stop",
+      "lat": -23.5129611,
+      "lon": -46.8890308,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656265759": {
+      "name": "Jandira",
+      "railway": "stop",
+      "lat": -23.5276393,
+      "lon": -46.9023003,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656265762": {
+      "name": "Sagrado Coração",
+      "railway": "stop",
+      "lat": -23.5291978,
+      "lon": -46.9172713,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656266125": {
+      "name": "Engenheiro Cardoso",
+      "railway": "stop",
+      "lat": -23.5352687,
+      "lon": -46.9286138,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656272733": {
+      "name": "Itapevi",
+      "railway": "stop",
+      "lat": -23.5456576,
+      "lon": -46.9351548,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656276737": {
+      "name": "Amador Bueno",
+      "railway": "stop",
+      "lat": -23.5307552,
+      "lon": -46.9844302,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656280585": {
+      "name": "General Miguel Costa",
+      "railway": "stop",
+      "lat": -23.5235522,
+      "lon": -46.8158157,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656281406": {
+      "name": "Santa Terezinha",
+      "railway": "stop",
+      "lat": -23.5166753,
+      "lon": -46.8480331,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656282457": {
+      "name": "Antônio João",
+      "railway": "stop",
+      "lat": -23.5172574,
+      "lon": -46.8580131,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656312664": {
+      "name": "Pirituba",
+      "railway": "stop",
+      "lat": -23.4883297,
+      "lon": -46.7264185,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656314146": {
+      "name": "Piqueri",
+      "railway": "stop",
+      "lat": -23.5024189,
+      "lon": -46.7149194,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656316299": {
+      "name": "Vila Clarice",
+      "railway": "stop",
+      "lat": -23.4693154,
+      "lon": -46.7449524,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656317076": {
+      "name": "Jaraguá",
+      "railway": "stop",
+      "lat": -23.4547572,
+      "lon": -46.7392213,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656319559": {
+      "name": "Caieiras",
+      "railway": "stop",
+      "lat": -23.3658124,
+      "lon": -46.7512428,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656322906": {
+      "name": "Baltazar Fidélis",
+      "railway": "stop",
+      "lat": -23.3098689,
+      "lon": -46.7237616,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656349268": {
+      "name": "São Caetano do Sul",
+      "railway": "stop",
+      "lat": -23.6099673,
+      "lon": -46.5700418,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656353782": {
+      "name": "Prefeito Celso Daniel - Santo André",
+      "railway": "stop",
+      "lat": -23.6520379,
+      "lon": -46.5280812,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656356543": {
+      "name": "Capuava",
+      "railway": "stop",
+      "lat": -23.6580958,
+      "lon": -46.4893238,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656356765": {
+      "name": "Mauá",
+      "railway": "stop",
+      "lat": -23.6682009,
+      "lon": -46.4615107,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656371999": {
+      "name": "Guaianases",
+      "railway": "stop",
+      "lat": -23.5424437,
+      "lon": -46.4155199,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656373736": {
+      "name": "Antonio Gianetti Neto",
+      "railway": "stop",
+      "lat": -23.5545966,
+      "lon": -46.3843841,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656375982": {
+      "name": "Ferraz de Vasconcelos",
+      "railway": "stop",
+      "lat": -23.5410723,
+      "lon": -46.368605,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656377551": {
+      "name": "Calmon Viana",
+      "railway": "stop",
+      "lat": -23.5255628,
+      "lon": -46.3327162,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656392013": {
+      "name": "Autódromo",
+      "railway": "stop",
+      "lat": -23.7059963,
+      "lon": -46.6882563,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656393186": {
+      "name": "Primavera-Interlagos",
+      "railway": "stop",
+      "lat": -23.7223093,
+      "lon": -46.6917501,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "656393292": {
+      "name": "Grajaú",
+      "railway": "stop",
+      "lat": -23.7362993,
+      "lon": -46.6968662,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "661582968": {
+      "name": "Sacomã",
+      "railway": "stop",
+      "lat": -23.6012617,
+      "lon": -46.6025821,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "661582972": {
+      "name": "Alto do Ipiranga",
+      "railway": "stop",
+      "lat": -23.6022063,
+      "lon": -46.6124598,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "661582976": {
+      "name": "Santos - Imigrantes",
+      "railway": "stop",
+      "lat": -23.5957405,
+      "lon": -46.6209516,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "922094750": {
+      "name": "Vila Prudente",
+      "railway": "stop",
+      "lat": -23.5844161,
+      "lon": -46.5819557,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "926616651": {
+      "name": "Faria Lima",
+      "railway": "stop",
+      "lat": -23.5672029,
+      "lon": -46.6940244,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1403755988": {
+      "name": "Pinheiros",
+      "railway": "stop",
+      "lat": -23.5672147,
+      "lon": -46.7019523,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1403755994": {
+      "name": "Butantã",
+      "railway": "stop",
+      "lat": -23.5718186,
+      "lon": -46.7080934,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1658464892": {
+      "name": "Luz",
+      "railway": "stop",
+      "lat": -23.5370674,
+      "lon": -46.6336146,
+      "station_type": "subway",
+      "operator": "",
+      "line": ""
+    },
+    "1676035450": {
+      "name": "Corinthians-Itaquera",
+      "railway": "stop",
+      "lat": -23.5424712,
+      "lon": -46.4710418,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1700854084": {
+      "name": "Francisco Morato",
+      "railway": "stop",
+      "lat": -23.2820673,
+      "lon": -46.7424863,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1700896613": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "stop",
+      "lat": -23.5260281,
+      "lon": -46.6674572,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1707836313": {
+      "name": "Água Branca",
+      "railway": "stop",
+      "lat": -23.5213834,
+      "lon": -46.6891028,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743056338": {
+      "name": "Presidente Altino",
+      "railway": "stop",
+      "lat": -23.5311724,
+      "lon": -46.7618605,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743113187": {
+      "name": "Domingos de Moraes",
+      "railway": "stop",
+      "lat": -23.5187212,
+      "lon": -46.721473,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743113188": {
+      "name": "Domingos de Moraes",
+      "railway": "stop",
+      "lat": -23.5188514,
+      "lon": -46.7214626,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743113189": {
+      "name": "Imperatriz Leopoldina",
+      "railway": "stop",
+      "lat": -23.5242542,
+      "lon": -46.7383494,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743113190": {
+      "name": "Imperatriz Leopoldina",
+      "railway": "stop",
+      "lat": -23.5231015,
+      "lon": -46.7367246,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743179399": {
+      "name": "Lapa (Linha 8)",
+      "railway": "stop",
+      "lat": -23.5196246,
+      "lon": -46.699987,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743179400": {
+      "name": "Lapa (Linha 8)",
+      "railway": "stop",
+      "lat": -23.5203532,
+      "lon": -46.6984089,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743222008": {
+      "name": "Júlio Prestes",
+      "railway": "stop",
+      "lat": -23.5330623,
+      "lon": -46.6405032,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743222016": {
+      "name": "Júlio Prestes",
+      "railway": "stop",
+      "lat": -23.5330989,
+      "lon": -46.6405887,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743222023": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "stop",
+      "lat": -23.5257008,
+      "lon": -46.66741,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743222027": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "stop",
+      "lat": -23.5259253,
+      "lon": -46.6663749,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1743851185": {
+      "name": "Carapicuíba",
+      "railway": "stop",
+      "lat": -23.5180099,
+      "lon": -46.8360621,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1744738796": {
+      "name": "Barueri",
+      "railway": "stop",
+      "lat": -23.512627,
+      "lon": -46.8759432,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1744764229": {
+      "name": "Itapevi",
+      "railway": "stop",
+      "lat": -23.5455607,
+      "lon": -46.9352487,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1744776414": {
+      "name": "Comandante Sampaio",
+      "railway": "stop",
+      "lat": -23.5254536,
+      "lon": -46.7972339,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1744776415": {
+      "name": "Osasco",
+      "railway": "stop",
+      "lat": -23.5276872,
+      "lon": -46.7758089,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1746141755": {
+      "name": "Antônio João",
+      "railway": "stop",
+      "lat": -23.5163071,
+      "lon": -46.8597649,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1746141766": {
+      "name": "Carapicuíba",
+      "railway": "stop",
+      "lat": -23.5190772,
+      "lon": -46.8346173,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1746141774": {
+      "name": "Jandira",
+      "railway": "stop",
+      "lat": -23.5275314,
+      "lon": -46.9023678,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1746141780": {
+      "name": "General Miguel Costa",
+      "railway": "stop",
+      "lat": -23.5233702,
+      "lon": -46.8158098,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1746141785": {
+      "name": "Jardim Belval",
+      "railway": "stop",
+      "lat": -23.5147933,
+      "lon": -46.889494,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1746141789": {
+      "name": "Jardim Silveira",
+      "railway": "stop",
+      "lat": -23.5234489,
+      "lon": -46.89359,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1746141805": {
+      "name": "Quitaúna",
+      "railway": "stop",
+      "lat": -23.5226454,
+      "lon": -46.8070705,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1746141813": {
+      "name": "Sagrado Coração",
+      "railway": "stop",
+      "lat": -23.5290921,
+      "lon": -46.9172635,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1746141820": {
+      "name": "Santa Terezinha",
+      "railway": "stop",
+      "lat": -23.5165606,
+      "lon": -46.848019,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1748886851": {
+      "name": "Ceasa",
+      "railway": "stop",
+      "lat": -23.5370802,
+      "lon": -46.7429231,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1748886852": {
+      "name": "Ceasa",
+      "railway": "stop",
+      "lat": -23.5381852,
+      "lon": -46.7418098,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1748886853": {
+      "name": "Cidade Universitária",
+      "railway": "stop",
+      "lat": -23.5575062,
+      "lon": -46.7119445,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1748886854": {
+      "name": "Cidade Universitária",
+      "railway": "stop",
+      "lat": -23.5576429,
+      "lon": -46.711925,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1748886857": {
+      "name": "Villa Lobos - Jaguaré",
+      "railway": "stop",
+      "lat": -23.5454232,
+      "lon": -46.7334338,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1748886860": {
+      "name": "Villa Lobos - Jaguaré",
+      "railway": "stop",
+      "lat": -23.5464592,
+      "lon": -46.7323913,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749215665": {
+      "name": "Cidade Jardim",
+      "railway": "stop",
+      "lat": -23.5852273,
+      "lon": -46.6912412,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749215670": {
+      "name": "Hebraica-Rebouças",
+      "railway": "stop",
+      "lat": -23.5740551,
+      "lon": -46.6981959,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749215676": {
+      "name": "Pinheiros",
+      "railway": "stop",
+      "lat": -23.5673818,
+      "lon": -46.7027954,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749655212": {
+      "name": "Berrini",
+      "railway": "stop",
+      "lat": -23.6051069,
+      "lon": -46.6969937,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749655218": {
+      "name": "Vila Olímpia",
+      "railway": "stop",
+      "lat": -23.5938013,
+      "lon": -46.6928268,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749688602": {
+      "name": "Morumbi",
+      "railway": "stop",
+      "lat": -23.6219894,
+      "lon": -46.7020425,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749688684": {
+      "name": "Morumbi",
+      "railway": "stop",
+      "lat": -23.6208156,
+      "lon": -46.7009494,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749725592": {
+      "name": "Granja Julieta",
+      "railway": "stop",
+      "lat": -23.6281117,
+      "lon": -46.7126064,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749725680": {
+      "name": "João Dias",
+      "railway": "stop",
+      "lat": -23.6404162,
+      "lon": -46.7239832,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749725681": {
+      "name": "João Dias",
+      "railway": "stop",
+      "lat": -23.6393463,
+      "lon": -46.7228973,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749749834": {
+      "name": "Santo Amaro",
+      "railway": "stop",
+      "lat": -23.6557728,
+      "lon": -46.7194616,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749749852": {
+      "name": "Santo Amaro",
+      "railway": "stop",
+      "lat": -23.6567294,
+      "lon": -46.7186916,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1749803080": {
+      "name": "Socorro",
+      "railway": "stop",
+      "lat": -23.6635197,
+      "lon": -46.7108987,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1750474542": {
+      "name": "Jurubatuba",
+      "railway": "stop",
+      "lat": -23.677975,
+      "lon": -46.7017822,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1750474550": {
+      "name": "Jurubatuba",
+      "railway": "stop",
+      "lat": -23.6775449,
+      "lon": -46.7023529,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1751018588": {
+      "name": "Autódromo",
+      "railway": "stop",
+      "lat": -23.7060058,
+      "lon": -46.6883929,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1751025774": {
+      "name": "Primavera-Interlagos",
+      "railway": "stop",
+      "lat": -23.7234749,
+      "lon": -46.6918048,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1751040010": {
+      "name": "Grajaú",
+      "railway": "stop",
+      "lat": -23.7362063,
+      "lon": -46.6969301,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1753031321": {
+      "name": "Osasco",
+      "railway": "stop",
+      "lat": -23.5277627,
+      "lon": -46.7758714,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1753031332": {
+      "name": "Presidente Altino",
+      "railway": "stop",
+      "lat": -23.5312464,
+      "lon": -46.7617835,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1753031363": {
+      "name": "Presidente Altino",
+      "railway": "stop",
+      "lat": -23.5312746,
+      "lon": -46.7617541,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1811936926": {
+      "name": "Ipiranga",
+      "railway": "stop",
+      "lat": -23.5820033,
+      "lon": -46.5968979,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1814129475": {
+      "name": "Capuava",
+      "railway": "stop",
+      "lat": -23.6584903,
+      "lon": -46.4906054,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1814352342": {
+      "name": "Paranapiacaba (Expresso Turístico)",
+      "railway": "station",
+      "lat": -23.7766696,
+      "lon": -46.3021665,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1843331318": {
+      "name": "Luz",
+      "railway": "stop",
+      "lat": -23.5349402,
+      "lon": -46.6358857,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1843331319": {
+      "name": "Luz",
+      "railway": "stop",
+      "lat": -23.5353267,
+      "lon": -46.6348955,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1843331320": {
+      "name": "Luz",
+      "railway": "stop",
+      "lat": -23.5350961,
+      "lon": -46.6359559,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1843331335": {
+      "name": "Luz",
+      "railway": "stop",
+      "lat": -23.5354589,
+      "lon": -46.6337299,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1844710169": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "stop",
+      "lat": -23.5251165,
+      "lon": -46.6673558,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1851440659": {
+      "name": "Piqueri",
+      "railway": "stop",
+      "lat": -23.5024248,
+      "lon": -46.7148877,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1852761182": {
+      "name": "Pirituba",
+      "railway": "stop",
+      "lat": -23.4887667,
+      "lon": -46.7255418,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1870174118": {
+      "name": "Vila Clarice",
+      "railway": "stop",
+      "lat": -23.4698951,
+      "lon": -46.7442407,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1990838219": {
+      "name": "Santa Cruz",
+      "railway": "stop",
+      "lat": -23.5985043,
+      "lon": -46.6372347,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1991664275": {
+      "name": "Jaraguá",
+      "railway": "stop",
+      "lat": -23.4554378,
+      "lon": -46.738526,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1991664418": {
+      "name": "Vila Aurora",
+      "railway": "stop",
+      "lat": -23.4371421,
+      "lon": -46.7474817,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1991668450": {
+      "name": "Perus",
+      "railway": "stop",
+      "lat": -23.4052356,
+      "lon": -46.7534393,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1991675727": {
+      "name": "Caieiras",
+      "railway": "stop",
+      "lat": -23.3666097,
+      "lon": -46.7521371,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1991678473": {
+      "name": "Baltazar Fidélis",
+      "railway": "stop",
+      "lat": -23.3106543,
+      "lon": -46.7225339,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1997626275": {
+      "name": "Lapa (Linha 7)",
+      "railway": "stop",
+      "lat": -23.5176683,
+      "lon": -46.7036146,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1997626283": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "stop",
+      "lat": -23.5253967,
+      "lon": -46.6674027,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1997626287": {
+      "name": "Piqueri",
+      "railway": "stop",
+      "lat": -23.5024159,
+      "lon": -46.714962,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1997642392": {
+      "name": "Pirituba",
+      "railway": "stop",
+      "lat": -23.4883715,
+      "lon": -46.7264367,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "1997695941": {
+      "name": "Água Branca",
+      "railway": "stop",
+      "lat": -23.5213117,
+      "lon": -46.6882971,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2163596385": {
+      "name": "Corinthians-Itaquera",
+      "railway": "stop",
+      "lat": -23.5422082,
+      "lon": -46.4710923,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2249399083": {
+      "name": "Belém",
+      "railway": "stop",
+      "lat": -23.542814,
+      "lon": -46.58957,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2249399084": {
+      "name": "Bresser-Mooca",
+      "railway": "stop",
+      "lat": -23.546276,
+      "lon": -46.6070715,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2249399085": {
+      "name": "Bresser-Mooca",
+      "railway": "stop",
+      "lat": -23.5464119,
+      "lon": -46.6070362,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2249399086": {
+      "name": "Brás",
+      "railway": "stop",
+      "lat": -23.5477747,
+      "lon": -46.6158154,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2249399087": {
+      "name": "Pedro II",
+      "railway": "stop",
+      "lat": -23.5496666,
+      "lon": -46.6259438,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2251287911": {
+      "name": "Tatuapé",
+      "railway": "stop",
+      "lat": -23.5400222,
+      "lon": -46.5765739,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2251287912": {
+      "name": "Tatuapé",
+      "railway": "stop",
+      "lat": -23.5401531,
+      "lon": -46.5765425,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2251287913": {
+      "name": "Tatuapé",
+      "railway": "stop",
+      "lat": -23.5401804,
+      "lon": -46.576536,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2251287914": {
+      "name": "Tatuapé",
+      "railway": "stop",
+      "lat": -23.5404143,
+      "lon": -46.5764798,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2251542454": {
+      "name": "São Miguel Paulista",
+      "railway": "stop",
+      "lat": -23.4905791,
+      "lon": -46.4429724,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2258747773": {
+      "name": "Calmon Viana",
+      "railway": "stop",
+      "lat": -23.5254345,
+      "lon": -46.3325848,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2258747786": {
+      "name": "Poá",
+      "railway": "stop",
+      "lat": -23.5247883,
+      "lon": -46.3425452,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2258747790": {
+      "name": "Poá",
+      "railway": "stop",
+      "lat": -23.5256659,
+      "lon": -46.3439942,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2262086005": {
+      "name": "Corinthians-Itaquera",
+      "railway": "stop",
+      "lat": -23.5419309,
+      "lon": -46.4711579,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2262086006": {
+      "name": "Dom Bosco",
+      "railway": "stop",
+      "lat": -23.5417738,
+      "lon": -46.4475594,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2262086007": {
+      "name": "Guaianases",
+      "railway": "stop",
+      "lat": -23.5422281,
+      "lon": -46.4154873,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2262086009": {
+      "name": "José Bonifácio",
+      "railway": "stop",
+      "lat": -23.5388966,
+      "lon": -46.4309519,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2264931697": {
+      "name": "Antonio Gianetti Neto",
+      "railway": "stop",
+      "lat": -23.5542583,
+      "lon": -46.3829812,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2264931698": {
+      "name": "Braz Cubas",
+      "railway": "stop",
+      "lat": -23.5366942,
+      "lon": -46.2264951,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2264931699": {
+      "name": "Estudantes",
+      "railway": "stop",
+      "lat": -23.5157616,
+      "lon": -46.1852307,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2264931700": {
+      "name": "Ferraz de Vasconcelos",
+      "railway": "stop",
+      "lat": -23.5404422,
+      "lon": -46.3679735,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2264931701": {
+      "name": "Jundiapeba",
+      "railway": "stop",
+      "lat": -23.5425985,
+      "lon": -46.2590936,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2264931704": {
+      "name": "Mogi das Cruzes",
+      "railway": "stop",
+      "lat": -23.521279,
+      "lon": -46.1974384,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2264931708": {
+      "name": "Suzano",
+      "railway": "stop",
+      "lat": -23.5343425,
+      "lon": -46.3071823,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2266249924": {
+      "name": "Aracaré",
+      "railway": "stop",
+      "lat": -23.5004867,
+      "lon": -46.3390896,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2266249925": {
+      "name": "Comendador Ermelino",
+      "railway": "stop",
+      "lat": -23.4849671,
+      "lon": -46.4817191,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2266249927": {
+      "name": "Engenheiro Manoel Feio",
+      "railway": "stop",
+      "lat": -23.4789403,
+      "lon": -46.366613,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2266249928": {
+      "name": "Itaim Paulista",
+      "railway": "stop",
+      "lat": -23.493936,
+      "lon": -46.40217,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2266249929": {
+      "name": "Itaquaquecetuba",
+      "railway": "stop",
+      "lat": -23.4865636,
+      "lon": -46.3472203,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2266249930": {
+      "name": "Jardim Helena - Vila Mara",
+      "railway": "stop",
+      "lat": -23.4926285,
+      "lon": -46.4216511,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2266249931": {
+      "name": "Jardim Romano",
+      "railway": "stop",
+      "lat": -23.4847461,
+      "lon": -46.3853243,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2266249932": {
+      "name": "USP Leste",
+      "railway": "stop",
+      "lat": -23.485431,
+      "lon": -46.4997763,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2271182458": {
+      "name": "Anhangabaú",
+      "railway": "stop",
+      "lat": -23.5479372,
+      "lon": -46.6389981,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2271182460": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "stop",
+      "lat": -23.5259483,
+      "lon": -46.6674537,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2271182461": {
+      "name": "República",
+      "railway": "stop",
+      "lat": -23.5440463,
+      "lon": -46.642904,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2271182462": {
+      "name": "Santa Cecília",
+      "railway": "stop",
+      "lat": -23.5393091,
+      "lon": -46.6489353,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2271182463": {
+      "name": "Sé",
+      "railway": "stop",
+      "lat": -23.5504539,
+      "lon": -46.6328792,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2272186469": {
+      "name": "Amador Bueno",
+      "railway": "stop",
+      "lat": -23.5306455,
+      "lon": -46.984468,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2277644253": {
+      "name": "Rio Grande da Serra",
+      "railway": "stop",
+      "lat": -23.7434258,
+      "lon": -46.391728,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2277729923": {
+      "name": "Mauá",
+      "railway": "stop",
+      "lat": -23.6682293,
+      "lon": -46.4615316,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2277751749": {
+      "name": "Guapituba",
+      "railway": "stop",
+      "lat": -23.6923861,
+      "lon": -46.4485088,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2277751750": {
+      "name": "Guapituba",
+      "railway": "stop",
+      "lat": -23.6914326,
+      "lon": -46.4491771,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2277751751": {
+      "name": "Ribeirão Pires",
+      "railway": "stop",
+      "lat": -23.7146536,
+      "lon": -46.4137966,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2277751752": {
+      "name": "Ribeirão Pires",
+      "railway": "stop",
+      "lat": -23.7136412,
+      "lon": -46.4148577,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2278811010": {
+      "name": "Prefeito Celso Daniel - Santo André",
+      "railway": "stop",
+      "lat": -23.6520936,
+      "lon": -46.5281644,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2278811011": {
+      "name": "Prefeito Celso Daniel - Santo André",
+      "railway": "stop",
+      "lat": -23.6521148,
+      "lon": -46.528196,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2278811012": {
+      "name": "Prefeito Celso Daniel - Santo André",
+      "railway": "stop",
+      "lat": -23.6521705,
+      "lon": -46.5282792,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2278811013": {
+      "name": "Prefeito Saladino",
+      "railway": "stop",
+      "lat": -23.6383529,
+      "lon": -46.5366727,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2278811014": {
+      "name": "Prefeito Saladino",
+      "railway": "stop",
+      "lat": -23.6383989,
+      "lon": -46.5367526,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2280117742": {
+      "name": "Utinga",
+      "railway": "stop",
+      "lat": -23.6262316,
+      "lon": -46.544107,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2281353270": {
+      "name": "Ipiranga",
+      "railway": "stop",
+      "lat": -23.5826966,
+      "lon": -46.5964825,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2281353271": {
+      "name": "Juventus - Mooca",
+      "railway": "stop",
+      "lat": -23.5579522,
+      "lon": -46.6083373,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2281353272": {
+      "name": "São Caetano do Sul",
+      "railway": "stop",
+      "lat": -23.6100805,
+      "lon": -46.5700652,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2281353319": {
+      "name": "Tamanduateí",
+      "railway": "stop",
+      "lat": -23.5927934,
+      "lon": -46.5895718,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2311379677": {
+      "name": "Butantã",
+      "railway": "stop",
+      "lat": -23.5718604,
+      "lon": -46.7080357,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2380750804": {
+      "name": "AACD – Servidor",
+      "railway": "stop",
+      "lat": -23.5977998,
+      "lon": -46.6523004,
+      "station_type": "subway",
+      "operator": "",
+      "line": ""
+    },
+    "2487412721": {
+      "name": "Artur Alvim",
+      "railway": "stop",
+      "lat": -23.5402034,
+      "lon": -46.4846245,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2487412722": {
+      "name": "Carrão – Assaí Atacadista",
+      "railway": "stop",
+      "lat": -23.537806,
+      "lon": -46.5642996,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2487412723": {
+      "name": "Guilhermina-Esperança",
+      "railway": "stop",
+      "lat": -23.5292707,
+      "lon": -46.5166811,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2487412724": {
+      "name": "Patriarca • Vila Ré",
+      "railway": "stop",
+      "lat": -23.5310629,
+      "lon": -46.5014818,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2487412725": {
+      "name": "Penha - Lojas Besni",
+      "railway": "stop",
+      "lat": -23.5334461,
+      "lon": -46.5425294,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2487412726": {
+      "name": "Vila Matilde",
+      "railway": "stop",
+      "lat": -23.5318311,
+      "lon": -46.5308327,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2487413802": {
+      "name": "República",
+      "railway": "stop",
+      "lat": -23.5441194,
+      "lon": -46.6430267,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2510860830": {
+      "name": "Tamanduateí",
+      "railway": "stop",
+      "lat": -23.5928348,
+      "lon": -46.5895287,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2510860860": {
+      "name": "Sacomã",
+      "railway": "stop",
+      "lat": -23.6013059,
+      "lon": -46.6025704,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2510860874": {
+      "name": "Alto do Ipiranga",
+      "railway": "stop",
+      "lat": -23.6022896,
+      "lon": -46.6125986,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2691982364": {
+      "name": "Capão Redondo",
+      "railway": "stop",
+      "lat": -23.659647,
+      "lon": -46.7683481,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2692001773": {
+      "name": "Adolfo Pinheiro",
+      "railway": "stop",
+      "lat": -23.6500649,
+      "lon": -46.7042217,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2692001775": {
+      "name": "Campo Limpo",
+      "railway": "stop",
+      "lat": -23.6496559,
+      "lon": -46.7592319,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2692001776": {
+      "name": "Giovanni Gronchi",
+      "railway": "stop",
+      "lat": -23.6438844,
+      "lon": -46.7343484,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2692001777": {
+      "name": "Largo Treze",
+      "railway": "stop",
+      "lat": -23.6544276,
+      "lon": -46.7101247,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2692001778": {
+      "name": "Santo Amaro",
+      "railway": "stop",
+      "lat": -23.6556506,
+      "lon": -46.7209187,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2692001780": {
+      "name": "Vila das Belezas",
+      "railway": "stop",
+      "lat": -23.6402623,
+      "lon": -46.7458234,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447207": {
+      "name": "Ana Rosa",
+      "railway": "stop",
+      "lat": -23.5813614,
+      "lon": -46.6383993,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447212": {
+      "name": "Ana Rosa",
+      "railway": "stop",
+      "lat": -23.5813935,
+      "lon": -46.6384332,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447216": {
+      "name": "Armênia",
+      "railway": "stop",
+      "lat": -23.5254676,
+      "lon": -46.6293903,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447222": {
+      "name": "Carandiru",
+      "railway": "stop",
+      "lat": -23.5091623,
+      "lon": -46.6249674,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447227": {
+      "name": "Conceição",
+      "railway": "stop",
+      "lat": -23.6349894,
+      "lon": -46.6413133,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447232": {
+      "name": "Jabaquara",
+      "railway": "stop",
+      "lat": -23.6463427,
+      "lon": -46.6410637,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447237": {
+      "name": "Jardim São Paulo - Ayrton Senna",
+      "railway": "stop",
+      "lat": -23.4923579,
+      "lon": -46.6171689,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447242": {
+      "name": "Japão - Liberdade",
+      "railway": "stop",
+      "lat": -23.5549609,
+      "lon": -46.6357647,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447248": {
+      "name": "Luz",
+      "railway": "stop",
+      "lat": -23.5370573,
+      "lon": -46.6337454,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447249": {
+      "name": "Parada Inglesa",
+      "railway": "stop",
+      "lat": -23.4874493,
+      "lon": -46.6090734,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447251": {
+      "name": "Paraíso",
+      "railway": "stop",
+      "lat": -23.5753053,
+      "lon": -46.6407784,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447252": {
+      "name": "Portuguesa - Tietê",
+      "railway": "stop",
+      "lat": -23.516546,
+      "lon": -46.625201,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447253": {
+      "name": "Praça da Árvore",
+      "railway": "stop",
+      "lat": -23.6104389,
+      "lon": -46.6379351,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447254": {
+      "name": "Santa Cruz",
+      "railway": "stop",
+      "lat": -23.5990527,
+      "lon": -46.6367066,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447255": {
+      "name": "Santana",
+      "railway": "stop",
+      "lat": -23.5030545,
+      "lon": -46.6247991,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447256": {
+      "name": "São Joaquim",
+      "railway": "stop",
+      "lat": -23.56162,
+      "lon": -46.6386297,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447257": {
+      "name": "Saúde – Ultrafarma",
+      "railway": "stop",
+      "lat": -23.6182239,
+      "lon": -46.6392038,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447258": {
+      "name": "São Bento",
+      "railway": "stop",
+      "lat": -23.5440705,
+      "lon": -46.6341833,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447259": {
+      "name": "São Judas",
+      "railway": "stop",
+      "lat": -23.625789,
+      "lon": -46.6409349,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447260": {
+      "name": "Sé",
+      "railway": "stop",
+      "lat": -23.5506435,
+      "lon": -46.6328047,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447261": {
+      "name": "Sé",
+      "railway": "stop",
+      "lat": -23.5506004,
+      "lon": -46.6329727,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447262": {
+      "name": "Tiradentes",
+      "railway": "stop",
+      "lat": -23.530914,
+      "lon": -46.6323435,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447263": {
+      "name": "Tucuruvi",
+      "railway": "stop",
+      "lat": -23.4800499,
+      "lon": -46.603284,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447264": {
+      "name": "Vergueiro",
+      "railway": "stop",
+      "lat": -23.568705,
+      "lon": -46.6399347,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736447265": {
+      "name": "Vila Mariana",
+      "railway": "stop",
+      "lat": -23.5891827,
+      "lon": -46.6346863,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2736907863": {
+      "name": "Vila Madalena",
+      "railway": "stop",
+      "lat": -23.5464285,
+      "lon": -46.6907783,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2751703376": {
+      "name": "Faria Lima",
+      "railway": "stop",
+      "lat": -23.5672724,
+      "lon": -46.694038,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2751703381": {
+      "name": "Fradique Coutinho",
+      "railway": "stop",
+      "lat": -23.5662203,
+      "lon": -46.6841851,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2751703386": {
+      "name": "Fradique Coutinho",
+      "railway": "stop",
+      "lat": -23.5662854,
+      "lon": -46.6841573,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2751703389": {
+      "name": "Higienópolis-Mackenzie (Linha 4)",
+      "railway": "stop",
+      "lat": -23.5489637,
+      "lon": -46.6522843,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2751703395": {
+      "name": "Luz",
+      "railway": "stop",
+      "lat": -23.536244,
+      "lon": -46.6345503,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2751703399": {
+      "name": "Luz",
+      "railway": "stop",
+      "lat": -23.5362644,
+      "lon": -46.6345194,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2751703402": {
+      "name": "Oscar Freire",
+      "railway": "stop",
+      "lat": -23.5606757,
+      "lon": -46.6719589,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2751703407": {
+      "name": "Oscar Freire",
+      "railway": "stop",
+      "lat": -23.5607358,
+      "lon": -46.6719214,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2751703411": {
+      "name": "Paulista - Pernambucanas",
+      "railway": "stop",
+      "lat": -23.5552778,
+      "lon": -46.6622703,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2751703417": {
+      "name": "Pinheiros",
+      "railway": "stop",
+      "lat": -23.5672842,
+      "lon": -46.701939,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2751703427": {
+      "name": "República",
+      "railway": "stop",
+      "lat": -23.5440787,
+      "lon": -46.6425968,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587878": {
+      "name": "Ana Rosa",
+      "railway": "stop",
+      "lat": -23.5814238,
+      "lon": -46.638529,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587879": {
+      "name": "Brigadeiro",
+      "railway": "stop",
+      "lat": -23.5686809,
+      "lon": -46.647773,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587880": {
+      "name": "Chácara Klabin",
+      "railway": "stop",
+      "lat": -23.5925418,
+      "lon": -46.6307672,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587881": {
+      "name": "Clínicas",
+      "railway": "stop",
+      "lat": -23.5540154,
+      "lon": -46.670939,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587882": {
+      "name": "Consolação",
+      "railway": "stop",
+      "lat": -23.5578719,
+      "lon": -46.6605929,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587883": {
+      "name": "Paraíso",
+      "railway": "stop",
+      "lat": -23.5753009,
+      "lon": -46.6409362,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587884": {
+      "name": "Santos - Imigrantes",
+      "railway": "stop",
+      "lat": -23.5961393,
+      "lon": -46.6203406,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587885": {
+      "name": "Santuário Nossa Senhora de Fátima - Sumaré",
+      "railway": "stop",
+      "lat": -23.5509862,
+      "lon": -46.6776924,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587886": {
+      "name": "Tamanduateí",
+      "railway": "stop",
+      "lat": -23.5925635,
+      "lon": -46.5893988,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587887": {
+      "name": "Tamanduateí",
+      "railway": "stop",
+      "lat": -23.5926961,
+      "lon": -46.5895242,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587888": {
+      "name": "Trianon-Masp",
+      "railway": "stop",
+      "lat": -23.5633573,
+      "lon": -46.6542737,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587890": {
+      "name": "Vila Prudente",
+      "railway": "stop",
+      "lat": -23.5844393,
+      "lon": -46.5819197,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "2757587987": {
+      "name": "Tamanduateí",
+      "railway": "stop",
+      "lat": -23.5926654,
+      "lon": -46.589488,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3511781364": {
+      "name": "Anhangabaú",
+      "railway": "station",
+      "lat": -23.547819,
+      "lon": -46.6392744,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "3738699125": {
+      "name": "Oratório",
+      "railway": "stop",
+      "lat": -23.5821882,
+      "lon": -46.5618212,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3738699141": {
+      "name": "Vila Prudente",
+      "railway": "stop",
+      "lat": -23.5848577,
+      "lon": -46.5830234,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3959011310": {
+      "name": "Camilo Haddad",
+      "railway": "stop",
+      "lat": -23.5955603,
+      "lon": -46.5376299,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3959011311": {
+      "name": "Vila Tolstói",
+      "railway": "stop",
+      "lat": -23.6008174,
+      "lon": -46.5273473,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3959013570": {
+      "name": "Vila União",
+      "railway": "stop",
+      "lat": -23.6030614,
+      "lon": -46.5151597,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3972195879": {
+      "name": "Alto da Boa Vista",
+      "railway": "stop",
+      "lat": -23.6423268,
+      "lon": -46.699896,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3972195880": {
+      "name": "Borba Gato",
+      "railway": "stop",
+      "lat": -23.6334962,
+      "lon": -46.6929248,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3972195881": {
+      "name": "Brooklin",
+      "railway": "stop",
+      "lat": -23.6275189,
+      "lon": -46.6886429,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3972195883": {
+      "name": "Campo Belo",
+      "railway": "stop",
+      "lat": -23.6187147,
+      "lon": -46.6822973,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3972290665": {
+      "name": "Chácara Klabin",
+      "railway": "stop",
+      "lat": -23.5929349,
+      "lon": -46.630942,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3972290666": {
+      "name": "Eucaliptos",
+      "railway": "stop",
+      "lat": -23.6097189,
+      "lon": -46.66855,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3972290667": {
+      "name": "Hospital São Paulo",
+      "railway": "stop",
+      "lat": -23.598175,
+      "lon": -46.6455641,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "3972290668": {
+      "name": "Moema",
+      "railway": "stop",
+      "lat": -23.6038219,
+      "lon": -46.6622116,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4117565742": {
+      "name": "Brás",
+      "railway": "station",
+      "lat": -23.5478581,
+      "lon": -46.6159196,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4117571828": {
+      "name": "Pedro II",
+      "railway": "station",
+      "lat": -23.5496994,
+      "lon": -46.6259819,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4119710092": {
+      "name": "Tamanduateí",
+      "railway": "station",
+      "lat": -23.592614,
+      "lon": -46.5894536,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4119710093": {
+      "name": "Tamanduateí",
+      "railway": "station",
+      "lat": -23.5927867,
+      "lon": -46.5895167,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4124619036": {
+      "name": "Ipiranga",
+      "railway": "station",
+      "lat": -23.5824859,
+      "lon": -46.596628,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4128458354": {
+      "name": "Cidade Jardim",
+      "railway": "station",
+      "lat": -23.5852388,
+      "lon": -46.6911827,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4142881334": {
+      "name": "Ceasa",
+      "railway": "station",
+      "lat": -23.5374904,
+      "lon": -46.7425282,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4142881339": {
+      "name": "Villa Lobos - Jaguaré",
+      "railway": "station",
+      "lat": -23.5459874,
+      "lon": -46.7328528,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4143229055": {
+      "name": "Cidade Universitária",
+      "railway": "station",
+      "lat": -23.5575973,
+      "lon": -46.7118744,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4143229056": {
+      "name": "Pinheiros",
+      "railway": "station",
+      "lat": -23.5664259,
+      "lon": -46.7030554,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4143233251": {
+      "name": "Hebraica - Rebouças",
+      "railway": "station",
+      "lat": -23.5735742,
+      "lon": -46.698645,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4143521759": {
+      "name": "Berrini",
+      "railway": "station",
+      "lat": -23.6047104,
+      "lon": -46.69678,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4143521761": {
+      "name": "Morumbi",
+      "railway": "station",
+      "lat": -23.6215931,
+      "lon": -46.7016426,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4143521770": {
+      "name": "Vila Olímpia",
+      "railway": "station",
+      "lat": -23.5933691,
+      "lon": -46.6927321,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4143554629": {
+      "name": "Granja Julieta",
+      "railway": "station",
+      "lat": -23.6275329,
+      "lon": -46.7120009,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4143583173": {
+      "name": "Santo Amaro",
+      "railway": "station",
+      "lat": -23.6556547,
+      "lon": -46.7209734,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "4143583174": {
+      "name": "Santo Amaro",
+      "railway": "station",
+      "lat": -23.6562303,
+      "lon": -46.7191156,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4143953490": {
+      "name": "Socorro",
+      "railway": "station",
+      "lat": -23.6632621,
+      "lon": -46.7109557,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4144549789": {
+      "name": "Jurubatuba",
+      "railway": "station",
+      "lat": -23.6773038,
+      "lon": -46.7023123,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4144571601": {
+      "name": "Autódromo",
+      "railway": "station",
+      "lat": -23.7059766,
+      "lon": -46.6883227,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4144661923": {
+      "name": "Primavera - Interlagos",
+      "railway": "station",
+      "lat": -23.7228667,
+      "lon": -46.691768,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4144835344": {
+      "name": "Grajaú",
+      "railway": "station",
+      "lat": -23.7363933,
+      "lon": -46.697,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4170354060": {
+      "name": "Vila Clarice",
+      "railway": "station",
+      "lat": -23.4697253,
+      "lon": -46.7445117,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "4170379232": {
+      "name": "Vila das Belezas",
+      "railway": "station",
+      "lat": -23.6402476,
+      "lon": -46.7457694,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "4311073828": {
+      "name": "Sé",
+      "railway": "station",
+      "lat": -23.5504428,
+      "lon": -46.6334463,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4311953410": {
+      "name": "República",
+      "railway": "station",
+      "lat": -23.5440945,
+      "lon": -46.642665,
+      "station_type": "subway",
+      "operator": "ViaQuatro",
+      "line": ""
+    },
+    "4324789214": {
+      "name": "Adolfo Pinheiro",
+      "railway": "stop",
+      "lat": -23.6500777,
+      "lon": -46.7041908,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4396786293": {
+      "name": "Aeroporto-Guarulhos",
+      "railway": "station",
+      "lat": -23.4331198,
+      "lon": -46.4937946,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4423811207": {
+      "name": "Morumbi",
+      "railway": "stop",
+      "lat": -23.6225543,
+      "lon": -46.7028504,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4424425022": {
+      "name": "Tatuapé",
+      "railway": "station",
+      "lat": -23.5402524,
+      "lon": -46.5766424,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4425010407": {
+      "name": "Pinheiros",
+      "railway": "station",
+      "lat": -23.567249,
+      "lon": -46.7019515,
+      "station_type": "subway",
+      "operator": "ViaQuatro",
+      "line": ""
+    },
+    "4427135151": {
+      "name": "Presidente Altino",
+      "railway": "station",
+      "lat": -23.5312344,
+      "lon": -46.7617426,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4427745672": {
+      "name": "Osasco",
+      "railway": "station",
+      "lat": -23.5277015,
+      "lon": -46.7759232,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4432647540": {
+      "name": "Sacomã",
+      "railway": "station",
+      "lat": -23.6012824,
+      "lon": -46.6025552,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4438460892": {
+      "name": "Largo Treze",
+      "railway": "station",
+      "lat": -23.6544576,
+      "lon": -46.7101664,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "4439833384": {
+      "name": "São Mateus",
+      "railway": "stop",
+      "lat": -23.6121542,
+      "lon": -46.4773281,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4441459870": {
+      "name": "Utinga",
+      "railway": "station",
+      "lat": -23.6261783,
+      "lon": -46.5440631,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4443122951": {
+      "name": "Alto do Ipiranga",
+      "railway": "station",
+      "lat": -23.6022366,
+      "lon": -46.6124857,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4449870322": {
+      "name": "Vila Aurora",
+      "railway": "station",
+      "lat": -23.4379051,
+      "lon": -46.7472687,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "4449870323": {
+      "name": "Vila Aurora",
+      "railway": "stop",
+      "lat": -23.4379885,
+      "lon": -46.7471924,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4449870324": {
+      "name": "Perus",
+      "railway": "station",
+      "lat": -23.4049219,
+      "lon": -46.7536959,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "4449872455": {
+      "name": "Lapa (Linha 7)",
+      "railway": "station",
+      "lat": -23.5175159,
+      "lon": -46.7040355,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "4449872456": {
+      "name": "Piqueri",
+      "railway": "station",
+      "lat": -23.5039805,
+      "lon": -46.7148182,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "4449872457": {
+      "name": "Pirituba",
+      "railway": "station",
+      "lat": -23.4885033,
+      "lon": -46.7259968,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "4449872481": {
+      "name": "Água Branca",
+      "railway": "station",
+      "lat": -23.5212579,
+      "lon": -46.6885155,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "4465097829": {
+      "name": "Caieiras",
+      "railway": "station",
+      "lat": -23.3661489,
+      "lon": -46.7516528,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "4465135249": {
+      "name": "Franco da Rocha",
+      "railway": "stop",
+      "lat": -23.329396,
+      "lon": -46.7262638,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4465135250": {
+      "name": "Franco da Rocha",
+      "railway": "stop",
+      "lat": -23.3305103,
+      "lon": -46.7267023,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4465142886": {
+      "name": "Baltazar Fidélis",
+      "railway": "station",
+      "lat": -23.3101238,
+      "lon": -46.7233434,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "4467119634": {
+      "name": "Francisco Morato",
+      "railway": "station",
+      "lat": -23.2820771,
+      "lon": -46.7424456,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "4531084491": {
+      "name": "São Paulo-Morumbi",
+      "railway": "stop",
+      "lat": -23.5862693,
+      "lon": -46.7237965,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4531084492": {
+      "name": "São Paulo – Morumbi",
+      "railway": "stop",
+      "lat": -23.5862202,
+      "lon": -46.7238145,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4580155462": {
+      "name": "São Caetano do Sul",
+      "railway": "stop",
+      "lat": -23.6101532,
+      "lon": -46.5700941,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4580155463": {
+      "name": "São Caetano do Sul",
+      "railway": "stop",
+      "lat": -23.6100426,
+      "lon": -46.5700539,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4580167464": {
+      "name": "Dom Bosco",
+      "railway": "station",
+      "lat": -23.5417667,
+      "lon": -46.4481313,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4580231040": {
+      "name": "São Caetano do Sul - Prefeito Walter Braido",
+      "railway": "station",
+      "lat": -23.6100615,
+      "lon": -46.5700553,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4580257954": {
+      "name": "José Bonifácio",
+      "railway": "station",
+      "lat": -23.5391227,
+      "lon": -46.4316726,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4580265049": {
+      "name": "Antonio Gianetti Neto",
+      "railway": "station",
+      "lat": -23.554412,
+      "lon": -46.3836309,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4580278637": {
+      "name": "Ferraz de Vasconcelos",
+      "railway": "station",
+      "lat": -23.5408113,
+      "lon": -46.3683762,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4580282204": {
+      "name": "Poá",
+      "railway": "station",
+      "lat": -23.5252315,
+      "lon": -46.3432573,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4581523860": {
+      "name": "Calmon Viana",
+      "railway": "station",
+      "lat": -23.5254454,
+      "lon": -46.3327706,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4581539510": {
+      "name": "Aracaré",
+      "railway": "station",
+      "lat": -23.5000766,
+      "lon": -46.339107,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4581547752": {
+      "name": "Itaquaquecetuba",
+      "railway": "station",
+      "lat": -23.4860391,
+      "lon": -46.3480165,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4592396614": {
+      "name": "Lapa - Senac (Linha 8)",
+      "railway": "station",
+      "lat": -23.5199997,
+      "lon": -46.6991734,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4593540893": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "stop",
+      "lat": -23.5253636,
+      "lon": -46.6674014,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4593540894": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "stop",
+      "lat": -23.5255277,
+      "lon": -46.6674001,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4593540895": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "stop",
+      "lat": -23.5255656,
+      "lon": -46.6674024,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4593540897": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "station",
+      "lat": -23.5254616,
+      "lon": -46.6675134,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos;ViaMobilidade Linhas 8 e 9;TIC Trens",
+      "line": ""
+    },
+    "4593556119": {
+      "name": "Palmeiras - Barra Funda",
+      "railway": "station",
+      "lat": -23.5259743,
+      "lon": -46.6674683,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4593577589": {
+      "name": "Domingos de Moraes",
+      "railway": "station",
+      "lat": -23.5187866,
+      "lon": -46.7216717,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4593586861": {
+      "name": "Imperatriz Leopoldina",
+      "railway": "station",
+      "lat": -23.523724,
+      "lon": -46.7376007,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4593623418": {
+      "name": "Itapevi",
+      "railway": "station",
+      "lat": -23.545531,
+      "lon": -46.9352563,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4593623419": {
+      "name": "Itapevi",
+      "railway": "stop",
+      "lat": -23.5456981,
+      "lon": -46.9354239,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4593630371": {
+      "name": "Santa Rita",
+      "railway": "stop",
+      "lat": -23.5450294,
+      "lon": -46.9474683,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4593630372": {
+      "name": "Santa Rita",
+      "railway": "stop",
+      "lat": -23.5448692,
+      "lon": -46.9477455,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4593637408": {
+      "name": "Santa Rita",
+      "railway": "halt",
+      "lat": -23.5449666,
+      "lon": -46.9474792,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4593692582": {
+      "name": "Comandante Sampaio",
+      "railway": "station",
+      "lat": -23.5257462,
+      "lon": -46.7957051,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4593692583": {
+      "name": "Comandante Sampaio",
+      "railway": "stop",
+      "lat": -23.5256786,
+      "lon": -46.7959726,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4647981714": {
+      "name": "Varginha",
+      "railway": "stop",
+      "lat": -23.7701917,
+      "lon": -46.7118559,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4676900470": {
+      "name": "Antônio João",
+      "railway": "station",
+      "lat": -23.5170734,
+      "lon": -46.8583297,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4676900471": {
+      "name": "Santa Terezinha",
+      "railway": "station",
+      "lat": -23.5166183,
+      "lon": -46.8479575,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4676923108": {
+      "name": "Jardim Silveira",
+      "railway": "station",
+      "lat": -23.5234955,
+      "lon": -46.8935269,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4676923109": {
+      "name": "Jardim Belval",
+      "railway": "station",
+      "lat": -23.5142111,
+      "lon": -46.8893192,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4676944087": {
+      "name": "Jandira",
+      "railway": "station",
+      "lat": -23.5276045,
+      "lon": -46.9023728,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4676958580": {
+      "name": "Engenheiro Cardoso",
+      "railway": "station",
+      "lat": -23.535202,
+      "lon": -46.9286733,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4676959302": {
+      "name": "Sagrado Coração",
+      "railway": "station",
+      "lat": -23.5291372,
+      "lon": -46.9172786,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4691931326": {
+      "name": "Carapicuíba",
+      "railway": "station",
+      "lat": -23.5185372,
+      "lon": -46.8352767,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4691931327": {
+      "name": "Carapicuíba",
+      "railway": "stop",
+      "lat": -23.5179775,
+      "lon": -46.8359291,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4691936386": {
+      "name": "Barueri",
+      "railway": "station",
+      "lat": -23.5126077,
+      "lon": -46.875075,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4691936387": {
+      "name": "Barueri",
+      "railway": "stop",
+      "lat": -23.5125732,
+      "lon": -46.8749982,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4691936388": {
+      "name": "Barueri",
+      "railway": "stop",
+      "lat": -23.5126097,
+      "lon": -46.874997,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4692782496": {
+      "name": "General Miguel Costa",
+      "railway": "station",
+      "lat": -23.5234573,
+      "lon": -46.815897,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4692782497": {
+      "name": "General Miguel Costa",
+      "railway": "stop",
+      "lat": -23.52346,
+      "lon": -46.8158063,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4693932257": {
+      "name": "Guaianases",
+      "railway": "stop",
+      "lat": -23.5423277,
+      "lon": -46.4155208,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4693953605": {
+      "name": "Engenheiro Manoel Feio",
+      "railway": "station",
+      "lat": -23.4792274,
+      "lon": -46.3677777,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4693953621": {
+      "name": "Engenheiro Manoel Feio",
+      "railway": "stop",
+      "lat": -23.4791705,
+      "lon": -46.3673258,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4693985640": {
+      "name": "Jardim Romano",
+      "railway": "station",
+      "lat": -23.4850264,
+      "lon": -46.3857398,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4702146336": {
+      "name": "Itaim Paulista",
+      "railway": "station",
+      "lat": -23.4939849,
+      "lon": -46.4021616,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4728457160": {
+      "name": "Jardim Helena - Vila Mara",
+      "railway": "station",
+      "lat": -23.4926864,
+      "lon": -46.4214717,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4728592796": {
+      "name": "Comendador Ermelino",
+      "railway": "station",
+      "lat": -23.4851147,
+      "lon": -46.4822879,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4861900294": {
+      "name": "Paraíso",
+      "railway": "station",
+      "lat": -23.5753859,
+      "lon": -46.6409603,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4897835958": {
+      "name": "Vergueiro",
+      "railway": "station",
+      "lat": -23.5685349,
+      "lon": -46.6399175,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4922664269": {
+      "name": "Conceição",
+      "railway": "station",
+      "lat": -23.6350111,
+      "lon": -46.641295,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4923069358": {
+      "name": "Chácara Klabin",
+      "railway": "station",
+      "lat": -23.5926813,
+      "lon": -46.6306807,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo;ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "4924414397": {
+      "name": "Adolfo Pinheiro",
+      "railway": "station",
+      "lat": -23.6500726,
+      "lon": -46.7042057,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "4924472501": {
+      "name": "Tucuruvi",
+      "railway": "station",
+      "lat": -23.4800747,
+      "lon": -46.6032701,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4924478010": {
+      "name": "Ana Rosa",
+      "railway": "station",
+      "lat": -23.5813085,
+      "lon": -46.638396,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4924500191": {
+      "name": "Vila Prudente",
+      "railway": "station",
+      "lat": -23.584427,
+      "lon": -46.581938,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4962873828": {
+      "name": "Brigadeiro",
+      "railway": "station",
+      "lat": -23.568589,
+      "lon": -46.6477629,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4962907887": {
+      "name": "Jabaquara",
+      "railway": "station",
+      "lat": -23.6463382,
+      "lon": -46.6410462,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4964592035": {
+      "name": "Vila Mariana",
+      "railway": "station",
+      "lat": -23.5891777,
+      "lon": -46.6346681,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4964617785": {
+      "name": "Jardim São Paulo - Ayrton Senna",
+      "railway": "station",
+      "lat": -23.4924029,
+      "lon": -46.6170103,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "4968320186": {
+      "name": "Alto da Boa Vista",
+      "railway": "stop",
+      "lat": -23.641295,
+      "lon": -46.6991695,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4968320189": {
+      "name": "Borba Gato",
+      "railway": "stop",
+      "lat": -23.6335554,
+      "lon": -46.6928684,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4968320192": {
+      "name": "Brooklin",
+      "railway": "stop",
+      "lat": -23.6266418,
+      "lon": -46.6879428,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "4975541725": {
+      "name": "Jundiapeba",
+      "railway": "station",
+      "lat": -23.5427275,
+      "lon": -46.2581317,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4975684337": {
+      "name": "Braz Cubas",
+      "railway": "station",
+      "lat": -23.5362598,
+      "lon": -46.225164,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4975735298": {
+      "name": "Mogi das Cruzes",
+      "railway": "station",
+      "lat": -23.5214891,
+      "lon": -46.1978464,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4975769521": {
+      "name": "Estudantes",
+      "railway": "station",
+      "lat": -23.5157403,
+      "lon": -46.1850496,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "4985618204": {
+      "name": "Júlio Prestes",
+      "railway": "station",
+      "lat": -23.5332165,
+      "lon": -46.6405646,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "4987808825": {
+      "name": "Brás",
+      "railway": "station",
+      "lat": -23.5453263,
+      "lon": -46.6164435,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "5027167224": {
+      "name": "Engenheiro Goulart",
+      "railway": "stop",
+      "lat": -23.4978248,
+      "lon": -46.5191082,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5027167225": {
+      "name": "Engenheiro Goulart",
+      "railway": "stop",
+      "lat": -23.4984335,
+      "lon": -46.520354,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5039552221": {
+      "name": "Engenheiro Goulart",
+      "railway": "station",
+      "lat": -23.498095,
+      "lon": -46.5198952,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "5052363621": {
+      "name": "Vila Prudente",
+      "railway": "stop",
+      "lat": -23.5843926,
+      "lon": -46.5838361,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5070441405": {
+      "name": "Oratório",
+      "railway": "stop",
+      "lat": -23.5821047,
+      "lon": -46.561861,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5070446537": {
+      "name": "São Lucas",
+      "railway": "stop",
+      "lat": -23.5889601,
+      "lon": -46.5446792,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5070446538": {
+      "name": "São Lucas",
+      "railway": "stop",
+      "lat": -23.5889115,
+      "lon": -46.5445945,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5070450421": {
+      "name": "Vila União",
+      "railway": "stop",
+      "lat": -23.6028669,
+      "lon": -46.5159225,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5070450437": {
+      "name": "Vila Tolstói",
+      "railway": "stop",
+      "lat": -23.6006686,
+      "lon": -46.5273415,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5070450452": {
+      "name": "Camilo Haddad",
+      "railway": "stop",
+      "lat": -23.5954349,
+      "lon": -46.5375846,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5086228480": {
+      "name": "Santa Cruz",
+      "railway": "stop",
+      "lat": -23.59853,
+      "lon": -46.6372336,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5086228483": {
+      "name": "Hospital São Paulo",
+      "railway": "stop",
+      "lat": -23.5982077,
+      "lon": -46.6455715,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5086228492": {
+      "name": "Chácara Klabin",
+      "railway": "stop",
+      "lat": -23.5929506,
+      "lon": -46.6309101,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5086228494": {
+      "name": "Campo Belo",
+      "railway": "stop",
+      "lat": -23.6187451,
+      "lon": -46.6822487,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5086228504": {
+      "name": "Eucaliptos",
+      "railway": "stop",
+      "lat": -23.6097597,
+      "lon": -46.6685115,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5086228506": {
+      "name": "Moema",
+      "railway": "stop",
+      "lat": -23.6038562,
+      "lon": -46.6621755,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5086228508": {
+      "name": "AACD – Servidor",
+      "railway": "stop",
+      "lat": -23.5978465,
+      "lon": -46.65231,
+      "station_type": "subway",
+      "operator": "",
+      "line": ""
+    },
+    "5109491581": {
+      "name": "Alto da Boa Vista",
+      "railway": "station",
+      "lat": -23.6416337,
+      "lon": -46.6994196,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "5109495595": {
+      "name": "Brooklin",
+      "railway": "station",
+      "lat": -23.6268017,
+      "lon": -46.6881279,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "5109495596": {
+      "name": "Borba Gato",
+      "railway": "station",
+      "lat": -23.6334661,
+      "lon": -46.6928675,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "5148119198": {
+      "name": "Fradique Coutinho",
+      "railway": "station",
+      "lat": -23.5662284,
+      "lon": -46.6841386,
+      "station_type": "subway",
+      "operator": "ViaQuatro",
+      "line": ""
+    },
+    "5148131318": {
+      "name": "Paulista - Pernambucanas",
+      "railway": "station",
+      "lat": -23.5552461,
+      "lon": -46.6622682,
+      "station_type": "subway",
+      "operator": "ViaQuatro",
+      "line": ""
+    },
+    "5153819541": {
+      "name": "Tiradentes",
+      "railway": "station",
+      "lat": -23.5309113,
+      "lon": -46.6325376,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5153855592": {
+      "name": "São Judas",
+      "railway": "station",
+      "lat": -23.6258085,
+      "lon": -46.6409209,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5153861350": {
+      "name": "Saúde – Ultrafarma",
+      "railway": "station",
+      "lat": -23.6182458,
+      "lon": -46.6391896,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5153861800": {
+      "name": "Praça da Árvore",
+      "railway": "station",
+      "lat": -23.6105051,
+      "lon": -46.6379193,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5153871131": {
+      "name": "Santa Cruz",
+      "railway": "station",
+      "lat": -23.5990715,
+      "lon": -46.6366883,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5153876863": {
+      "name": "Faria Lima",
+      "railway": "station",
+      "lat": -23.5672551,
+      "lon": -46.6939585,
+      "station_type": "subway",
+      "operator": "ViaQuatro",
+      "line": ""
+    },
+    "5159984416": {
+      "name": "Consolação",
+      "railway": "station",
+      "lat": -23.557818,
+      "lon": -46.6605373,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5159984781": {
+      "name": "Trianon-Masp",
+      "railway": "station",
+      "lat": -23.5633121,
+      "lon": -46.6542028,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5177348538": {
+      "name": "Guapituba",
+      "railway": "station",
+      "lat": -23.6920974,
+      "lon": -46.4487228,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "5316930424": {
+      "name": "Clínicas",
+      "railway": "station",
+      "lat": -23.554051,
+      "lon": -46.6708841,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5356426230": {
+      "name": "Higienópolis-Mackenzie",
+      "railway": "station",
+      "lat": -23.5489592,
+      "lon": -46.6523049,
+      "station_type": "subway",
+      "operator": "ViaQuatro",
+      "line": ""
+    },
+    "5368610130": {
+      "name": "Giovanni Gronchi",
+      "railway": "station",
+      "lat": -23.6439301,
+      "lon": -46.7339828,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "5368613746": {
+      "name": "Capão Redondo",
+      "railway": "station",
+      "lat": -23.6591689,
+      "lon": -46.7680006,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "5368617428": {
+      "name": "Butantã",
+      "railway": "station",
+      "lat": -23.5718995,
+      "lon": -46.7080896,
+      "station_type": "subway",
+      "operator": "ViaQuatro",
+      "line": ""
+    },
+    "5368625730": {
+      "name": "Marechal Deodoro",
+      "railway": "station",
+      "lat": -23.5339809,
+      "lon": -46.6558993,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5368635708": {
+      "name": "Santuário Nossa Senhora de Fátima - Sumaré",
+      "railway": "station",
+      "lat": -23.5510281,
+      "lon": -46.6775867,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5368659768": {
+      "name": "Oratório",
+      "railway": "station",
+      "lat": -23.5821023,
+      "lon": -46.561639,
+      "station_type": "",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5368677484": {
+      "name": "Luz",
+      "railway": "station",
+      "lat": -23.5353887,
+      "lon": -46.6344383,
+      "station_type": "subway",
+      "operator": "ViaQuatro",
+      "line": ""
+    },
+    "5369261562": {
+      "name": "Belém",
+      "railway": "station",
+      "lat": -23.5428718,
+      "lon": -46.589615,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5369262558": {
+      "name": "Bresser-Mooca",
+      "railway": "station",
+      "lat": -23.546504,
+      "lon": -46.6069301,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5369265811": {
+      "name": "Vila Prudente",
+      "railway": "station",
+      "lat": -23.5845945,
+      "lon": -46.5834369,
+      "station_type": "",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5369269022": {
+      "name": "Santa Cecília",
+      "railway": "station",
+      "lat": -23.5393238,
+      "lon": -46.6489566,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5369270072": {
+      "name": "Artur Alvim",
+      "railway": "station",
+      "lat": -23.5402438,
+      "lon": -46.4847063,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5369270115": {
+      "name": "Penha - Lojas Besni",
+      "railway": "station",
+      "lat": -23.5334949,
+      "lon": -46.5426688,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5369273626": {
+      "name": "Vila Matilde",
+      "railway": "station",
+      "lat": -23.5319166,
+      "lon": -46.5308731,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5369273978": {
+      "name": "Guilhermina-Esperança",
+      "railway": "station",
+      "lat": -23.5293046,
+      "lon": -46.5166401,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5369274765": {
+      "name": "Patriarca • Vila Ré",
+      "railway": "station",
+      "lat": -23.5310464,
+      "lon": -46.5015767,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5369277070": {
+      "name": "Japão - Liberdade",
+      "railway": "station",
+      "lat": -23.5551768,
+      "lon": -46.6356017,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5369277944": {
+      "name": "São Bento",
+      "railway": "station",
+      "lat": -23.5440297,
+      "lon": -46.634311,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5369281661": {
+      "name": "Carrão – Assaí Atacadista",
+      "railway": "station",
+      "lat": -23.5378874,
+      "lon": -46.5642624,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5370729520": {
+      "name": "Corinthians-Itaquera",
+      "railway": "station",
+      "lat": -23.5422994,
+      "lon": -46.4712065,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5430168631": {
+      "name": "Corredor",
+      "railway": "station",
+      "lat": -23.4044763,
+      "lon": -46.7884264,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5538620800": {
+      "name": "Moema",
+      "railway": "station",
+      "lat": -23.603776,
+      "lon": -46.6621333,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "5540052298": {
+      "name": "Vila União",
+      "railway": "station",
+      "lat": -23.6029647,
+      "lon": -46.5155569,
+      "station_type": "",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5540052299": {
+      "name": "Vila Tolstói",
+      "railway": "station",
+      "lat": -23.6008345,
+      "lon": -46.5272167,
+      "station_type": "",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5540052300": {
+      "name": "Camilo Haddad",
+      "railway": "station",
+      "lat": -23.5955395,
+      "lon": -46.5375762,
+      "station_type": "",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5540052301": {
+      "name": "São Lucas",
+      "railway": "station",
+      "lat": -23.5889345,
+      "lon": -46.5446352,
+      "station_type": "",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "5730401533": {
+      "name": "AACD – Servidor",
+      "railway": "station",
+      "lat": -23.5978482,
+      "lon": -46.6523883,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "5759519375": {
+      "name": "Engenheiro Goulart",
+      "railway": "stop",
+      "lat": -23.4982719,
+      "lon": -46.5204215,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5759519380": {
+      "name": "Engenheiro Goulart",
+      "railway": "stop",
+      "lat": -23.4976782,
+      "lon": -46.5191746,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5759545125": {
+      "name": "Aeroporto-Guarulhos",
+      "railway": "stop",
+      "lat": -23.4326814,
+      "lon": -46.4937087,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5759545129": {
+      "name": "Guarulhos-Cecap",
+      "railway": "stop",
+      "lat": -23.447979,
+      "lon": -46.4934015,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5759545173": {
+      "name": "Guarulhos-Cecap",
+      "railway": "stop",
+      "lat": -23.4467592,
+      "lon": -46.4940659,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5759545185": {
+      "name": "Aeroporto-Guarulhos",
+      "railway": "stop",
+      "lat": -23.4326749,
+      "lon": -46.493762,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "5930317872": {
+      "name": "Hospital São Paulo",
+      "railway": "station",
+      "lat": -23.5983833,
+      "lon": -46.6455913,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "5942913082": {
+      "name": "São Paulo – Morumbi",
+      "railway": "station",
+      "lat": -23.5861368,
+      "lon": -46.7239121,
+      "station_type": "subway",
+      "operator": "ViaQuatro",
+      "line": ""
+    },
+    "5951581006": {
+      "name": "Santa Cruz",
+      "railway": "station",
+      "lat": -23.5984141,
+      "lon": -46.6370429,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "6052939428": {
+      "name": "Amador Bueno",
+      "railway": "station",
+      "lat": -23.5305559,
+      "lon": -46.9839397,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "6341935399": {
+      "name": "Mauá",
+      "railway": "stop",
+      "lat": -23.6683074,
+      "lon": -46.461589,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "6370302350": {
+      "name": "Morumbi",
+      "railway": "stop",
+      "lat": -23.6221459,
+      "lon": -46.7026002,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "6390726996": {
+      "name": "Campo Belo",
+      "railway": "station",
+      "lat": -23.6187309,
+      "lon": -46.6822684,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "6423182120": {
+      "name": "Mineral",
+      "railway": "station",
+      "lat": -23.3976784,
+      "lon": -46.7718503,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "6423182131": {
+      "name": "Santa Fé",
+      "railway": "station",
+      "lat": -23.401639,
+      "lon": -46.8193835,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "6504380061": {
+      "name": "Rio Grande da Serra",
+      "railway": "stop",
+      "lat": -23.7434525,
+      "lon": -46.3917605,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "6571970481": {
+      "name": "São Mateus",
+      "railway": "station",
+      "lat": -23.6123188,
+      "lon": -46.4773036,
+      "station_type": "",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "6571970482": {
+      "name": "São Mateus",
+      "railway": "stop",
+      "lat": -23.6124126,
+      "lon": -46.4772598,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "6625162134": {
+      "name": "Rio Grande da Serra",
+      "railway": "station",
+      "lat": -23.7433756,
+      "lon": -46.3917985,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "6663080267": {
+      "name": "Quitaúna",
+      "railway": "station",
+      "lat": -23.5227166,
+      "lon": -46.8070741,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "6666708467": {
+      "name": "Suzano",
+      "railway": "station",
+      "lat": -23.5343233,
+      "lon": -46.3079923,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "6666741370": {
+      "name": "Guaianases",
+      "railway": "station",
+      "lat": -23.542331,
+      "lon": -46.4157007,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "6666778888": {
+      "name": "Franco da Rocha",
+      "railway": "station",
+      "lat": -23.3297902,
+      "lon": -46.7264054,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "6667105311": {
+      "name": "Prefeito Saladino",
+      "railway": "station",
+      "lat": -23.6383678,
+      "lon": -46.5366986,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "6669966612": {
+      "name": "Jaraguá",
+      "railway": "station",
+      "lat": -23.4551129,
+      "lon": -46.738797,
+      "station_type": "",
+      "operator": "TIC Trens",
+      "line": ""
+    },
+    "6671954743": {
+      "name": "Prefeito Celso Daniel - Santo André",
+      "railway": "station",
+      "lat": -23.6521042,
+      "lon": -46.5281802,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "6672731205": {
+      "name": "Água Branca",
+      "railway": "stop",
+      "lat": -23.5213485,
+      "lon": -46.6887183,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "6672731206": {
+      "name": "Lapa (Linha 7)",
+      "railway": "stop",
+      "lat": -23.5175369,
+      "lon": -46.7040451,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "6684992821": {
+      "name": "Juventus - Mooca",
+      "railway": "station",
+      "lat": -23.5580175,
+      "lon": -46.6082755,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "6764734909": {
+      "name": "Jardim Planalto",
+      "railway": "station",
+      "lat": -23.6065378,
+      "lon": -46.5076143,
+      "station_type": "",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "6764734910": {
+      "name": "Jardim Planalto",
+      "railway": "stop",
+      "lat": -23.6068929,
+      "lon": -46.5074422,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "6764734911": {
+      "name": "Jardim Planalto",
+      "railway": "stop",
+      "lat": -23.6061597,
+      "lon": -46.5078455,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "6904156161": {
+      "name": "São Joaquim",
+      "railway": "stop",
+      "lat": -23.5615555,
+      "lon": -46.6385872,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "6904156172": {
+      "name": "Paraíso",
+      "railway": "stop",
+      "lat": -23.5754186,
+      "lon": -46.6407986,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "7004042564": {
+      "name": "Mauá",
+      "railway": "station",
+      "lat": -23.6682599,
+      "lon": -46.4615541,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "7058843469": {
+      "name": "Fazenda da Juta",
+      "railway": "station",
+      "lat": -23.6118178,
+      "lon": -46.4874695,
+      "station_type": "",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "7058843471": {
+      "name": "Fazenda da Juta",
+      "railway": "stop",
+      "lat": -23.6120645,
+      "lon": -46.4878335,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "7058843472": {
+      "name": "Fazenda da Juta",
+      "railway": "stop",
+      "lat": -23.6115373,
+      "lon": -46.4870946,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "7058843478": {
+      "name": "São Mateus",
+      "railway": "stop",
+      "lat": -23.6123844,
+      "lon": -46.4777211,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "7058843479": {
+      "name": "Sapopemba",
+      "railway": "station",
+      "lat": -23.6147062,
+      "lon": -46.5008307,
+      "station_type": "",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "7058843482": {
+      "name": "Sapopemba",
+      "railway": "stop",
+      "lat": -23.6147217,
+      "lon": -46.5013027,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "7058843483": {
+      "name": "Sapopemba",
+      "railway": "stop",
+      "lat": -23.6146765,
+      "lon": -46.5003675,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "7461300040": {
+      "name": "Francisco Morato",
+      "railway": "stop",
+      "lat": -23.2820708,
+      "lon": -46.7425416,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "7717276955": {
+      "name": "São Joaquim",
+      "railway": "station",
+      "lat": -23.5615965,
+      "lon": -46.6386084,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "7859944627": {
+      "name": "Francisco Morato",
+      "railway": "stop",
+      "lat": -23.2820606,
+      "lon": -46.7423862,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "8000500360": {
+      "name": "Campo Limpo",
+      "railway": "station",
+      "lat": -23.6492871,
+      "lon": -46.7589484,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "8428935133": {
+      "name": "Jardim Colonial",
+      "railway": "stop",
+      "lat": -23.599262,
+      "lon": -46.4690134,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "8428935134": {
+      "name": "Jardim Colonial",
+      "railway": "stop",
+      "lat": -23.5991505,
+      "lon": -46.4691319,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "8651746892": {
+      "name": "João Dias",
+      "railway": "station",
+      "lat": -23.6399232,
+      "lon": -46.7235089,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "8781455882": {
+      "name": "Mendes-Vila Natal",
+      "railway": "stop",
+      "lat": -23.7542417,
+      "lon": -46.7091852,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "8781455884": {
+      "name": "Mendes-Vila Natal",
+      "railway": "stop",
+      "lat": -23.7542152,
+      "lon": -46.709299,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "8915053909": {
+      "name": "Jardim Colonial",
+      "railway": "station",
+      "lat": -23.5992137,
+      "lon": -46.4690648,
+      "station_type": "",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "8997093804": {
+      "name": "Mendes - Vila Natal",
+      "railway": "station",
+      "lat": -23.7542445,
+      "lon": -46.7092398,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "9088123404": {
+      "name": "Estação Ipiranga",
+      "railway": "stop",
+      "lat": -23.5823537,
+      "lon": -46.5970228,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "9225333090": {
+      "name": "Vila Sônia - Professora Elizabeth Tenreiro",
+      "railway": "stop",
+      "lat": -23.5934195,
+      "lon": -46.7348173,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "9225358894": {
+      "name": "Vila Sônia - Professora Elizabeth Tenreiro",
+      "railway": "stop",
+      "lat": -23.5934488,
+      "lon": -46.7348009,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "9247317549": {
+      "name": "Estação Ipiranga",
+      "railway": "stop",
+      "lat": -23.5823764,
+      "lon": -46.5971101,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "9346910951": {
+      "name": "Vila Sônia - Professora Elizabeth Tenreiro",
+      "railway": "station",
+      "lat": -23.5934343,
+      "lon": -46.734809,
+      "station_type": "subway",
+      "operator": "ViaQuatro",
+      "line": ""
+    },
+    "9412683970": {
+      "name": "Varginha",
+      "railway": "stop",
+      "lat": -23.770191,
+      "lon": -46.7120161,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "9412683971": {
+      "name": "Varginha",
+      "railway": "station",
+      "lat": -23.7702001,
+      "lon": -46.7119508,
+      "station_type": "",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "line": ""
+    },
+    "9718893171": {
+      "name": "GRU TPS1",
+      "railway": "station",
+      "lat": -23.4294924,
+      "lon": -46.4902215,
+      "station_type": "light_rail",
+      "operator": "GRU Airport",
+      "line": ""
+    },
+    "9718962717": {
+      "name": "GRU TPS2",
+      "railway": "station",
+      "lat": -23.4258644,
+      "lon": -46.4817527,
+      "station_type": "light_rail",
+      "operator": "GRU Airport",
+      "line": ""
+    },
+    "9718962718": {
+      "name": "GRU TPS3",
+      "railway": "station",
+      "lat": -23.4228404,
+      "lon": -46.4770863,
+      "station_type": "light_rail",
+      "operator": "GRU Airport",
+      "line": ""
+    },
+    "10028445870": {
+      "name": "Vila Madalena",
+      "railway": "stop",
+      "lat": -23.5464592,
+      "lon": -46.6908091,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "10264081477": {
+      "name": "Parada da Onça",
+      "railway": "station",
+      "lat": -23.4022752,
+      "lon": -46.7826592,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "12051728189": {
+      "name": "Barragem",
+      "railway": "halt",
+      "lat": -23.8931569,
+      "lon": -46.6502611,
+      "station_type": "",
+      "operator": "Fepasa",
+      "line": ""
+    },
+    "12051728190": {
+      "name": "Colonia",
+      "railway": "halt",
+      "lat": -23.8664043,
+      "lon": -46.6746471,
+      "station_type": "",
+      "operator": "FEPASA",
+      "line": ""
+    },
+    "12066002196": {
+      "name": "São Bento",
+      "railway": "stop",
+      "lat": -23.544067,
+      "lon": -46.6341593,
+      "station_type": "",
+      "operator": "",
+      "line": ""
+    },
+    "12705334933": {
+      "name": "GRU CPTM",
+      "railway": "station",
+      "lat": -23.4325713,
+      "lon": -46.4925352,
+      "station_type": "light_rail",
+      "operator": "GRU Airport",
+      "line": ""
+    },
+    "13594124306": {
+      "name": "Estação Santo André-Prefeito Celso Daniel",
+      "railway": "station",
+      "lat": -23.6523191,
+      "lon": -46.5282905,
+      "station_type": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "line": ""
+    },
+    "13633997395": {
+      "name": "Estação de Metrô Capão Redondo",
+      "railway": "station",
+      "lat": -23.663829,
+      "lon": -46.7702936,
+      "station_type": "subway",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "line": ""
+    },
+    "13645261006": {
+      "name": "Armênia",
+      "railway": "station",
+      "lat": -23.5251483,
+      "lon": -46.6288763,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "13645331212": {
+      "name": "Portuguesa-Tietê",
+      "railway": "station",
+      "lat": -23.5162359,
+      "lon": -46.6254001,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "13645331213": {
+      "name": "Carandiru",
+      "railway": "station",
+      "lat": -23.5091285,
+      "lon": -46.6252025,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "13645331214": {
+      "name": "Santana",
+      "railway": "station",
+      "lat": -23.5024374,
+      "lon": -46.6250887,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    },
+    "13645331215": {
+      "name": "Parada Inglesa",
+      "railway": "station",
+      "lat": -23.4870228,
+      "lon": -46.6089306,
+      "station_type": "subway",
+      "operator": "Metropolitano de São Paulo",
+      "line": ""
+    }
+  },
+  "relations": [
+    {
+      "id": "419266",
+      "route": "subway",
+      "name": "Linha 5 - Lilás: Capão Redondo → Chácara Klabin",
+      "ref": "5",
+      "colour": "#7a4da0",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "from": "Capão Redondo",
+      "to": "Chácara Klabin",
+      "stop_nodes": [
+        "181763110",
+        "181763124",
+        "181763144",
+        "181763161",
+        "181763188",
+        "656064495",
+        "4324789214",
+        "4968320186",
+        "4968320189",
+        "4968320192",
+        "5086228494",
+        "5086228504",
+        "5086228506",
+        "5086228508",
+        "5086228483",
+        "5086228480",
+        "5086228492"
+      ],
+      "way_refs": [
+        "17552504",
+        "478455884",
+        "263565546",
+        "263565556",
+        "263565550",
+        "263565545",
+        "51384038",
+        "507301927",
+        "522146698",
+        "565969175",
+        "577847903",
+        "522146695",
+        "628093053"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "419274",
+      "route": "subway",
+      "name": "Linha 3 - Vermelha: Palmeiras - Barra Funda ⇒ Corinthians - Itaquera",
+      "ref": "3",
+      "colour": "#ef3f32",
+      "operator": "Metropolitano de São Paulo",
+      "from": "Palmeiras - Barra Funda",
+      "to": "Corinthians - Itaquera",
+      "stop_nodes": [
+        "1700896613",
+        "175995653",
+        "175688340",
+        "2487413802",
+        "175684361",
+        "60716276",
+        "173997509",
+        "173997515",
+        "2249399085",
+        "173995296",
+        "173992082",
+        "173978268",
+        "173978278",
+        "173978287",
+        "173978296",
+        "173978308",
+        "173978322",
+        "173981565"
+      ],
+      "way_refs": [
+        "16807148",
+        "464218163",
+        "999816680",
+        "464230205",
+        "999816681",
+        "464230202",
+        "464218161",
+        "23051455",
+        "131681596",
+        "131681594",
+        "682941111",
+        "215492087",
+        "215492083",
+        "682941128",
+        "46992243",
+        "46992244",
+        "674514112",
+        "674514114",
+        "218659988"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "419276",
+      "route": "subway",
+      "name": "Linha 2 - Verde: Vila Prudente ⇒ Vila Madalena",
+      "ref": "2",
+      "colour": "#008162",
+      "operator": "Metropolitano de São Paulo",
+      "from": "Vila Prudente",
+      "to": "Vila Madalena",
+      "stop_nodes": [
+        "922094750",
+        "2281353319",
+        "661582968",
+        "661582972",
+        "661582976",
+        "499647559",
+        "2736447212",
+        "652635456",
+        "605663479",
+        "605663490",
+        "605663530",
+        "605663555",
+        "605663569",
+        "2736907863"
+      ],
+      "way_refs": [
+        "270765149",
+        "167131047",
+        "167131024",
+        "167131056",
+        "167131038",
+        "167131050",
+        "268344553"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "419281",
+      "route": "subway",
+      "name": "Linha 4 - Amarela: Luz → Vila Sônia",
+      "ref": "4",
+      "colour": "#FFD700",
+      "operator": "ViaQuatro",
+      "from": "Luz",
+      "to": "Vila Sônia",
+      "stop_nodes": [
+        "2751703395",
+        "64035259",
+        "656071074",
+        "656072831",
+        "2751703402",
+        "2751703381",
+        "926616651",
+        "1403755988",
+        "1403755994",
+        "4531084492",
+        "9225333090"
+      ],
+      "way_refs": [
+        "464218160",
+        "51385564",
+        "222158132",
+        "999273075",
+        "999273064"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "419297",
+      "route": "train",
+      "name": "Linha 8 - Diamante: Itapevi ⇒ Júlio Prestes",
+      "ref": "8",
+      "colour": "#808080",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "from": "Itapevi",
+      "to": "Júlio Prestes",
+      "stop_nodes": [
+        "656272733",
+        "656266125",
+        "656265762",
+        "656265759",
+        "274042294",
+        "656263840",
+        "274042233",
+        "656282457",
+        "656281406",
+        "184047950",
+        "656280585",
+        "656261487",
+        "184047883",
+        "184047839",
+        "181800566",
+        "1743113190",
+        "1743113188",
+        "1743179400",
+        "1743222027"
+      ],
+      "way_refs": [
+        "677794719",
+        "724405908",
+        "724405905",
+        "677794718",
+        "162291833",
+        "162610835",
+        "973871494",
+        "973871493",
+        "162610837",
+        "162513955",
+        "162513957",
+        "464231212",
+        "464231213",
+        "162291832",
+        "51408126",
+        "1388780916",
+        "1388780917",
+        "162395406",
+        "162395396",
+        "162395414",
+        "162395393",
+        "162395402",
+        "237587411",
+        "237587410",
+        "464215668",
+        "464215669",
+        "197705018",
+        "197705015",
+        "974814957",
+        "684819921"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "419411",
+      "route": "train",
+      "name": "Linha 9 - Esmeralda: Varginha ⇒ Osasco",
+      "ref": "9",
+      "colour": "#00A88E",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "from": "Varginha",
+      "to": "Osasco",
+      "stop_nodes": [
+        "4647981714",
+        "8781455882",
+        "656393292",
+        "656393186",
+        "656392013",
+        "181784919",
+        "181784907",
+        "1749749834",
+        "1749725681",
+        "177370382",
+        "1749688684",
+        "181791553",
+        "181795324",
+        "181795318",
+        "181795308",
+        "181795299",
+        "1748886853",
+        "1748886857",
+        "1748886851",
+        "1753031332",
+        "1753031321"
+      ],
+      "way_refs": [
+        "1356386368",
+        "854660914",
+        "759263673",
+        "815766909",
+        "1394825769",
+        "762670708",
+        "972099064",
+        "972099065",
+        "51418525",
+        "28950673",
+        "163403839",
+        "413151244",
+        "163403842",
+        "163401691",
+        "163401690",
+        "163400872",
+        "163400871",
+        "28950675",
+        "126052492",
+        "126052491",
+        "28950911",
+        "62199174",
+        "734284598",
+        "1382616733",
+        "1382616734",
+        "972944362",
+        "972944361",
+        "734284595",
+        "163117071",
+        "163117073",
+        "1388780915",
+        "1388780914",
+        "162475141"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "420129",
+      "route": "train",
+      "name": "Linha 10 - Turquesa: Palmeiras-Barra Funda ⇒ Rio Grande da Serra",
+      "ref": "10",
+      "colour": "#00CED1",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Palmeiras-Barra Funda",
+      "to": "Rio Grande da Serra",
+      "stop_nodes": [
+        "4593540894",
+        "1843331319",
+        "2262086001",
+        "286071585",
+        "2281353270",
+        "2757587886",
+        "656349268",
+        "2278811013",
+        "656353782",
+        "656356543",
+        "656356765",
+        "2277751749",
+        "2277751751",
+        "2277644253"
+      ],
+      "way_refs": [
+        "1488672662",
+        "1488672644",
+        "464217180",
+        "455654674",
+        "173693187",
+        "189121708",
+        "173693192",
+        "189115113",
+        "739370964",
+        "173538363",
+        "173538366",
+        "173538360",
+        "173538358",
+        "739370962",
+        "739370971",
+        "170361811",
+        "739370966",
+        "739370957",
+        "170361819",
+        "1158977491",
+        "1158977490",
+        "188465678",
+        "188465672",
+        "27017560",
+        "27017559",
+        "218398409",
+        "294599566",
+        "294599565",
+        "218398403",
+        "168813177",
+        "218530337",
+        "51415840",
+        "395662450",
+        "507867061",
+        "395662452"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2108731",
+      "route": "train",
+      "name": "Linha 8 - Diamante: Amador Bueno ⇒ Itapevi",
+      "ref": "8",
+      "colour": "#808080",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Amador Bueno",
+      "to": "Itapevi",
+      "stop_nodes": [
+        "656276737",
+        "4593630371",
+        "4593623419"
+      ],
+      "way_refs": [
+        "464451094",
+        "464226619",
+        "464226617",
+        "157710721",
+        "464224406",
+        "464224402",
+        "724405910",
+        "724405907",
+        "700999587"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2144048",
+      "route": "train",
+      "name": "Linha 10 - Turquesa: Rio Grande da Serra ⇒ Palmeiras-Barra Funda",
+      "ref": "10",
+      "colour": "#00CED1",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Rio Grande da Serra",
+      "to": "Palmeiras-Barra Funda",
+      "stop_nodes": [
+        "2277644253",
+        "2277751752",
+        "2277751750",
+        "2277729923",
+        "1814129475",
+        "2278811011",
+        "2278811014",
+        "2280117742",
+        "2281353272",
+        "2757587887",
+        "1811936926",
+        "2281353271",
+        "2262086003",
+        "1843331320",
+        "4593540894"
+      ],
+      "way_refs": [
+        "395662452",
+        "507867062",
+        "507867060",
+        "395662451",
+        "252385767",
+        "170263692",
+        "218398399",
+        "218398405",
+        "218539081",
+        "294599569",
+        "294599567",
+        "170263040",
+        "170054767",
+        "188465677",
+        "170361816",
+        "1158977488",
+        "1158977493",
+        "170361817",
+        "218530347",
+        "739370958",
+        "739370965",
+        "170048571",
+        "739370972",
+        "739370961",
+        "173538362",
+        "173538361",
+        "173538364",
+        "449779047",
+        "710516277",
+        "173693193",
+        "739432924",
+        "173693186",
+        "51414803",
+        "1488672644",
+        "1488672662"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2144052",
+      "route": "subway",
+      "name": "Linha 1 - Azul: Jabaquara ⇒ Tucuruvi",
+      "ref": "1",
+      "colour": "#1266af",
+      "operator": "Metropolitano de São Paulo",
+      "from": "Jabaquara",
+      "to": "Tucuruvi",
+      "stop_nodes": [
+        "247904866",
+        "247905094",
+        "247905099",
+        "247905102",
+        "247905106",
+        "247905111",
+        "247905116",
+        "247905119",
+        "6904156172",
+        "652635451",
+        "6904156161",
+        "176004373",
+        "2736447260",
+        "1658464892",
+        "246649660",
+        "60634883",
+        "60634870",
+        "60634869",
+        "163192877",
+        "171925381",
+        "171932199",
+        "171933597"
+      ],
+      "way_refs": [
+        "28033964",
+        "28033963",
+        "153111188",
+        "494429798",
+        "494429799",
+        "999816683",
+        "999816684",
+        "153111187",
+        "453530835",
+        "546593946",
+        "546593945",
+        "16644273",
+        "506581349",
+        "16644295",
+        "267655850",
+        "267655852",
+        "267655853"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2174505",
+      "route": "train",
+      "name": "Linha 8 - Diamante: Júlio Prestes ⇒ Itapevi",
+      "ref": "8",
+      "colour": "#808080",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "from": "Júlio Prestes",
+      "to": "Itapevi",
+      "stop_nodes": [
+        "1743222008",
+        "4593540895",
+        "1743179399",
+        "1743113187",
+        "1743113189",
+        "1743056338",
+        "1744776415",
+        "1744776414",
+        "1746141805",
+        "1746141780",
+        "4691931327",
+        "1746141820",
+        "1746141755",
+        "1744738796",
+        "1746141785",
+        "1746141789",
+        "1746141774",
+        "1746141813",
+        "1746141770",
+        "1744764229"
+      ],
+      "way_refs": [
+        "974814958",
+        "684819915",
+        "197705017",
+        "464215675",
+        "1488672664",
+        "173698988",
+        "1488672661",
+        "197705020",
+        "237587412",
+        "237587413",
+        "162395415",
+        "162395411",
+        "1388780913",
+        "1388780912",
+        "974768657",
+        "974768656",
+        "162475147",
+        "464231214",
+        "464231210",
+        "162475137",
+        "162513954",
+        "162513956",
+        "162615099",
+        "475451309",
+        "162610836",
+        "162610834",
+        "677794720",
+        "464224405",
+        "724405906",
+        "724405909"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2183694",
+      "route": "train",
+      "name": "Linha 9 - Esmeralda: Osasco ⇒ Varginha",
+      "ref": "9",
+      "colour": "#00A88E",
+      "operator": "ViaMobilidade Linhas 8 e 9",
+      "from": "Osasco",
+      "to": "Varginha",
+      "stop_nodes": [
+        "1753031321",
+        "1753031363",
+        "1748886852",
+        "1748886860",
+        "1748886854",
+        "1749215676",
+        "1749215670",
+        "1749215665",
+        "1749655218",
+        "1749655212",
+        "1749688602",
+        "1749725592",
+        "1749725680",
+        "1749749852",
+        "1749803080",
+        "1750474542",
+        "1751018588",
+        "1751025774",
+        "1751040010",
+        "8781455884",
+        "9412683970"
+      ],
+      "way_refs": [
+        "162475141",
+        "1388780923",
+        "1388780922",
+        "163117074",
+        "163117072",
+        "163117998",
+        "972944364",
+        "972944363",
+        "1382616732",
+        "1382616731",
+        "734284594",
+        "734284596",
+        "163331796",
+        "163331795",
+        "163336075",
+        "163336077",
+        "163336076",
+        "163400873",
+        "163400874",
+        "163401692",
+        "163401693",
+        "413151243",
+        "163403840",
+        "163403843",
+        "943131580",
+        "447791539",
+        "755536227",
+        "755536228",
+        "762670709",
+        "1394825770",
+        "815766908",
+        "1394825771",
+        "854660913",
+        "854660912"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2557150",
+      "route": "train",
+      "name": "Linha 7 - Rubi: Jundiaí ⇒ Palmeiras-Barra Funda",
+      "ref": "7",
+      "colour": "#A8034F",
+      "operator": "TIC Trens",
+      "from": "Jundiaí",
+      "to": "Palmeiras-Barra Funda",
+      "stop_nodes": [
+        "1997343092",
+        "1997343101",
+        "1997343088",
+        "1991714575",
+        "7859944627",
+        "1991678473",
+        "4465135250",
+        "1991675727",
+        "1991668450",
+        "4449870323",
+        "1991664275",
+        "1870174118",
+        "656312664",
+        "656314146",
+        "6672731206",
+        "1997695941",
+        "4593540893"
+      ],
+      "way_refs": [
+        "449778447",
+        "188544838",
+        "188544512",
+        "188544513",
+        "842528781",
+        "842528710",
+        "842528684",
+        "188542585",
+        "188542219",
+        "188541299",
+        "188541303",
+        "188541301",
+        "684685168",
+        "684685169",
+        "129176440",
+        "173693194",
+        "974146371",
+        "1488672660",
+        "709813739",
+        "1488672659"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2557151",
+      "route": "train",
+      "name": "Linha 7 - Rubi: Palmeiras-Barra Funda ⇒ Jundiaí",
+      "ref": "7",
+      "colour": "#A8034F",
+      "operator": "TIC Trens",
+      "from": "Palmeiras-Barra Funda",
+      "to": "Jundiaí",
+      "stop_nodes": [
+        "1997626283",
+        "1707836313",
+        "181829434",
+        "1997626287",
+        "1997642392",
+        "656316299",
+        "656317076",
+        "1991664418",
+        "181829279",
+        "656319559",
+        "4465135249",
+        "656322906",
+        "7461300040",
+        "656324713",
+        "1672428938",
+        "1997343106",
+        "1997343098"
+      ],
+      "way_refs": [
+        "1488672652",
+        "1488672648",
+        "1488672649",
+        "1488672663",
+        "974146367",
+        "174001437",
+        "174009725",
+        "174459633",
+        "684685167",
+        "684897703",
+        "188541302",
+        "20927661",
+        "188542220",
+        "188544514",
+        "842528711",
+        "842528709",
+        "449775137",
+        "842528682",
+        "25144759",
+        "25144757",
+        "189115109",
+        "449778448"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2872092",
+      "route": "train",
+      "name": "Linha 11 - Coral: Luz ⇒ Estudantes",
+      "ref": "11",
+      "colour": "#FF7F50",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Luz",
+      "to": "Estudantes",
+      "stop_nodes": [
+        "60734140",
+        "656346471",
+        "2251287913",
+        "2262086005",
+        "2262086006",
+        "2262086009",
+        "2262086007",
+        "2264931697",
+        "2264931700",
+        "2258747786",
+        "330720751",
+        "2264931708",
+        "318590688",
+        "318591170",
+        "2264931704",
+        "2264931699"
+      ],
+      "way_refs": [
+        "453398883",
+        "1056246990",
+        "173538359",
+        "28909929",
+        "28909928",
+        "215649063",
+        "1081174096",
+        "739370970",
+        "1315750937",
+        "739370968",
+        "1056246994",
+        "215649057",
+        "216883537",
+        "674514108",
+        "674514105",
+        "260034806",
+        "697315560",
+        "260034809",
+        "973879047",
+        "973879046",
+        "260034815",
+        "260034812",
+        "260034808",
+        "260034814",
+        "222581959",
+        "216884490",
+        "974446125",
+        "974446124",
+        "216883535",
+        "830534435",
+        "973848965",
+        "973848964",
+        "830534434",
+        "962406710",
+        "962406709",
+        "216527182",
+        "216527176",
+        "216527188",
+        "216527178",
+        "216527180",
+        "216527191",
+        "771107938",
+        "972925780",
+        "771107937",
+        "217023910",
+        "217023904",
+        "31896942",
+        "31896943",
+        "217201087",
+        "217201084"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2875657",
+      "route": "train",
+      "name": "Linha 11 - Coral: Estudantes ⇒ Luz",
+      "ref": "11",
+      "colour": "#FF7F50",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Estudantes",
+      "to": "Luz",
+      "stop_nodes": [
+        "318591917",
+        "318591487",
+        "2264931698",
+        "2264931701",
+        "318585656",
+        "656377551",
+        "2258747790",
+        "656375982",
+        "656373736",
+        "656371999",
+        "330733313",
+        "330733503",
+        "330736297",
+        "248816022",
+        "2262086000",
+        "1843331318"
+      ],
+      "way_refs": [
+        "217201093",
+        "217201085",
+        "217201097",
+        "217201086",
+        "217023909",
+        "217023911",
+        "154731844",
+        "972925783",
+        "508213241",
+        "771107940",
+        "771107939",
+        "188077812",
+        "188077813",
+        "216527192",
+        "216527187",
+        "962406712",
+        "962406711",
+        "51416447",
+        "830534437",
+        "830534436",
+        "974446133",
+        "974446132",
+        "216883538",
+        "28973276",
+        "260034816",
+        "260034807",
+        "260034813",
+        "260034810",
+        "973879045",
+        "973879044",
+        "260034811",
+        "260034805",
+        "697315561",
+        "8580913",
+        "674514106",
+        "674514107",
+        "46992246",
+        "216884491",
+        "1315750936",
+        "739370967",
+        "1081174098",
+        "739370969",
+        "216884489",
+        "173544447",
+        "173544446",
+        "173538368",
+        "710516278"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2877631",
+      "route": "train",
+      "name": "Linha 12 - Safira: Brás ⇒ Calmon Viana",
+      "ref": "12",
+      "colour": "#1C146B",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Brás",
+      "to": "Calmon Viana",
+      "stop_nodes": [
+        "2262085997",
+        "2251287911",
+        "5027167224",
+        "2266249932",
+        "2266249925",
+        "2251542454",
+        "2266249930",
+        "2266249928",
+        "2266249931",
+        "2266249927",
+        "2266249929",
+        "2266249924",
+        "2258747773"
+      ],
+      "way_refs": [
+        "46992242",
+        "1056246993",
+        "46992247",
+        "215649055",
+        "674514110",
+        "674514103",
+        "158446800",
+        "215686311",
+        "215686317",
+        "200770175",
+        "200770177",
+        "200770172",
+        "200770179",
+        "195318251",
+        "514601852",
+        "1056246995",
+        "607807118",
+        "195318242",
+        "215686313",
+        "215686314",
+        "215686310",
+        "215686316",
+        "903126599",
+        "903126598",
+        "479803668",
+        "304800458",
+        "216176780",
+        "903208122",
+        "903208121",
+        "216176784",
+        "216176779",
+        "462818845",
+        "216176788",
+        "216527185",
+        "462816144",
+        "217352904",
+        "462816147"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2877632",
+      "route": "train",
+      "name": "Linha 12 - Safira: Calmon Viana ⇒ Brás",
+      "ref": "12",
+      "colour": "#1C146B",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Calmon Viana",
+      "to": "Brás",
+      "stop_nodes": [
+        "2258747773",
+        "330720415",
+        "330719934",
+        "330721737",
+        "330721635",
+        "330721886",
+        "330722194",
+        "330722494",
+        "330722968",
+        "330723453",
+        "5027167225",
+        "2251287912",
+        "2262085998"
+      ],
+      "way_refs": [
+        "462816147",
+        "217352904",
+        "462816146",
+        "462816145",
+        "30033101",
+        "154731843",
+        "216176783",
+        "154731834",
+        "903208120",
+        "903208119",
+        "216176782",
+        "154731846",
+        "903126595",
+        "903126597",
+        "903126596",
+        "188367023",
+        "188367024",
+        "188367022",
+        "154731845",
+        "258650430",
+        "258650431",
+        "514601849",
+        "514601853",
+        "30033001",
+        "30033683",
+        "30033703",
+        "30033714",
+        "30033719",
+        "30033704",
+        "30033727",
+        "30033710",
+        "215649062",
+        "674514104",
+        "674514109",
+        "215649059",
+        "1056246992",
+        "1056246991",
+        "215649061",
+        "450129676"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "2886302",
+      "route": "train",
+      "name": "Linha 8 - Diamante: Itapevi ⇒ Amador Bueno",
+      "ref": "8",
+      "colour": "#808080",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Itapevi",
+      "to": "Amador Bueno",
+      "stop_nodes": [
+        "4593623419",
+        "4593630372",
+        "2272186469"
+      ],
+      "way_refs": [
+        "700999587",
+        "724405907",
+        "724405910",
+        "162615098",
+        "464226616",
+        "464226618"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "3252761",
+      "route": "subway",
+      "name": "Linha 3 - Vermelha: Corinthians - Itaquera ⇒ Palmeiras - Barra Funda",
+      "ref": "3",
+      "colour": "#D9001C",
+      "operator": "Metropolitano de São Paulo",
+      "from": "Corinthians - Itaquera",
+      "to": "Palmeiras - Barra Funda",
+      "stop_nodes": [
+        "2163596385",
+        "2487412721",
+        "2487412724",
+        "2487412723",
+        "2487412726",
+        "2487412725",
+        "2487412722",
+        "2251287914",
+        "2249399083",
+        "2249399084",
+        "2249399086",
+        "2249399087",
+        "2271182463",
+        "2271182458",
+        "2271182461",
+        "2271182462",
+        "175995653",
+        "2271182460"
+      ],
+      "way_refs": [
+        "158443750",
+        "218660008",
+        "215492097",
+        "674514113",
+        "674514111",
+        "215492089",
+        "215492085",
+        "682941129",
+        "215492091",
+        "215492096",
+        "682941112",
+        "215492093",
+        "1089811178",
+        "217814470",
+        "464218162",
+        "464230204",
+        "464230203",
+        "464218164",
+        "217814472"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "3539819",
+      "route": "subway",
+      "name": "Linha 5 - Lilás: Chácara Klabin → Capão Redondo",
+      "ref": "5",
+      "colour": "#9200C3",
+      "operator": "ViaMobilidade Linhas 5 e 17",
+      "from": "Chácara Klabin",
+      "to": "Capão Redondo",
+      "stop_nodes": [
+        "3972290665",
+        "1990838219",
+        "3972290667",
+        "2380750804",
+        "3972290668",
+        "3972290666",
+        "3972195883",
+        "3972195881",
+        "3972195880",
+        "3972195879",
+        "2692001773",
+        "2692001777",
+        "2692001778",
+        "2692001776",
+        "2692001780",
+        "2692001775",
+        "2691982364"
+      ],
+      "way_refs": [
+        "628093052",
+        "229481106",
+        "577847902",
+        "565969174",
+        "394210803",
+        "494017857",
+        "974114760",
+        "263565559",
+        "263565547",
+        "263565549",
+        "263565558",
+        "263565548",
+        "263564068",
+        "478455885"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "3596994",
+      "route": "subway",
+      "name": "Linha 1 - Azul: Tucuruvi ⇒ Jabaquara",
+      "ref": "1",
+      "colour": "#1266af",
+      "operator": "Metropolitano de São Paulo",
+      "from": "Tucuruvi",
+      "to": "Jabaquara",
+      "stop_nodes": [
+        "2736447263",
+        "2736447249",
+        "2736447237",
+        "2736447255",
+        "2736447222",
+        "2736447252",
+        "2736447216",
+        "2736447262",
+        "2736447248",
+        "2736447258",
+        "2736447261",
+        "2736447242",
+        "2736447256",
+        "2736447264",
+        "2736447251",
+        "2736447207",
+        "2736447265",
+        "2736447254",
+        "2736447253",
+        "2736447257",
+        "2736447259",
+        "2736447227",
+        "2736447232"
+      ],
+      "way_refs": [
+        "268291414",
+        "268291392",
+        "268291372",
+        "268291447",
+        "506581348",
+        "268291405",
+        "546593944",
+        "546593948",
+        "453530839",
+        "268291384",
+        "999816682",
+        "507303488",
+        "268291451",
+        "268291398",
+        "268291377"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "3613476",
+      "route": "subway",
+      "name": "Linha 4 - Amarela: Vila Sônia → Luz",
+      "ref": "4",
+      "colour": "#ffd500",
+      "operator": "ViaQuatro",
+      "from": "Vila Sônia",
+      "to": "Luz",
+      "stop_nodes": [
+        "9225358894",
+        "4531084491",
+        "2311379677",
+        "2751703417",
+        "2751703376",
+        "2751703386",
+        "2751703407",
+        "2751703411",
+        "2751703389",
+        "2751703427",
+        "2751703399"
+      ],
+      "way_refs": [
+        "999273066",
+        "999273076",
+        "999273067",
+        "517882402",
+        "270082121",
+        "464218159"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "3619669",
+      "route": "subway",
+      "name": "Linha 2 - Verde: Vila Madalena ⇒ Vila Prudente",
+      "ref": "2",
+      "colour": "#008162",
+      "operator": "Metropolitano de São Paulo",
+      "from": "Vila Madalena",
+      "to": "Vila Prudente",
+      "stop_nodes": [
+        "10028445870",
+        "2757587885",
+        "2757587881",
+        "2757587882",
+        "2757587888",
+        "2757587879",
+        "2757587883",
+        "2757587878",
+        "2757587880",
+        "2757587884",
+        "2510860874",
+        "2510860860",
+        "2510860830",
+        "2757587890"
+      ],
+      "way_refs": [
+        "270765147",
+        "270765148",
+        "270765150",
+        "737449310",
+        "270765146",
+        "243713432",
+        "243713431",
+        "270765145"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "5887353",
+      "route": "monorail",
+      "name": "Linha 15 - Prata: Jardim Colonial → Vila Prudente",
+      "ref": "15",
+      "colour": "#7b9192",
+      "operator": "Companhia do Metropolitano de São Paulo",
+      "from": "Jardim Colonial",
+      "to": "Vila Prudente",
+      "stop_nodes": [
+        "8428935134",
+        "4439833384",
+        "7058843471",
+        "7058843482",
+        "6764734911",
+        "5070450421",
+        "5070450437",
+        "5070450452",
+        "5070446538",
+        "5070441405",
+        "5052363621"
+      ],
+      "way_refs": [
+        "517853443",
+        "755759832",
+        "609765893",
+        "609765890",
+        "609765891",
+        "517867834",
+        "578060033",
+        "962754045",
+        "520150476",
+        "520149952",
+        "520149258",
+        "469706997"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "5887354",
+      "route": "monorail",
+      "name": "Linha 15 - Prata: Vila Prudente → Jardim Colonial",
+      "ref": "15",
+      "colour": "#7b9192",
+      "operator": "Companhia do Metropolitano de São Paulo",
+      "from": "Vila Prudente",
+      "to": "Jardim Colonial",
+      "stop_nodes": [
+        "3738699141",
+        "3738699125",
+        "5070446537",
+        "3959011310",
+        "3959011311",
+        "3959013570",
+        "6764734910",
+        "7058843483",
+        "7058843472",
+        "6571970482",
+        "8428935133"
+      ],
+      "way_refs": [
+        "370145053",
+        "517864149",
+        "520149953",
+        "392711821",
+        "962754044",
+        "578060034",
+        "517845923",
+        "517846329",
+        "392712210",
+        "517867835",
+        "551733963",
+        "755759833",
+        "517852842"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "8447458",
+      "route": "train",
+      "name": "Linha 13 - Jade (Expresso Aeroporto)",
+      "ref": "13",
+      "colour": "#2CA05A",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Luz",
+      "to": "Aeroporto-Guarulhos",
+      "stop_nodes": [
+        "1843331335",
+        "656346471",
+        "5759545173",
+        "5759545185"
+      ],
+      "way_refs": [
+        "1056246990",
+        "173538359",
+        "28909929",
+        "28909928",
+        "215649063",
+        "1081174096",
+        "739370970",
+        "1315750937",
+        "739370968",
+        "710525705",
+        "1056246991",
+        "710525707",
+        "1056246993",
+        "46992247",
+        "215649055",
+        "674514110",
+        "674514103",
+        "158446800",
+        "215686311",
+        "215686317",
+        "200770175",
+        "200770177",
+        "200770172",
+        "200770179",
+        "195318251",
+        "514601852",
+        "1360767406",
+        "607809392",
+        "1081174099",
+        "607807117",
+        "1085150064",
+        "1085150062",
+        "607812779",
+        "1078320207",
+        "1078320208"
+      ],
+      "interval": "60"
+    },
+    {
+      "id": "9881313",
+      "route": "train",
+      "name": "Linha 13 - Jade (Expresso Aeroporto)",
+      "ref": "13",
+      "colour": "#2CA05A",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Aeroporto-Guarulhos",
+      "to": "Luz",
+      "stop_nodes": [
+        "5759545185",
+        "5759545129",
+        "656346471",
+        "1843331318"
+      ],
+      "way_refs": [
+        "1078320208",
+        "1078320207",
+        "1078320211",
+        "441990852",
+        "1085150063",
+        "1085150065",
+        "607807116",
+        "1081174100",
+        "607809390",
+        "1360767406",
+        "514601852",
+        "195318251",
+        "200770179",
+        "200770172",
+        "200770177",
+        "200770175",
+        "215686317",
+        "215686311",
+        "158446800",
+        "674514103",
+        "674514110",
+        "215649055",
+        "46992247",
+        "1056246993",
+        "710525707",
+        "1056246991",
+        "710525705",
+        "739370968",
+        "1315750937",
+        "739370970",
+        "1081174096",
+        "1081174097",
+        "739370969",
+        "216884489",
+        "173544447",
+        "173544446",
+        "173538368",
+        "710516278"
+      ],
+      "interval": "60"
+    },
+    {
+      "id": "14093037",
+      "route": "train",
+      "name": "Linha 13 - Jade",
+      "ref": "13",
+      "colour": "#2CA05A",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Engenheiro Goulart",
+      "to": "Aeroporto-Guarulhos",
+      "stop_nodes": [
+        "5759519380",
+        "5759545173",
+        "5759545125"
+      ],
+      "way_refs": [
+        "607807117",
+        "1085150064",
+        "1085150062",
+        "607812779",
+        "1078320207",
+        "1078320210",
+        "1078320209"
+      ],
+      "interval": "20"
+    },
+    {
+      "id": "14093038",
+      "route": "train",
+      "name": "Linha 13 - Jade",
+      "ref": "13",
+      "colour": "#2CA05A",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Aeroporto-Guarulhos",
+      "to": "Engenheiro Goulart",
+      "stop_nodes": [
+        "5759545125",
+        "5759545129",
+        "5759519375"
+      ],
+      "way_refs": [
+        "1078320209",
+        "1078320206",
+        "441990852",
+        "1085150063",
+        "1085150065",
+        "607807116"
+      ],
+      "interval": "20"
+    },
+    {
+      "id": "16794869",
+      "route": "train",
+      "name": "Trem de Guararema",
+      "ref": "",
+      "colour": "",
+      "operator": "",
+      "from": "",
+      "to": "",
+      "stop_nodes": [],
+      "way_refs": [
+        "465937564",
+        "465778030",
+        "204581737",
+        "204581739",
+        "204581741",
+        "204581740",
+        "204581735",
+        "582404111",
+        "1121941182",
+        "465929461"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "17624758",
+      "route": "train",
+      "name": "Expresso Linha 10: Prefeito Celso Daniel - Santo André → Tamanduateí",
+      "ref": "10",
+      "colour": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Prefeito Celso Daniel - Santo André",
+      "to": "Tamanduateí",
+      "stop_nodes": [
+        "2278811010",
+        "4580155463",
+        "2757587987"
+      ],
+      "way_refs": [
+        "218801091",
+        "188465675",
+        "170361815",
+        "1285601630",
+        "1158977489"
+      ],
+      "interval": ""
+    },
+    {
+      "id": "17624759",
+      "route": "train",
+      "name": "Expresso Linha 10: Tamanduateí → Prefeito Celso Daniel - Santo André",
+      "ref": "10",
+      "colour": "",
+      "operator": "Companhia Paulista de Trens Metropolitanos",
+      "from": "Tamanduateí",
+      "to": "Prefeito Celso Daniel - Santo André",
+      "stop_nodes": [
+        "2757587987",
+        "4580155463",
+        "2278811010"
+      ],
+      "way_refs": [
+        "1158977489",
+        "1285601630",
+        "170361815",
+        "188465675",
+        "218801091"
+      ],
+      "interval": ""
+    }
+  ],
+  "way_count": 1919,
+  "way_types": {
+    "rail": 1302,
+    "subway": 519,
+    "monorail": 81,
+    "light_rail": 17
+  }
+}

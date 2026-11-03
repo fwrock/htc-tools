@@ -1,0 +1,23 @@
+{
+  "scenario": "sao_paulo_eqasim_example",
+  "input-dir": "input",
+  "output": "output",
+  "input-format": "eqasim",
+  "sample": 0.001,
+  "seed": 42,
+  "duration": 86400,
+  "service-date": "2026-10-27",
+  "transit": true,
+  "transit-providers": ["fetched-2026-10-27/sptrans"],
+  "max-buses-per-route": 10,
+  "rail": true,
+  "rail-osm-file": "fetched-2026-10-27/rail.osm",
+  "rail-types": ["subway", "monorail"],
+  "max-trains-per-line": 0,
+  "unsupported-mode": "replan",
+  "mc-strategy": "raptor",
+  "mc-modes": ["bus", "subway"],
+  "max-snap-distance": 1000,
+  "micro-ratio": 0.0,
+  "output-format": "json"
+}

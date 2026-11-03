@@ -1,0 +1,19 @@
+{
+  "scenario": "sao_paulo_matsim_example",
+  "input-dir": "input",
+  "output": "output",
+  "input-format": "matsim",
+  "matsim-plans": "output_plans.xml.gz",
+  "population-crs": "EPSG:29193",
+  "sample": 0.001,
+  "seed": 42,
+  "duration": 86400,
+  "service-date": "2026-10-27",
+  "transit": true,
+  "transit-providers": ["fetched-2026-10-27/sptrans"],
+  "max-buses-per-route": 10,
+  "unsupported-mode": "replan",
+  "mc-strategy": "raptor",
+  "mc-modes": ["bus"],
+  "max-snap-distance": 1000
+}

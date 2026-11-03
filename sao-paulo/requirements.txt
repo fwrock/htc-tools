@@ -1,0 +1,4 @@
+numpy>=1.24
+scipy>=1.10
+pyproj>=3.5
+# For --output-format sqlite, also install: ijson>=3.2
