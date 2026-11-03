@@ -99,9 +99,13 @@ class ConverterTests(unittest.TestCase):
         signals = json.loads((data / 'traffic_signals_0.json').read_text())
         self.assertEqual(len(signals), 2)
         links = {a['id']: a['data']['content'] for a in json.loads((data / 'links_0.json').read_text())}
+        nodes = {a['id']: a['data']['content'] for a in json.loads((data / 'nodes_0.json').read_text())}
         for actor in signals:
             c = actor['data']['content']
             self.assertEqual(actor['dependencies'][str(c['nodes'][0])]['id'], c['nodes'][0])
+            node = nodes[c['nodes'][0]]
+            self.assertEqual(set(node['approachConnections']), {str(p['origin']) for p in c['phases']})
+            self.assertEqual(set(node['connections']), {str(lid) for lid, lnk in links.items() if lnk['from'] == c['nodes'][0]})
             for phase in c['phases']:
                 self.assertEqual(links[phase['origin']]['to'], c['nodes'][0])
                 self.assertLess(phase['greenStart'] + phase['greenDuration'], c['cycleDuration'])
@@ -112,6 +116,11 @@ class ConverterTests(unittest.TestCase):
         (data / 'osm_signal_nodes.json').unlink()
         self.run_generator(cfg)
         self.assertEqual((data / 'traffic_signals_0.json').read_bytes(), original)
+        cfg.include_signals = False
+        self.run_generator(cfg)
+        for actor in json.loads((data / 'nodes_0.json').read_text()):
+            self.assertFalse(actor['data']['content']['connections'])
+            self.assertFalse(actor['data']['content'].get('approachConnections'))
 
     def test_gzip_osm_signals_on_reversed_oneway(self):
         self.add_signals()

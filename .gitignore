@@ -1,5 +1,6 @@
 */input
 */output
+*/.toulouse-map-cache
 */__pycache__
 */.pytest_cache
 */examples

@@ -70,7 +70,9 @@ from pyproj import CRS, Transformer
 from scipy.spatial import cKDTree
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from scenario_common.traffic_signals import build_signal_actor, validate_signal_config
+from scenario_common.traffic_signals import (
+    build_signal_actor, clear_signal_nodes, validate_signal_config, wire_signal_nodes,
+)
 
 # ============================================================================
 # CONSTANTS
@@ -1060,6 +1062,8 @@ class OsmNetworkParser:
                             parser._signal_node_ids.add(rev_node[node])
             if cfg.include_signals and not parser._signal_node_ids:
                 raise ValueError("--skip-network cannot recover OSM signal locations from this older output; regenerate the network")
+            if parser._signal_node_ids:
+                signal_nodes_file.write_text(json.dumps(sorted(parser._signal_node_ids)))
 
         print(
             f"  Rebuilt from output: {len(parser._node_utm):,} nodes, "
@@ -3465,7 +3469,10 @@ class HybridInputGenerator:
             print(f"\n[{step}/{n_steps}] Generating traffic signals …")
             sig_gen = TrafficSignalGenerator(cfg, osm, data_dir, ids)
             sig_gen.generate()
+            wire_signal_nodes(data_dir)
             self.stats.update({f"signal_{k}": v for k, v in sig_gen.stats.items()})
+        elif skipping:
+            clear_signal_nodes(data_dir, {ids.id_for("node", n) for n in osm._signal_node_ids})
 
         ids.save(data_dir / "id_registry.json")
         (cfg.output_dir / "effective_config.json").write_text(json.dumps(asdict(cfg), default=str, indent=2))
@@ -3830,6 +3837,7 @@ class HybridInputGenerator:
                  "- Rail distances are projected straight-line station separations, with the existing 100 m floor; tracks are not followed geometrically.",
                  "- Distinct same-name terminal positions may use counted synthetic rail joins within max_terminal_gap_m (default 250 m); they are not surveyed track geometry.",
                  "- OSM rail headways, speeds, capacities and inferred reverse service are scenario assumptions, not measured operating timetables.",
+                 "- Traffic lights use OSM locations with synthetic phase timing. MICRO approaches use their incoming-link phase; MESO outgoing gates use the straightest incoming approach, without turn-specific control.",
                  "- Rail garages activate their first train after one configured interval; train routes include a return path for physical continuity.",
                  "- The road graph does not model OSM turn restrictions or every access restriction. Snapping uses one directed connected cohort, not mode-specific access networks.",
                  "- A successful conversion is not evidence of calibrated traffic behavior or a successful simulator run.", "",

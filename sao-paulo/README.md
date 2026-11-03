@@ -52,6 +52,9 @@ Add `--signals --signal-cycle 120` to a generation command. Locations come from
 node with an incoming road link gets a `TrafficSignal` actor, including stop
 lines on one-way roads. Phases use incoming link IDs and synthetic timing;
 single-approach lights retain a red interval. OSM does not supply these phase plans.
+Generated node maps connect the phases to MICRO approaches and MESO outgoing gates.
+Because turn movements are unavailable, each MESO outgoing gate uses the phase of
+the straightest incoming approach; this is a synthetic turning approximation.
 
 `data/osm_signal_nodes.json` preserves the extraction even if `--signals` is off,
 so a subsequent `--skip-network --signals` can enable lights. Older output without

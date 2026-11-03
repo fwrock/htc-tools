@@ -23,6 +23,18 @@ SCENARIO="${SCENARIO:-tl_1pct_meso}"
 OUTPUT="${OUTPUT:-output}"
 INPUT_DIR="${INPUT_DIR:-input}"
 SAMPLE="${SAMPLE:-0.01}"
+SAMPLING_STRATEGY="${SAMPLING_STRATEGY:-prefix}"
+MAP_ARGS=()
+if [[ "${REUSE_MAP:-1}" == "0" ]]; then
+  MAP_ARGS+=(--no-reuse-map)
+fi
+if [[ -n "${MAP_CACHE_DIR:-}" ]]; then
+  MAP_ARGS+=(--map-cache-dir "$MAP_CACHE_DIR")
+fi
+POPULATION_ARGS=()
+if [[ -n "${POPULATION_SIZE:-}" ]]; then
+  POPULATION_ARGS=(--population-size "$POPULATION_SIZE")
+fi
 SEED="${SEED:-42}"
 # Parent directory of the scenario folders AS THE ENGINE SEES IT; baked into simulation.json paths.
 # Docker Compose mounts the scenarios at /scenarios (see docs/DOCKER_COMPOSE.md).
@@ -31,8 +43,8 @@ MICRO_RATIO="${MICRO_RATIO:-0}"              # 0 = every link MESO
 MICRO_STRATEGY="${MICRO_STRATEGY:-highway}"  # highway | arterial | random
 UNSUPPORTED_MODE="${UNSUPPORTED_MODE:-replan}"
 MC_MODES="${MC_MODES:-bus subway walk}"
-MAX_BUSES_PER_ROUTE="${MAX_BUSES_PER_ROUTE:-10}"
-MAX_TRAINS_PER_LINE="${MAX_TRAINS_PER_LINE:-6}"
+MAX_BUSES_PER_ROUTE="${MAX_BUSES_PER_ROUTE:-0}"
+MAX_TRAINS_PER_LINE="${MAX_TRAINS_PER_LINE:-0}"
 OUTPUT_FORMAT="${OUTPUT_FORMAT:-json}"
 # Optional local OSM XML/XML.gz extract for traffic lights (path relative to INPUT_DIR).
 SIGNAL_OSM_FILE="${SIGNAL_OSM_FILE:-}"
@@ -61,7 +73,9 @@ exec python3 generate_hybrid_input.py \
   --output "$OUTPUT" \
   --output-format "$OUTPUT_FORMAT" \
   --docker-base "$DOCKER_BASE" \
-  --sample "$SAMPLE" \
+  --sample "$SAMPLE" --sampling-strategy "$SAMPLING_STRATEGY" \
+  "${POPULATION_ARGS[@]}" \
+  "${MAP_ARGS[@]}" \
   --seed "$SEED" \
   --micro-ratio "$MICRO_RATIO" --micro-strategy "$MICRO_STRATEGY" \
   --transit --max-transit-routes 0 --max-buses-per-route "$MAX_BUSES_PER_ROUTE" \

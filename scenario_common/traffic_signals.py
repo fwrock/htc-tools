@@ -6,6 +6,7 @@ stop lines (which occur on one-way roads).
 """
 
 import gzip
+import json
 import math
 import xml.etree.ElementTree as ET
 
@@ -72,3 +73,84 @@ def build_signal_actor(cfg, ids, rng, node_id, incoming_link_ids):
         # TrafficSignal resolves each affected node by its decimal entity id.
         "dependencies": {str(node): {"id": node, "classType": "hybrid.actor.Node"}},
     }
+
+
+def clear_signal_nodes(data_dir, controlled_nodes):
+    """Remove generated gates when reusing a network with signals disabled."""
+    for path in sorted(data_dir.glob("nodes_*.json")):
+        actors = json.loads(path.read_text())
+        changed = False
+        for actor in actors:
+            if actor["id"] in controlled_nodes:
+                content = actor["data"]["content"]
+                content.update(connections={}, approachConnections={}, signals={})
+                changed = True
+        if changed:
+            path.write_text(json.dumps(actors, separators=(",", ":")))
+
+
+def wire_signal_nodes(data_dir):
+    """Wire generated phases into both MESO gates and MICRO approach notifications.
+
+    HTC's MESO gate is indexed by the *outgoing* link. Without turn movements,
+    associate it with the straightest incoming approach (a documented synthetic
+    approximation). MICRO notifications use the exact incoming phase/link pair.
+    """
+    controls = {}
+    for path in sorted(data_dir.glob("traffic_signals_*.json")):
+        for actor in json.loads(path.read_text()):
+            content = actor["data"]["content"]
+            controls[content["nodes"][0]] = {p["origin"] for p in content["phases"]}
+    if not controls:
+        return
+    incoming = {n: [] for n in controls}
+    outgoing = {n: [] for n in controls}
+    needed = set(controls)
+    for path in sorted(data_dir.glob("links_*.json")):
+        for actor in json.loads(path.read_text()):
+            c = actor["data"]["content"]
+            if c["to"] in controls and actor["id"] in controls[c["to"]]:
+                incoming[c["to"]].append((actor["id"], c["from"]))
+                needed.add(c["from"])
+            if c["from"] in controls:
+                outgoing[c["from"]].append((actor["id"], c["to"]))
+                needed.add(c["to"])
+    coords = {}
+    for path in sorted(data_dir.glob("nodes_*.json")):
+        for actor in json.loads(path.read_text()):
+            if actor["id"] in needed:
+                c = actor["data"]["content"]
+                coords[actor["id"]] = (c["longitude"], c["latitude"])
+
+    def identify(origin):
+        return {"id": origin, "classType": "hybrid.actor.Link", "resourceId": origin}
+
+    for path in sorted(data_dir.glob("nodes_*.json")):
+        actors = json.loads(path.read_text())
+        changed = False
+        for actor in actors:
+            node = actor["id"]
+            if node not in controls:
+                continue
+            c = actor["data"]["content"]
+            c["approachConnections"] = {str(link): identify(link) for link, _ in incoming[node]}
+            c["connections"] = {}
+            lon, lat = coords[node]
+            scale = math.cos(math.radians(lat))
+            for link, target in outgoing[node]:
+                tx, ty = coords[target]
+                dx, dy = (tx - lon) * scale, ty - lat
+
+                def alignment(approach):
+                    lid, source = approach
+                    sx, sy = coords[source]
+                    ax, ay = (lon - sx) * scale, lat - sy
+                    denom = math.hypot(ax, ay) * math.hypot(dx, dy)
+                    cosine = (ax * dx + ay * dy) / denom if denom else -1.0
+                    return cosine, -lid
+
+                origin, _ = max(incoming[node], key=alignment)
+                c["connections"][str(link)] = identify(origin)
+            changed = True
+        if changed:
+            path.write_text(json.dumps(actors, separators=(",", ":")))

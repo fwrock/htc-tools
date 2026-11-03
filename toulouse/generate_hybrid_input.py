@@ -35,9 +35,9 @@ Output directory layout (identical shape to the São Paulo generator):
   `-- GENERATION_REPORT.md
 
 Usage:
-  # Quick test -- 0.1% sample, network + population only. Trips whose mode has no native
-  # HTC leg (pt, car_passenger) abort by default; choose a policy explicitly:
-  python3 generate_hybrid_input.py --scenario tl_test --sample 0.001 --unsupported-mode walk
+  # Quick test -- 0.1% sample, network + population only:
+  python3 generate_hybrid_input.py --scenario tl_test --sample 0.001 \
+      --no-transit --no-rail --unsupported-mode walk
 
   # 1% with routed bus transit, unresolved modes replanned at runtime
   python3 generate_hybrid_input.py --scenario tl_1pct --sample 0.01 --transit \\
@@ -49,12 +49,15 @@ Dependencies: python3, pyproj, scipy, numpy (all already available in this envir
 import argparse
 import gc
 import gzip
+import hashlib
 import heapq
 import json
 import math
 import random
+import shutil
 import statistics
 import sys
+import tempfile
 import xml.etree.ElementTree as ET
 from collections import defaultdict, deque
 from dataclasses import asdict, dataclass, field
@@ -67,7 +70,9 @@ from pyproj import CRS, Transformer
 from scipy.spatial import cKDTree
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from scenario_common.traffic_signals import build_signal_actor, iter_osm_signals, validate_signal_config
+from scenario_common.traffic_signals import (
+    build_signal_actor, iter_osm_signals, validate_signal_config, wire_signal_nodes,
+)
 
 # ============================================================================
 # CONSTANTS
@@ -310,6 +315,10 @@ class Config:
     scenario_name: str
 
     sample_rate: float = 0.01
+    sampling_strategy: str = "prefix"
+    population_size: Optional[int] = None
+    reuse_map: bool = True
+    map_cache_dir: Optional[Path] = None
     random_seed: int = 42
 
     micro_ratio: float = 0.0
@@ -325,14 +334,14 @@ class Config:
     signal_green_ratio: float = 0.45
     signal_yellow_duration: int = 3
     signal_all_red_duration: int = 2
-    max_transit_routes: int = 500        # cap on converted bus transitRoutes (file order); 0 = all
+    max_transit_routes: int = 0        # cap on converted bus transitRoutes (file order); 0 = all
     transit_default_headway: int = 900   # fallback headway (s) for routes with < 2 departures
-    max_buses_per_route: int = 10        # Bus actors per transitRoute (earliest departures); 0 = all
+    max_buses_per_route: int = 0        # Bus actors per transitRoute (earliest departures); 0 = all
 
     # Rail (rail / subway / tram transitRoutes of the same schedule). One dominant stop pattern per
     # transitLine becomes a line served in both directions; see RailScheduleConverter.
     include_rail: bool = False
-    max_trains_per_line: int = 6         # trains dispatched per line per direction; 0 = all in horizon
+    max_trains_per_line: int = 0         # trains dispatched per line per direction; 0 = all in horizon
     train_capacity: int = 1200           # fallback when the vehicle type is unknown
     train_velocity: float = 22.22        # m/s fallback when the schedule offsets give no speed
     train_stop_time: int = 30            # seconds dwell at each station
@@ -407,6 +416,10 @@ class Config:
             raise ValueError("scenario must be a single directory name")
         if not 0 < self.sample_rate <= 1 or not 0 <= self.micro_ratio <= 1:
             raise ValueError("sample must be in (0,1] and micro-ratio in [0,1]")
+        if self.sampling_strategy not in ("prefix", "random"):
+            raise ValueError("sampling-strategy must be prefix or random")
+        if self.population_size is not None and (type(self.population_size) is not int or self.population_size <= 0):
+            raise ValueError("population-size must be a positive integer")
         for name in ("items_per_file", "duration", "transit_default_headway",
                      "train_capacity", "train_interval", "train_stop_time"):
             if getattr(self, name) <= 0:
@@ -723,6 +736,44 @@ class MatsimNetworkParser:
 # ============================================================================
 
 
+def _population_count_cache(path: Path) -> Path:
+    return path.with_name(path.name + ".count.json")
+
+
+def _save_population_count(path: Path, count: int) -> None:
+    stat = path.stat()
+    try:
+        _population_count_cache(path).write_text(json.dumps({
+            "size": stat.st_size, "mtime_ns": stat.st_mtime_ns, "persons": count,
+        }))
+    except OSError as exc:
+        print(f"  [POP] could not cache population count: {exc}")
+
+
+def _population_count(path: Path) -> int:
+    stat = path.stat()
+    try:
+        cached = json.loads(_population_count_cache(path).read_text())
+        if (cached["size"] == stat.st_size and cached["mtime_ns"] == stat.st_mtime_ns
+                and type(cached["persons"]) is int and cached["persons"] >= 0):
+            return cached["persons"]
+    except (OSError, ValueError, KeyError, TypeError):
+        pass
+    print("  [POP] counting source persons once; future runs reuse the count cache "
+          "(use --population-size to avoid this pass)")
+    count = 0
+    opener = gzip.open if path.suffix == ".gz" else open
+    with opener(path, "rb") as fh:
+        ctx = ET.iterparse(fh, events=("start", "end"))
+        _, root = next(ctx)
+        for event, elem in ctx:
+            if event == "end" and elem.tag == "person":
+                count += 1
+                root.remove(elem)
+    _save_population_count(path, count)
+    return count
+
+
 class PopulationConverter:
     """
     Streams toulouse_population.xml.gz once via iterparse, one <person> at a time (each
@@ -789,17 +840,31 @@ class PopulationConverter:
     # ------------------------------------------------------------------
     def convert(self, population_file: Path) -> None:
         print(f"  [POP] streaming MATSim population: {population_file.name}")
+        target = None
+        total = None
+        if self.cfg.sampling_strategy == "prefix" and self.cfg.sample_rate < 1:
+            total = self.cfg.population_size
+            if total is None:
+                total = _population_count(population_file)
+            target = math.ceil(total * self.cfg.sample_rate)
+            self.stats["persons_target"] = target
+            print(f"  [POP] target: {target:,} generated persons; stopping in file order")
+        stopped_early = False
         opener = gzip.open if population_file.suffix == ".gz" else open
         with opener(population_file, "rb") as fh:
             ctx = ET.iterparse(fh, events=("start", "end"))
             _, root = next(ctx)
             for event, elem in ctx:
+                if target is not None and self.stats["persons_emitted"] >= target:
+                    stopped_early = True
+                    break
                 if event != "end" or elem.tag != "person":
                     continue
                 self.stats["persons_scanned"] += 1
                 if self.stats["persons_scanned"] % 200_000 == 0:
                     print(f"        ... {self.stats['persons_scanned']:,} persons scanned", end="\r")
-                if self.cfg.sample_rate >= 1 or self._rng.random() < self.cfg.sample_rate:
+                if (self.cfg.sampling_strategy == "prefix" or self.cfg.sample_rate >= 1
+                        or self._rng.random() < self.cfg.sample_rate):
                     plans = elem.findall("plan")
                     selected = [p for p in plans if p.get("selected") == "yes"]
                     if not selected and len(plans) == 1 and plans[0].get("selected") != "no":
@@ -816,7 +881,15 @@ class PopulationConverter:
                             self.stats["persons_skipped_no_real_activities"] += 1
                 root.remove(elem)
         print(f"        {self.stats['persons_scanned']:,} persons scanned" + " " * 20)
-        self.stats["persons_total_in_file"] = self.stats["persons_scanned"]
+        self.stats["population_stopped_early"] = int(stopped_early)
+        if stopped_early:
+            self.stats["persons_total_in_file"] = total
+        else:
+            self.stats["persons_total_in_file"] = self.stats["persons_scanned"]
+            _save_population_count(population_file, self.stats["persons_scanned"])
+        if target is not None and self.stats["persons_emitted"] < target:
+            print(f"  [POP] WARNING: source exhausted before target: "
+                  f"{self.stats['persons_emitted']:,}/{target:,} valid persons generated")
 
         for w in self._writers.values():
             r = w.close()
@@ -1779,6 +1852,111 @@ class TrafficSignalGenerator:
               f"{self.stats['signals_unmatched']:,} outside the matching radius")
 
 
+def _file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        for chunk in iter(lambda: source.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+class NetworkMapCache:
+    """Cache the pristine road outputs and the state needed by downstream converters.
+
+    Save before signals/transit/population mutate actors or allocate more IDs. JSON state
+    avoids executable serialization, and copies keep every scenario independent.
+    """
+
+    def __init__(self, cfg: Config):
+        settings = {name: getattr(cfg, name) for name in (
+            "population_crs", "random_seed", "micro_ratio", "micro_strategy",
+            "micro_time_step", "micro_ticks_per_tick", "items_per_file", "include_signals",
+        )}
+        self.identity = {
+            "version": 1, "network": _file_sha256(cfg.network_file),
+            "generator": _file_sha256(Path(__file__)), "settings": settings,
+        }
+        key = hashlib.sha256(json.dumps(self.identity, sort_keys=True).encode()).hexdigest()
+        self.path = (cfg.map_cache_dir or cfg.output_dir.parent / ".toulouse-map-cache") / key
+
+    def restore(self, net: MatsimNetworkParser) -> bool:
+        try:
+            manifest = json.loads((self.path / "manifest.json").read_text())
+            if manifest["identity"] != self.identity:
+                return False
+            files = manifest["files"]
+            if not {"network_state.json", "network_ids.json", "city_map.json",
+                    "bus_routing_links.json"}.issubset(files):
+                return False
+            for name, digest in files.items():
+                if Path(name).name != name or _file_sha256(self.path / name) != digest:
+                    return False
+            state = json.loads((self.path / "network_state.json").read_text())
+            for prefix in ("nodes", "links"):
+                if any(f"{prefix}_{i}.json" not in files for i in range(state["stats"][f"files_{prefix}"])):
+                    return False
+            # Validate/decode everything before touching the new scenario.
+            ids = ScenarioIdRegistry()
+            ids.load(self.path / "network_ids.json")
+            node_xy = {k: tuple(v) for k, v in state["node_xy"].items()}
+            node_latlon = {k: tuple(v) for k, v in state["node_latlon"].items()}
+            kd_ids = state["kd_ids"]
+            tree = cKDTree([node_xy[nid] for nid in kd_ids]) if kd_ids else None
+            component = set(state["main_component"])
+            bus_ids = set(state["bus_link_ids"])
+            incoming = defaultdict(list, state["node_incoming_links"])
+        except (OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
+            if self.path.exists():
+                print(f"  [MAP] cache unavailable or damaged; rebuilding ({exc})")
+            return False
+
+        for name in files:
+            if name not in ("network_state.json", "network_ids.json"):
+                shutil.copyfile(self.path / name, net.data_dir / name)
+        net.ids._ids = ids._ids
+        net.ids._next = ids._next
+        net.node_xy, net.node_latlon = node_xy, node_latlon
+        net._kd_ids, net.kdtree = kd_ids, tree
+        net.main_component = component
+        net._bus_link_ids = bus_ids
+        net._node_incoming_links = incoming
+        net.stats = defaultdict(int, state["stats"])
+        print(f"  [MAP] reused network and city map: {self.path}")
+        return True
+
+    def save(self, net: MatsimNetworkParser) -> None:
+        state = {
+            "node_xy": net.node_xy, "node_latlon": net.node_latlon,
+            "kd_ids": net._kd_ids, "main_component": sorted(net.main_component),
+            "bus_link_ids": sorted(net._bus_link_ids),
+            "node_incoming_links": net._node_incoming_links, "stats": net.stats,
+        }
+        try:
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+            with tempfile.TemporaryDirectory(prefix=".building-", dir=self.path.parent) as tmp:
+                staging = Path(tmp) / "entry"
+                staging.mkdir()
+                names = ["city_map.json", "bus_routing_links.json"]
+                for prefix in ("nodes", "links"):
+                    names += [f"{prefix}_{i}.json" for i in range(net.stats[f"files_{prefix}"])]
+                for name in names:
+                    shutil.copyfile(net.data_dir / name, staging / name)
+                (staging / "network_state.json").write_text(json.dumps(state, separators=(",", ":")))
+                net.ids.save(staging / "network_ids.json")
+                manifest = {"identity": self.identity, "files": {
+                    p.name: _file_sha256(p) for p in staging.iterdir()
+                }}
+                (staging / "manifest.json").write_text(json.dumps(manifest))
+                # A previous invalid entry may need replacing. Published entries are
+                # complete; an interrupted build remains only in a staging directory.
+                if self.path.exists():
+                    shutil.rmtree(self.path)
+                staging.rename(self.path)
+            print(f"  [MAP] cached network and city map: {self.path}")
+        except OSError as exc:
+            print(f"  [MAP] could not save cache; generation continues ({exc})")
+
+
 class HybridInputGenerator:
     def __init__(self, cfg: Config):
         self.cfg = cfg
@@ -1823,17 +2001,24 @@ class HybridInputGenerator:
 
         print(f"\n[1/{n_steps}] Parsing MATSim network ...")
         net = MatsimNetworkParser(cfg, data_dir, ids)
-        net.parse(cfg.network_file)
+        cache = NetworkMapCache(cfg) if cfg.reuse_map else None
+        reused = cache.restore(net) if cache else False
+        if not reused:
+            net.parse(cfg.network_file)
         ids.save(data_dir / "id_registry.json")
         self.stats.update(net.stats)
+        self.stats["network_map_cache_hit"] = int(reused)
 
         print(f"\n[2/{n_steps}] Building city map ...")
         cm_path = data_dir / "city_map.json"
-        cm = CityMapWriter(cm_path, ids)
-        for nid, (lat, lon) in net.node_latlon.items():
-            cm.add_node(nid, lat, lon)
-        self._add_edges_to_city_map(cm, data_dir, net.stats.get("files_links", 0))
-        cm.close()
+        if not reused:
+            cm = CityMapWriter(cm_path, ids)
+            for nid, (lat, lon) in net.node_latlon.items():
+                cm.add_node(nid, lat, lon)
+            self._add_edges_to_city_map(cm, data_dir, net.stats.get("files_links", 0))
+            cm.close()
+            if cache:
+                cache.save(net)
         print(f"  city_map.json written ({cm_path.stat().st_size // 1024:,} KB)")
 
         print(f"\n[3/{n_steps}] Converting population ...")
@@ -1868,6 +2053,7 @@ class HybridInputGenerator:
             print(f"\n[{n_steps}/{n_steps}] Extracting OSM traffic signals ...")
             signals = TrafficSignalGenerator(cfg, net, data_dir, ids)
             signals.generate()
+            wire_signal_nodes(data_dir)
             self.stats.update({f"signal_{k}": v for k, v in signals.stats.items()})
 
         ids.save(data_dir / "id_registry.json")
@@ -2091,6 +2277,8 @@ class HybridInputGenerator:
             },
             "configuration": {
                 "sampleRate": cfg.sample_rate,
+                "samplingStrategy": cfg.sampling_strategy,
+                "populationSize": cfg.population_size,
                 "microLinkRatio": cfg.micro_ratio,
                 "microStrategy": cfg.micro_strategy,
                 "includeTransit": cfg.include_transit,
@@ -2118,7 +2306,9 @@ class HybridInputGenerator:
                  f"Source: MATSim native XML (network_v2 + population_v6 + transitSchedule_v2), CRS `{cfg.population_crs}`. "
                  f"Seed: `{cfg.random_seed}`. Sample: `{cfg.sample_rate}`.",
                  f"Clock: one second per tick; inclusive horizon: `{cfg.duration}`.",
-                 f"Unresolved mode policy: `{cfg.unsupported_mode}`.", "",
+                 f"Unresolved mode policy: `{cfg.unsupported_mode}`.",
+                 f"Population sampling: `{cfg.sampling_strategy}`. Prefix sampling takes valid persons "
+                 "in file order and may bias the sample; random sampling scans the entire source.", "",
                  "## Modeling assumptions", "",
                  "- Native Person plans use Activity, WalkLeg, PrivateVehicleLeg and explicitly requested PendingDecision elements.",
                  "- Only car, bike and walk trips map to native legs. `pt` and `car_passenger` trips follow the unresolved-mode policy above; `walk` turns them into WalkLegs, `replan` into runtime PendingDecisions.",
@@ -2128,6 +2318,7 @@ class HybridInputGenerator:
                  "- Each scheduled departure becomes one Bus actor (earliest `max_buses_per_route` per route). HTC buses circulate on a closed road path until the horizon; stop-time arrival adherence and trip-end retirement are not implemented by this converter.",
                  "- Bus/train counts are not scaled with the sampled population. Review fleet caps before scientific use.",
                  "- Traffic signal locations come from OSM highway=traffic_signals nodes matched to road nodes within signal_max_snap_distance. Multiple stop lines on one node share a controller; phase timing is synthetic, not an OSM observation.",
+                 "- MICRO signal notifications use each incoming-link phase. MESO outgoing gates use the straightest incoming approach; this is an approximation without turn-specific movements.",
                  "- Subway, tram and regional train services use SubwayStation/RailLink actors with SUBWAY/LIGHT_RAIL/HEAVY_RAIL types. Train definitions are embedded in station garages and become Subway actors at runtime.",
                  "- Activities and stops snap to the nearest main-component node within `max_snap_distance`; persons with an unsnappable activity are skipped (`persons_skipped_snap_distance`).",
                  "- The road graph does not model turn restrictions or mode-specific access: snapping uses one directed connected cohort.",
@@ -2186,9 +2377,8 @@ def main() -> None:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Quick test -- 0.1%% sample, network + population only. Trips whose mode has no native
-  # HTC leg (pt, car_passenger) abort by default; pick a policy explicitly.
-  python3 generate_hybrid_input.py --scenario tl_test --sample 0.001 --unsupported-mode walk
+  # Quick test -- 0.1%% sample, network + population only:
+  python3 generate_hybrid_input.py --scenario tl_test --sample 0.001 --no-transit --no-rail --unsupported-mode walk
 
   # 1%% with routed bus transit, unresolved modes replanned at runtime
   python3 generate_hybrid_input.py --scenario tl_1pct --sample 0.01 --transit \\
@@ -2206,14 +2396,23 @@ Examples:
                    help="json: split *_N.json actor files (default). sqlite: convert them to *_N.db "
                         "via tools/scenario-db-converter (requires 'ijson') and delete the JSON.")
     p.add_argument("--sample", type=float, default=0.01, help="Fraction of persons to simulate")
+    p.add_argument("--sampling-strategy", choices=["prefix", "random"], default="prefix",
+                   help="prefix: stop at generated-person target (file-order bias); "
+                        "random: seeded Bernoulli sample over the entire file [default: prefix]")
+    p.add_argument("--population-size", type=int,
+                   help="Known source person count; avoids the first counting pass for prefix sampling")
+    p.add_argument("--reuse-map", action=argparse.BooleanOptionalAction, default=True,
+                   help="Reuse unchanged road network and city-map cache [default: on]")
+    p.add_argument("--map-cache-dir", type=Path,
+                   help="Shared map cache directory [default: OUTPUT/.toulouse-map-cache]")
     p.add_argument("--declare-ownership", action=argparse.BooleanOptionalAction, default=True,
                    help="Write owner/part_of on each private vehicle (partial-simulation filter) [default: on]")
     p.add_argument("--population-crs", default=_SRC_CRS,
                    help="Projected CRS shared by network, plans and transit schedule "
                         f"[default: {_SRC_CRS}; the scenario's own metadata says 'Atlantis']")
-    p.add_argument("--unsupported-mode", choices=["error", "walk", "skip-person", "replan"], default="error",
+    p.add_argument("--unsupported-mode", choices=["error", "walk", "skip-person", "replan"], default="replan",
                    help="Trips whose mode has no native HTC leg (pt, car_passenger, ...): abort, "
-                        "walk them, skip the person, or replan at runtime [default: error]")
+                        "walk them, skip the person, or replan at runtime [default: replan]")
     p.add_argument("--max-snap-distance", type=float, default=1000.0,
                    help="Maximum activity/stop snap distance in metres [default: 1000]")
     p.add_argument("--duration", type=int, default=86400, help="Inclusive horizon in seconds [default: 86400]")
@@ -2223,20 +2422,20 @@ Examples:
     p.add_argument("--items-per-file", type=int, default=50_000)
     p.add_argument("--docker-base", default="/app/hyperbolic-time-chamber/simulations/input")
 
-    p.add_argument("--transit", action=argparse.BooleanOptionalAction, default=False,
+    p.add_argument("--transit", action=argparse.BooleanOptionalAction, default=True,
                    help="Include bus, subway, tram and regional train transit; use --no-rail for buses only")
-    p.add_argument("--max-transit-routes", type=int, default=500,
-                   help="Cap on bus transitRoutes converted, file order; 0=all [default: 500]")
-    p.add_argument("--max-buses-per-route", type=int, default=10,
-                   help="Bus actors per route (earliest departures); 0=all departures [default: 10]")
+    p.add_argument("--max-transit-routes", type=int, default=0,
+                   help="Cap on bus transitRoutes converted, file order; 0=all [default: 0]")
+    p.add_argument("--max-buses-per-route", type=int, default=0,
+                   help="Bus actors per route (earliest departures); 0=all departures [default: 0]")
     p.add_argument("--transit-headway", type=int, default=900,
                    help="Fallback headway (s) when a route has <2 departures [default: 900]")
 
     p.add_argument("--rail", action=argparse.BooleanOptionalAction, default=None,
                    help="Include rail/subway/tram from the schedule: SubwayStation + RailLink actors, "
                         "one dominant stop pattern per transitLine, served both ways [default: follows --transit]")
-    p.add_argument("--max-trains-per-line", type=int, default=6,
-                   help="Trains dispatched per line and direction; 0=all within horizon [default: 6]")
+    p.add_argument("--max-trains-per-line", type=int, default=0,
+                   help="Trains dispatched per line and direction; 0=all within horizon [default: 0]")
     p.add_argument("--train-capacity", type=int, default=1200,
                    help="Fallback passenger capacity when the vehicle type is unknown [default: 1200]")
     p.add_argument("--train-interval", type=int, default=300,
@@ -2246,8 +2445,8 @@ Examples:
     p.add_argument("--train-stop-time", type=int, default=30,
                    help="Dwell time at each station in seconds [default: 30]")
 
-    p.add_argument("--signals", action=argparse.BooleanOptionalAction, default=False,
-                   help="Extract traffic lights from a local OSM XML/XML.gz file")
+    p.add_argument("--signals", action=argparse.BooleanOptionalAction, default=None,
+                   help="Extract traffic lights; enabled automatically when --signal-osm-file is provided")
     p.add_argument("--signal-osm-file", help="OSM XML/XML.gz extract; relative to input-dir")
     p.add_argument("--signal-max-snap-distance", type=float, default=50.0,
                    help="Maximum OSM signal to road-node distance in metres [default: 50]")
@@ -2274,8 +2473,8 @@ Examples:
                    default="nearest-stop-utility",
                    help="ModeDecisionEngine id [default: nearest-stop-utility]; only 'travel-time' "
                         "considers car/bicycle/motorcycle")
-    p.add_argument("--mc-modes", nargs="+", default=["bus", "walk"], metavar="MODE",
-                   help="Modes evaluated by the strategy [default: bus walk]")
+    p.add_argument("--mc-modes", nargs="+", default=None, metavar="MODE",
+                   help="Modes evaluated by the strategy [default: enabled bus/subway modes plus walk]")
     p.add_argument("--mc-beta-mode", type=float, default=1.0)
     p.add_argument("--mc-beta-access", type=float, default=0.001)
     p.add_argument("--mc-beta-egress", type=float, default=0.001)
@@ -2302,8 +2501,12 @@ Examples:
     p.add_argument("--transit-vehicles-file", default=None)
 
     args = p.parse_args()
+    if args.signals is None:
+        args.signals = bool(args.signal_osm_file)
     if args.rail is None:
         args.rail = args.transit
+    if args.mc_modes is None:
+        args.mc_modes = (["bus"] if args.transit else []) + (["subway"] if args.rail else []) + ["walk"]
 
     input_dir = Path(args.input_dir).resolve()
     output_dir = Path(args.output).resolve() / args.scenario
@@ -2347,6 +2550,10 @@ Examples:
         output_dir=output_dir,
         scenario_name=args.scenario,
         sample_rate=args.sample,
+        sampling_strategy=args.sampling_strategy,
+        population_size=args.population_size,
+        reuse_map=args.reuse_map,
+        map_cache_dir=args.map_cache_dir.resolve() if args.map_cache_dir else None,
         random_seed=args.seed,
         micro_ratio=args.micro_ratio,
         micro_strategy=args.micro_strategy,

@@ -44,20 +44,25 @@ MICRO_RATIO=0.2 SCENARIO=tl_1pct_micro ./generate_tl_1pct_meso.sh   # 20 % of li
 | `SCENARIO` | `tl_1pct_meso` | Output sub-directory name |
 | `OUTPUT` | `output` | Parent output directory (point it at the simulator's input folder if you like) |
 | `INPUT_DIR` | `input` | Directory with the five input files |
-| `SAMPLE` | `0.01` | Fraction of the population |
+| `SAMPLE` | `0.01` | Fraction of the source population to generate |
+| `SAMPLING_STRATEGY` | `prefix` | Stop at the generated target; `random` preserves seeded full-file sampling |
+| `POPULATION_SIZE` | auto | Known number of source persons; skips the initial count pass |
+| `REUSE_MAP` | `1` | Reuse unchanged network/map cache; `0` forces a rebuild |
+| `MAP_CACHE_DIR` | `OUTPUT/.toulouse-map-cache` | Shared cache location, including across different output parents |
 | `SEED` | `42` | Random seed |
 | `MICRO_RATIO` | `0` | Fraction of links as MICRO; `0` = all MESO |
 | `MICRO_STRATEGY` | `highway` | `highway` / `arterial` / `random` |
 | `UNSUPPORTED_MODE` | `replan` | Policy for `pt` / `car_passenger` trips: `replan` / `walk` / `skip-person` / `error` |
 | `MC_MODES` | `bus subway walk` | Modes a replanned trip may pick |
-| `MAX_BUSES_PER_ROUTE` | `10` | Earliest departures turned into Bus actors per route |
-| `MAX_TRAINS_PER_LINE` | `6` | Trains per line and direction |
+| `MAX_BUSES_PER_ROUTE` | `0` | Bus actors per route; `0` = all departures |
+| `MAX_TRAINS_PER_LINE` | `0` | Trains per line and direction; `0` = all within the horizon |
 | `DOCKER_BASE` | `/app/hyperbolic-time-chamber/simulations/input` | Parent of the scenario folders **as the engine sees it**, written into `simulation.json`. Use `/scenarios` for Docker Compose |
 | `OUTPUT_FORMAT` | `json` | `json` or `sqlite` |
 
 It stops with a clear message if an input file is missing or the output directory is not empty.
-It always converts **all** bus routes (`--max-transit-routes 0`); the converter's own default of
-500 would drop about two thirds of them.
+Both entry points convert **all** bus routes and use uncapped bus and train fleets by default.
+Traffic lights are included when `SIGNAL_OSM_FILE` (wrapper) or `--signal-osm-file` (CLI) is supplied;
+the MATSim inputs alone do not provide traffic-light locations.
 
 **2. The converter directly** — what the wrapper runs:
 
@@ -66,17 +71,60 @@ python3 generate_hybrid_input.py \
   --scenario tl_1pct_meso --input-dir input --output output \
   --sample 0.01 --seed 42 \
   --micro-ratio 0 \
-  --transit --max-transit-routes 0 --max-buses-per-route 10 \
-  --rail --max-trains-per-line 6 \
+  --transit --max-transit-routes 0 --max-buses-per-route 0 \
+  --rail --max-trains-per-line 0 \
   --unsupported-mode replan --mc-modes bus subway walk
 ```
 
-For MICRO use `--micro-ratio 0.2 --micro-strategy highway`. Drop `--transit` / `--rail` for the
-road network and people only. Without `--unsupported-mode` the run stops at the first `pt` or
-`car_passenger` trip (the default is `error`, on purpose).
+For MICRO use `--micro-ratio 0.2 --micro-strategy highway`. Use `--no-transit --no-rail --unsupported-mode walk` for the
+road network and people only. Unsupported `pt` / `car_passenger` trips are replanned by default;
+use `--unsupported-mode error` to reject them instead.
 
-Runtime: about 15 minutes for 1 %, most of it streaming the 2 GB population file once. A 1 % run
-yields about 20 k people, 8.8 k buses and 348 trains (see "Known results" below).
+The default `prefix` strategy generates `ceil(source_person_count * sample)` valid persons and
+stops reading as soon as that target is reached. Skipped people do not count toward the target.
+If too few valid people exist, the converter reads to EOF and reports the shortfall. `--sample 1`
+always reads the full population. This changes which people are selected: taking people in file
+order can introduce ordering bias. For scientific random sampling use `--sampling-strategy random`,
+which preserves seeded Bernoulli selection and scans the entire file (its generated count can be
+lower than the requested percentage after invalid people are skipped).
+
+The first fractional prefix run counts source persons once, caching the result next to the XML as
+`<population-file>.count.json`. Later runs reuse it when source size and modification time match.
+A full conversion also writes this cache. With read-only inputs generation still works, but the
+count cannot be cached. Supply `--population-size N` or `POPULATION_SIZE=N` to skip the counting
+pass immediately; N must be the number of persons in that exact source file. Sampling strategy,
+scanned/total/generated counts, target and early-stop status are recorded in the output metadata.
+Historical runtime and fleet counts below describe the previous random/capped configuration.
+
+### Reusing unchanged maps
+
+Map reuse is enabled by default. The first run saves the road network actors (`nodes_*.json`,
+`links_*.json`), `city_map.json`, bus routing links, and the network IDs and snapping state in
+`OUTPUT/.toulouse-map-cache/`. Later generations with the same network and map settings load
+these files and skip network XML parsing, coordinate conversion, connected-component discovery
+and city-map construction. Population changes, sample size, scenario name, transit settings and
+JSON versus SQLite output do not require rebuilding the road map. Transit and signals are still
+generated for each scenario; this cache covers the road network and city map.
+
+Cache keys include SHA-256 of the source network and generator code, source CRS, seed,
+MESO/MICRO settings, split size, and whether signal approach data is needed. Changed inputs or
+settings produce a new cache entry. Cached files are verified by checksum before reuse; missing
+or damaged entries are rebuilt. Copies keep each scenario independent, and the cache is saved
+before signal wiring or SQLite conversion modifies the scenario files. Existing scenarios from
+before this feature do not contain the required network state; the first run after updating
+builds the cache. The metadata counter `network_map_cache_hit` records whether it was reused.
+
+```bash
+# Another population percentage, same road network/map:
+SCENARIO=tl_2pct_meso SAMPLE=0.02 ./generate_tl_1pct_meso.sh
+# Force a fresh build without reading or writing the cache:
+REUSE_MAP=0 SCENARIO=tl_fresh ./generate_tl_1pct_meso.sh
+# Reuse the same cache across output locations:
+MAP_CACHE_DIR=/data/toulouse-map-cache SCENARIO=tl_shared ./generate_tl_1pct_meso.sh
+```
+
+The direct CLI equivalents are `--no-reuse-map` and `--map-cache-dir PATH`. The usual
+requirement that each scenario output directory be new or empty still applies.
 
 When the São Paulo output format changes, port the change here and extend
 `tests/test_converter.py`, which pins the shared contract.
@@ -187,7 +235,7 @@ coach substitutes and are `bus`).
 Same model as São Paulo's GTFS converter:
 
 * `BusStop` actors, one per physical `stopFacility`, shared by every route that serves it.
-* `Bus` actors, one per scheduled `<departure>`, earliest `--max-buses-per-route` (default 10) per
+* `Bus` actors, one per scheduled `<departure>`, `--max-buses-per-route` (`0` = all, the default) per
   route, activated at the departure time. Each carries its stop map and a precomputed closed road
   path `stop₀ → … → stopₙ → stop₀` (`storedBestRoute`) from A* over `bus_routing_links.json`. Buses
   then circulate until the horizon; arrival adherence to the schedule and trip-end retirement are
@@ -260,7 +308,9 @@ are counted, and `data/osm_signal_matches.json` records matched OSM IDs by MATSi
 node. `traffic_signals_*.json` (or `.db`) are registered in `simulation.json`.
 Positions come from OSM; cycle and phases are synthetic (`--signal-cycle 120`),
 including a red interval for a single incoming approach. Turn-specific phases and
-observed signal timing are not inferred. Preserve OpenStreetMap attribution when
+observed signal timing are not inferred. MICRO links receive their own approach phase;
+HTC's MESO gate uses the outgoing link, associated here with the straightest incoming
+approach. This does not preserve turn-specific control. Preserve OpenStreetMap attribution when
 redistributing its derived data.
 
 ---
@@ -315,7 +365,7 @@ A 1 % run (seed 42, `replan`, buses + rail) produced: 488,523 nodes, 1,076,102 l
 stations, 434 rail links, 348 trains, and 30 of the 42 rail/subway/tram lines (the rest had an
 unsnappable station).
 
-**About 30 % of the sampled people are dropped** (`persons_skipped_snap_distance`): their activities
+**In historical random-sampling runs, about 30 % of sampled people were dropped** (`persons_skipped_snap_distance`): their activities
 lie in PACA, more than 100 km from the road network, which covers only Occitanie. Dropping them is
 correct, but people who travel out of the region are under-represented. A further ~20 % have no
 trips at all (`persons_skipped_no_trips`).
@@ -333,32 +383,36 @@ beyond being within 6–30 m/s.
 | `--output DIR` | `output` | Parent output directory |
 | `--output-format` | `json` | `json` or `sqlite` |
 | `--sample F` | `0.01` | Fraction of persons, in (0, 1] |
+| `--sampling-strategy` | `prefix` | File-order generated target, or `random` for full-file Bernoulli selection |
+| `--population-size N` | cached/count pass | Known source person count, avoiding the first count pass |
+| `--reuse-map` / `--no-reuse-map` | on | Reuse verified road network and city-map cache |
+| `--map-cache-dir PATH` | `OUTPUT/.toulouse-map-cache` | Shared map cache location |
 | `--seed N` | `42` | Random seed |
 | `--population-crs CRS` | `EPSG:2154` | Projected CRS of network, plans and schedule |
-| `--unsupported-mode` | `error` | `error` / `walk` / `skip-person` / `replan` |
+| `--unsupported-mode` | `replan` | `error` / `walk` / `skip-person` / `replan` |
 | `--max-snap-distance M` | `1000` | Max activity/stop snap distance (metres) |
 | `--duration S` | `86400` | Inclusive horizon in seconds (1 s ticks) |
 | `--start-real-time ISO` | `2025-01-01T00:00:00.000` | Real-time origin |
 | `--items-per-file N` | `50000` | Entries per split JSON file |
 | `--docker-base PATH` | `/app/hyperbolic-time-chamber/simulations/input` | Path prefix inside `simulation.json` |
 | `--declare-ownership` / `--no-declare-ownership` | on | `owner`/`part_of` on private vehicles |
-| `--transit` / `--no-transit` | off | Buses plus rail/subway/tram by default; transit indexes |
+| `--transit` / `--no-transit` | on | Buses plus rail/subway/tram by default; transit indexes |
 | `--rail` / `--no-rail` | follows `--transit` | Override rail/subway/tram generation |
-| `--signals` / `--no-signals` | off | Traffic lights extracted from local OSM |
+| `--signals` / `--no-signals` | on when OSM supplied | Traffic lights extracted from local OSM |
 | `--signal-osm-file PATH` | required with signals | OSM XML/XML.gz path relative to input-dir |
 | `--signal-max-snap-distance M` | `50` | Maximum OSM signal to road-node matching distance |
 | `--signal-cycle S` | `120` | Synthetic signal cycle in seconds |
-| `--max-trains-per-line N` | `6` | Trains per line and direction; `0` = all within the horizon |
+| `--max-trains-per-line N` | `0` | Trains per line and direction; `0` = all within the horizon |
 | `--train-capacity` / `--train-interval` / `--train-velocity` / `--train-stop-time` | `1200` / `300` / `22.22` / `30` | Fallbacks (vehicle type, headway s, speed m/s) and dwell time s |
-| `--max-transit-routes N` | `500` | Bus routes converted, file order; `0` = all |
-| `--max-buses-per-route N` | `10` | Earliest departures per route; `0` = all |
+| `--max-transit-routes N` | `0` | Bus routes converted, file order; `0` = all |
+| `--max-buses-per-route N` | `0` | Earliest departures per route; `0` = all |
 | `--transit-headway S` | `900` | Fallback headway for routes with < 2 departures |
 | `--micro-ratio F` | `0.0` | Fraction of links as MICRO (0 = full MESO) |
 | `--micro-strategy` | `highway` | `highway` / `arterial` / `random`; the road class is derived from free-flow speed |
 | `--driver-*-min/max` | see `--help` | Uniform ranges for aggressiveness, reaction time, speed factor, gap factor |
 | `--dynamic-mode-choice` | off | `PendingDecision` for every trip |
 | `--mc-strategy` | `nearest-stop-utility` | `raptor` / `nearest-stop-utility` / `travel-time` |
-| `--mc-modes M…` | `bus walk` | Modes the strategy may pick |
+| `--mc-modes M…` | `bus subway walk` | Modes the strategy may pick |
 | `--mc-*` | see `--help` | Weights and average speeds, identical to São Paulo |
 | `--network-file`, `--population-file`, `--transit-schedule-file`, `--transit-vehicles-file` | auto | Override discovered input paths |
 

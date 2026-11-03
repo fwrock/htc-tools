@@ -14,6 +14,7 @@ def main():
     p.add_argument('--htc-root', type=Path, default=Path(__file__).resolve().parents[3]/'hyperbolic-time-chamber')
     p.add_argument('--jar', type=Path)
     p.add_argument('--base-port', type=int, default=32650)
+    p.add_argument('--signals', action='store_true', help='Include extracted OSM traffic lights and verify phase changes')
     p.add_argument('--validate-only',action='store_true',help='Recheck preserved reports without running HTC')
     args = p.parse_args()
     root = args.output_root.resolve()
@@ -22,6 +23,10 @@ def main():
     else:
         root.mkdir(parents=True, exist_ok=False)
         inp = fixtures(root)
+        if args.signals:
+            osm = inp/'sao_paulo.osm'
+            osm.write_text(osm.read_text().replace('<node id="2" lat="-23.55" lon="-46.649"/>',
+                '<node id="2" lat="-23.55" lon="-46.649"><tag k="highway" v="traffic_signals"/></node>'))
         e,n = g._wgs84_to_utm23s(-23.55,-46.65)
         e2,n2 = g._wgs84_to_utm23s(-23.55,-46.648)
         plans = inp/'output_plans.xml'
@@ -30,7 +35,8 @@ def main():
     <activity type="work" x="{e2}" y="{n2}"/></plan></person></population>'''))
         cfg = config(root, inp, include_transit=True, transit_providers=['bus'], include_rail=True,
                      unsupported_mode='replan', mc_included_modes=['bus'], mode_choice_strategy='raptor',
-                     train_interval=20, max_trains_per_line=1)
+                     train_interval=20, max_trains_per_line=1,
+                     include_signals=args.signals, signal_cycle_duration=20)
         cfg.duration = 240
         cfg.start_real_time = '2026-10-27T00:00:00'
         g.HybridInputGenerator(cfg).run()
@@ -47,6 +53,7 @@ def main():
             'bus_passengers_boarded': 1,
         }
         (root/'expected.json').write_text(json.dumps(expected,indent=2))
+        (root/'signal_checks.json').write_text(json.dumps({'enabled': args.signals}))
         htc = args.htc_root.resolve()
         jar = args.jar or htc/'target/scala-3.3.5/hyperbolic-time-chamber-3.2.0.jar'
         command = [sys.executable, str(htc/'scripts/scenario/run_cluster_validation.py'), '--jar', str(jar),
@@ -72,6 +79,11 @@ def main():
         failures.append('trip_aborted')
     if not any(d.get('event_type')=='subway_arrival' for d in records):
         failures.append('subway_arrival')
+    signal_checks = root/'signal_checks.json'
+    if signal_checks.exists() and json.loads(signal_checks.read_text())['enabled']:
+        for event_type in ('signal_phase_change', 'signal_state_requested'):
+            if not any(d.get('event_type') == event_type for d in records):
+                failures.append(event_type)
     result = {'expected':expected,'observed':observed,'failed_checks':failures,'passed':not failures,
               'scope':'One JVM, conservative discrete-event, MESO, seed 42; circulating transit is horizon-censored.'}
     (root/'outcomes.json').write_text(json.dumps(result,indent=2))

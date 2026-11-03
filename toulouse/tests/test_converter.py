@@ -11,6 +11,7 @@ import gzip
 import io
 import json
 import sqlite3
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -130,6 +131,132 @@ class ToulouseConverterTests(unittest.TestCase):
         return items
 
     # ------------------------------------------------------------------ time parsing
+    def test_map_cache_skips_network_and_city_map_build_and_preserves_ids(self):
+        first = self.run_generator(self.cfg(name="first", include_transit=True, include_rail=True))
+        cfg = self.cfg(name="second", include_transit=True, include_rail=True)
+        with patch.object(g.MatsimNetworkParser, "parse", side_effect=AssertionError("network reparsed")), \
+                patch.object(g.CityMapWriter, "__init__", side_effect=AssertionError("map rebuilt")):
+            second = self.run_generator(cfg)
+        for path in (first / "data").glob("*.json"):
+            self.assertEqual(json.loads(path.read_text()),
+                             json.loads((second / "data" / path.name).read_text()), path.name)
+        stats = json.loads((second / "scenario_metadata.json").read_text())["statistics"]
+        self.assertEqual(stats["network_map_cache_hit"], 1)
+        self.assertEqual(stats["persons_emitted"], 2)
+
+    def test_map_cache_survives_population_changes_and_output_edits(self):
+        first = self.run_generator(self.cfg(name="first"))
+        original = (first / "data" / "nodes_0.json").read_text()
+        (first / "data" / "nodes_0.json").write_text("[]")
+        cfg = self.cfg(population(("newperson", plan(NODES["1"], NODES["3"], "walk"))), name="changed")
+        with patch.object(g.MatsimNetworkParser, "parse", side_effect=AssertionError("network reparsed")):
+            second = self.run_generator(cfg)
+        self.assertEqual((second / "data" / "nodes_0.json").read_text(), original)
+        self.assertEqual(len(self.load(second, "persons_*.json")), 1)
+
+    def test_map_cache_invalidates_network_and_map_options(self):
+        self.run_generator(self.cfg(name="first"))
+        for name, options in (("micro", {"micro_ratio": 1}), ("seed", {"random_seed": 9}),
+                              ("split", {"items_per_file": 1}), ("signals", {"include_signals": True})):
+            cfg = self.cfg(name=name, **options)
+            self.assertFalse(g.NetworkMapCache(cfg).path.exists(), name)
+        cfg = self.cfg(name="modified")
+        with gzip.open(cfg.network_file, "wt") as f:
+            f.write(NETWORK.replace('length="500"', 'length="501"'))
+        out = self.run_generator(cfg)
+        stats = json.loads((out / "scenario_metadata.json").read_text())["statistics"]
+        self.assertEqual(stats["network_map_cache_hit"], 0)
+        self.assertEqual(self.load(out, "links_*.json")[0]["data"]["content"]["length"], 501)
+
+    def test_missing_or_corrupt_map_cache_rebuilds(self):
+        cfg = self.cfg(name="first")
+        self.run_generator(cfg)
+        cache = g.NetworkMapCache(cfg).path
+        for name, damage in (("missing", lambda p: p.unlink()),
+                             ("corrupt", lambda p: p.write_text("[]"))):
+            damage(cache / "nodes_0.json")
+            out = self.run_generator(self.cfg(name=name))
+            stats = json.loads((out / "scenario_metadata.json").read_text())["statistics"]
+            self.assertEqual(stats["network_map_cache_hit"], 0)
+            self.assertEqual(len(self.load(out, "nodes_*.json")), 4)
+
+    def test_map_cache_can_be_disabled(self):
+        cfg = self.cfg(reuse_map=False)
+        out = self.run_generator(cfg)
+        self.assertFalse((out.parent / ".toulouse-map-cache").exists())
+
+    def test_map_cache_saved_before_sqlite_conversion(self):
+        cfg = self.cfg(name="sqlite", output_format="sqlite")
+        self.run_generator(cfg)
+        self.assertFalse((cfg.output_dir / "data" / "city_map.json").exists())
+        with patch.object(g.MatsimNetworkParser, "parse", side_effect=AssertionError("network reparsed")):
+            out = self.run_generator(self.cfg(name="json"))
+        self.assertTrue((out / "data" / "city_map.json").exists())
+        self.assertEqual(len(self.load(out, "links_*.json")), 4)
+
+    def test_prefix_stops_at_generated_target_after_skipped_person(self):
+        cfg = self.cfg(population(
+            ("empty", ""),
+            ("first", plan(NODES["1"], NODES["3"], "car")),
+            ("unread", '<plan selected="yes"/><plan selected="yes"/>'),
+        ))
+        cfg.sample_rate = 1 / 3
+        cfg.population_size = 3
+        out = self.run_generator(cfg)
+        stats = json.loads((out / "scenario_metadata.json").read_text())["statistics"]
+        self.assertEqual(stats["persons_emitted"], 1)
+        self.assertEqual(stats["persons_scanned"], 2)
+        self.assertEqual(stats["persons_total_in_file"], 3)
+        self.assertEqual(stats["population_stopped_early"], 1)
+        self.assertEqual(len(self.load(out, "cars_*.json")), 1)
+        self.assertFalse(g._population_count_cache(cfg.population_file).exists())
+
+    def test_population_count_cache_reused_and_invalidated(self):
+        cfg = self.cfg()
+        self.assertEqual(g._population_count(cfg.population_file), 2)
+        with patch.object(g.ET, "iterparse", side_effect=AssertionError("cache should avoid parsing")):
+            self.assertEqual(g._population_count(cfg.population_file), 2)
+        with gzip.open(cfg.population_file, "wt") as f:
+            f.write(population(("only", "")))
+        self.assertEqual(g._population_count(cfg.population_file), 1)
+
+    def test_random_sampling_still_scans_entire_file(self):
+        cfg = self.cfg()
+        cfg.sample_rate = 0.5
+        cfg.sampling_strategy = "random"
+        out = self.run_generator(cfg)
+        stats = json.loads((out / "scenario_metadata.json").read_text())["statistics"]
+        self.assertEqual(stats["persons_scanned"], 2)
+        self.assertEqual(stats["population_stopped_early"], 0)
+        self.assertNotIn("persons_target", stats)
+
+    def test_prefix_reports_unattainable_target(self):
+        cfg = self.cfg(population(("empty1", ""), ("empty2", "")))
+        cfg.sample_rate = 0.5
+        cfg.population_size = 2
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            g.HybridInputGenerator(cfg).run()
+        self.assertIn("source exhausted before target", output.getvalue())
+
+    def test_cli_defaults_include_uncapped_bus_and_rail(self):
+        cfg = self.cfg()
+        result = subprocess.run([
+            sys.executable, str(Path(g.__file__)), "--scenario", "cli",
+            "--input-dir", str(self.inp), "--output", str(self.root / "output"),
+            "--population-file", str(cfg.population_file), "--sample", "1",
+        ], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        out = self.root / "output" / "cli"
+        config = json.loads((out / "effective_config.json").read_text())
+        self.assertTrue(config["include_transit"])
+        self.assertTrue(config["include_rail"])
+        self.assertEqual(config["max_transit_routes"], 0)
+        self.assertEqual(config["max_buses_per_route"], 0)
+        self.assertEqual(config["max_trains_per_line"], 0)
+        self.assertTrue(self.load(out, "buses_*.json"))
+        self.assertTrue(self.load(out, "subway_stations_*.json"))
+
     def test_times_are_strict(self):
         self.assertEqual(g._to_tick("25:00:30"), 90030)       # MATSim allows > 24 h
         self.assertEqual(g._to_tick("3600"), 3600)
@@ -216,16 +343,24 @@ class ToulouseConverterTests(unittest.TestCase):
                 signals = self.load(out, 'traffic_signals_*.json')
                 self.assertEqual(len(signals), 2)
                 links = {a['id']: a['data']['content'] for a in self.load(out, 'links_*.json')}
-                nodes = {a['id'] for a in self.load(out, 'nodes_*.json')}
+                nodes = {a['id']: a['data']['content'] for a in self.load(out, 'nodes_*.json')}
                 self.assertEqual(sorted(len(a['data']['content']['phases']) for a in signals), [1, 2])
                 for a in signals:
                     c = a['data']['content']
                     self.assertIn(c['nodes'][0], nodes)
                     self.assertEqual(a['dependencies'][str(c['nodes'][0])]['id'], c['nodes'][0])
+                    node = nodes[c['nodes'][0]]
+                    self.assertEqual(set(node['approachConnections']), {str(p['origin']) for p in c['phases']})
+                    self.assertEqual(set(node['connections']), {str(lid) for lid, lnk in links.items() if lnk['from'] == c['nodes'][0]})
                     for phase in c['phases']:
                         self.assertEqual(links[phase['origin']]['to'], c['nodes'][0])
                         self.assertGreater(phase['greenDuration'], 0)
                         self.assertLessEqual(phase['greenStart'] + phase['greenDuration'], c['cycleDuration'])
+                    for outgoing, origin in node['connections'].items():
+                        incoming = links[origin['id']]
+                        # This straight fixture has an unambiguous continuation.
+                        if len(c['phases']) > 1:
+                            self.assertNotEqual(links[int(outgoing)]['to'], incoming['from'])
                 stats = json.loads((out / 'scenario_metadata.json').read_text())['statistics']
                 self.assertEqual(stats['signal_osm_signal_nodes'], 4)
                 self.assertEqual(stats['signal_signals_unmatched'], 1)
@@ -272,7 +407,7 @@ class ToulouseConverterTests(unittest.TestCase):
             '<transportMode>rail</transportMode>', f'<transportMode>{mode}</transportMode>')
             for mode in ('subway', 'tram'))
         path.write_text(text.replace('</transitSchedule>', extra + '</transitSchedule>'))
-        out = self.rail_out()
+        out = self.rail_out(max_trains_per_line=6)
         types = {a['data']['content']['railType'] for a in self.load(out, 'rail_links_*.json')}
         self.assertEqual(types, {'SUBWAY', 'LIGHT_RAIL', 'HEAVY_RAIL'})
         stats = json.loads((out / 'scenario_metadata.json').read_text())['statistics']
@@ -385,7 +520,7 @@ class ToulouseConverterTests(unittest.TestCase):
         return self.run_generator(self.cfg(name="rail", include_rail=True, **kw))
 
     def test_rail_line_uses_dominant_pattern_and_both_directions(self):
-        out = self.rail_out()
+        out = self.rail_out(max_trains_per_line=6)
         stations = {s["data"]["content"]["name"]: s for s in self.load(out, "subway_stations_*.json")}
         self.assertEqual(len(stations), 3)
         links = self.load(out, "rail_links_*.json")
