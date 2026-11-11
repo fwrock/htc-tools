@@ -131,6 +131,92 @@ class ToulouseConverterTests(unittest.TestCase):
         return items
 
     # ------------------------------------------------------------------ time parsing
+    def test_parts_cli_needs_only_selected_inputs(self):
+        command = [sys.executable, str(Path(g.__file__)), "--input-dir", str(self.inp),
+                   "--output", str(self.root / "output"), "--scenario", "cli_parts"]
+        result = subprocess.run(command + ["--parts", "network"], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        (self.inp / "toulouse_network.xml.gz").unlink()
+        (self.inp / "toulouse_population.xml").write_text(self.default_pop)
+        result = subprocess.run(command + ["--extend", "--parts", "population", "--sample", "1",
+                                          "--unsupported-mode", "walk"], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        out = self.root / "output" / "cli_parts"
+        self.assertEqual(len(self.load(out, "persons_*.json")), 2)
+
+    def test_extend_replacement_removes_old_splits_and_preserves_custom_manifest(self):
+        cfg = self.cfg(items_per_file=1)
+        out = self.run_generator(cfg)
+        manifest_path = out / "simulation.json"
+        manifest = json.loads(manifest_path.read_text())
+        manifest["customSetting"] = {"value": "preserve"}
+        manifest_path.write_text(json.dumps(manifest))
+        cfg.population_file.write_bytes(gzip.compress(population(("only", plan(NODES["1"], NODES["3"], "walk"))).encode()))
+        cfg.parts, cfg.extend, cfg.replace_parts = ["population"], True, True
+        self.run_generator(cfg)
+        self.assertFalse((out / "data" / "persons_1.json").exists())
+        self.assertFalse(list((out / "data").glob("cars_*.json")))
+        manifest = json.loads(manifest_path.read_text())
+        self.assertEqual(manifest["customSetting"], {"value": "preserve"})
+        for source in manifest["actorsDataSources"]:
+            self.assertTrue(Path(source["dataSource"]["info"]["path"]).is_file())
+
+    def test_parts_network_then_population_without_source_network(self):
+        cfg = self.cfg(parts=["network"])
+        out = self.run_generator(cfg)
+        self.assertFalse(list((out / "data").glob("persons_*.json")))
+        network = {p.name: p.read_bytes() for p in (out / "data").glob("*.json")
+                   if p.name.startswith(("nodes_", "links_", "city_map"))}
+        cfg.parts, cfg.extend = ["population"], True
+        cfg.network_file.unlink()
+        self.run_generator(cfg)
+        self.assertEqual(len(self.load(out, "persons_*.json")), 2)
+        for name, contents in network.items():
+            self.assertEqual((out / "data" / name).read_bytes(), contents)
+
+    def test_extend_rail_preserves_bus_and_population_and_merges_indexes(self):
+        cfg = self.cfg(include_transit=True)
+        out = self.run_generator(cfg)
+        before = {p.name: p.read_bytes() for p in (out / "data").glob("*.json")
+                  if p.name.startswith(("persons_", "cars_", "bus_stops_", "buses_"))}
+        cfg.parts, cfg.extend = ["rail"], True
+        cfg.population_file.unlink()
+        self.run_generator(cfg)
+        for name, contents in before.items():
+            self.assertEqual((out / "data" / name).read_bytes(), contents)
+        for name in ("transit_map.json", "transit_routes.json"):
+            entries = json.loads((out / "data" / name).read_text())
+            self.assertEqual({e["stopType"] for e in entries}, {"bus", "subway"})
+        cfg.parts, cfg.replace_parts = ["transit"], True
+        self.run_generator(cfg)
+        entries = json.loads((out / "data" / "transit_map.json").read_text())
+        self.assertEqual(len({e["id"] for e in entries}), len(entries))
+        self.assertEqual({e["stopType"] for e in entries}, {"bus", "subway"})
+
+    def test_extend_failure_and_duplicate_leave_original_unchanged(self):
+        cfg = self.cfg()
+        out = self.run_generator(cfg)
+        before = {p.relative_to(out): p.read_bytes() for p in out.rglob("*") if p.is_file()}
+        cfg.parts, cfg.extend = ["population"], True
+        with self.assertRaises(FileExistsError):
+            self.run_generator(cfg)
+        cfg.replace_parts = True
+        with patch.object(g.PopulationConverter, "convert", side_effect=ValueError("broken population")):
+            with self.assertRaisesRegex(ValueError, "broken population"):
+                self.run_generator(cfg)
+        self.assertEqual(before, {p.relative_to(out): p.read_bytes() for p in out.rglob("*") if p.is_file()})
+
+    def test_extend_sqlite_scenario(self):
+        cfg = self.cfg(output_format="sqlite", parts=["network"])
+        out = self.run_generator(cfg)
+        cfg.parts, cfg.extend = ["population"], True
+        self.run_generator(cfg)
+        self.assertTrue((out / "data" / "persons_0.db").is_file())
+        self.assertFalse((out / "data" / "nodes_0.json").exists())
+        manifest = json.loads((out / "simulation.json").read_text())
+        for source in manifest["actorsDataSources"]:
+            self.assertTrue(Path(source["dataSource"]["info"]["path"]).is_file())
+
     def test_map_cache_skips_network_and_city_map_build_and_preserves_ids(self):
         first = self.run_generator(self.cfg(name="first", include_transit=True, include_rail=True))
         cfg = self.cfg(name="second", include_transit=True, include_rail=True)

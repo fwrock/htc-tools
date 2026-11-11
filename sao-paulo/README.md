@@ -2,7 +2,48 @@
 
 Convert an EQASim synthetic population or a selected MATSim plans file into HTC's native hybrid-model actor JSON. The converter combines population activities, an OSM road graph, date-filtered GTFS bus services, and optional subway/train infrastructure from OSM.
 
+For an export containing `sao_paulo_network.xml.gz`, `sao_paulo_population.xml.gz`
+and the MATSim transit schedule/vehicles, use **[`generate_matsim_input.py`](generate_matsim_input.py)**.
+It shares the MATSim converter with Toulouse and supports optional GTFS buses.
+See **[native MATSim usage and examples](MATSIM.md)** for CRS discovery, parts,
+extensions and validation. The commands below describe the OSM-based generator.
+
 For an AI agent extending this code, start with [AGENT_IMPLEMENTATION_GUIDE.md](AGENT_IMPLEMENTATION_GUIDE.md). For users, the commands below are sufficient. This is an offline converter; HTC does not read MATSim XML directly.
+
+## Generate selected parts and extend a scenario
+
+Use `--parts network population transit rail signals` to select components. A fresh
+scenario must include `network`. `population` includes people and their private vehicles;
+`transit` means GTFS buses; `rail` means OSM metro/trains. Parts override the corresponding
+`--transit`, `--rail` and `--signals` switches.
+
+```bash
+# From tools/sao-paulo: create just the roads (no population inputs required).
+python3 generate_hybrid_input.py --input-dir input --scenario sp_parts --parts network
+# Add MATSim people; existing roads need no source OSM file.
+python3 generate_hybrid_input.py --input-dir input --scenario sp_parts \
+  --extend --parts population --input-format matsim --population-crs EPSG:32723
+# Add date-filtered buses, preserving existing people and rail.
+python3 generate_hybrid_input.py --input-dir input --scenario sp_parts \
+  --extend --parts transit --service-date 2026-10-27 --transit-providers sptrans emtu
+# Replace only those buses and stops, keeping all other components.
+python3 generate_hybrid_input.py --input-dir input --scenario sp_parts \
+  --extend --parts transit --replace-parts --service-date 2026-10-27
+```
+
+`--extend` requires explicit `--parts` and the original generator's manifest,
+effective config, metadata and `data/id_registry.json`. It adds missing components;
+`--replace-parts` explicitly allows regenerating existing selected components.
+Unselected actor files and custom manifest settings are preserved; bus/rail transit
+indexes are merged. Road nodes are rewired when signals change. The network cannot be
+replaced in an extension. Use `--extend` instead of combining parts with `--skip-network`.
+
+Both JSON and SQLite outputs are supported. The existing format, road settings, seed,
+CRS, simulation horizon/origin and manifest path prefix are inherited. Input paths and
+selected-part options come from the new command. Extensions build a sibling copy and
+publish after successful conversion; allow disk space for that copy and temporary JSON
+when using SQLite. Use an idle scenario without simultaneous writers. Ordinary runs
+still require empty output directories.
 
 ## Install and check
 

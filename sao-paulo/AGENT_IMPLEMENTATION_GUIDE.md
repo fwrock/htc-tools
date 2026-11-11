@@ -53,11 +53,14 @@ Do not emit obsolete `dailySchedule` or a prepopulated execution cursor. IDs are
 ## Existing implementation responsibilities
 
 - `generate_hybrid_input.py`: `Config` and CLI; streaming network/population parsing; spatial snapping; GTFS service selection; bus road routing; OSM rail extraction; native actor and manifest writing; metadata/reporting.
+- `generate_matsim_input.py`: São Paulo entry point for the shared `../scenario_common/matsim.py` native network/population/schedule converter. `MATSIM.md` documents CRS discovery, metadata, parts, extensions and optional GTFS buses. Toulouse's public entry point delegates to the same module. Keep city-independent MATSim logic in that shared module.
+- `../scenario_common/gtfs.py`: adapter reusing this directory's GTFS converter on a MATSim network; transforms UTM23S snapping coordinates into the network CRS. Bus source selection is exclusive; rail remains schedule-based.
 - `fetch_inputs.py`: staged, cached GTFS download/local ZIP import; online Overpass rail query; local XML/XML.gz rail extraction; source hashes.
 - `explore_rail.py`: configurable rail relation audit, with no import-time work.
 - `scenario*.example.json`: runnable configuration shapes that users edit for their sources.
 - `tests/test_converter.py`: small behavioral regression fixtures, including both population paths.
 - `tests/run_smoke.py`: retained small inputs → converted actors → actual HTC process → outcome checks.
+- `tests/test_matsim.py` / `tests/run_matsim_smoke.py`: native São Paulo fixtures and actual HTC outcomes for MATSim buses or GTFS buses, both with MATSim rail.
 
 Keep download operations outside the conversion path so conversion is reproducible offline. Do not overwrite an original input snapshot to make an example work. Use provider names/paths to distinguish independently downloaded snapshots and record them in metadata.
 

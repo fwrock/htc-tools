@@ -88,6 +88,93 @@ class ConverterTests(unittest.TestCase):
             '<tag k="railway" v="stop"/><tag k="highway" v="traffic_signals"/>')
         path.write_text(text)
 
+    def test_parts_network_then_population_without_osm(self):
+        cfg = config(self.root, self.inp, parts=["network"])
+        self.run_generator(cfg)
+        data = cfg.output_dir / "data"
+        before = {p.name: p.read_bytes() for p in data.glob("*.json")
+                  if p.name.startswith(("nodes_", "links_", "city_map"))}
+        self.assertFalse(list(data.glob("persons_*.json")))
+        (self.inp / "sao_paulo.osm").unlink()
+        cfg.parts, cfg.extend = ["population"], True
+        self.run_generator(cfg)
+        self.assertEqual(len(json.loads((data / "persons_0.json").read_text())), 1)
+        for name, content in before.items():
+            self.assertEqual((data / name).read_bytes(), content)
+
+    def test_parts_cli_from_osm_only_to_matsim_population(self):
+        command = [sys.executable, str(Path(g.__file__)), "--input-dir", str(self.inp),
+                   "--output", str(self.root / "output"), "--scenario", "cli_parts"]
+        result = subprocess.run(command + ["--parts", "network"], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        (self.inp / "sao_paulo.osm").unlink()
+        result = subprocess.run(command + ["--extend", "--parts", "population", "--sample", "1",
+            "--input-format", "matsim", "--population-crs", "EPSG:32723"], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertTrue((self.root / "output" / "cli_parts" / "data" / "persons_0.json").is_file())
+
+    def test_extend_signals_and_population_preserves_signal_wiring(self):
+        self.add_signals()
+        cfg = config(self.root, self.inp)
+        self.run_generator(cfg)
+        data = cfg.output_dir / "data"
+        people = (data / "persons_0.json").read_bytes()
+        cfg.parts, cfg.extend = ["signals"], True
+        self.run_generator(cfg)
+        self.assertEqual((data / "persons_0.json").read_bytes(), people)
+        nodes = (data / "nodes_0.json").read_bytes()
+        actors = json.loads(nodes)
+        self.assertTrue(any(a["data"]["content"].get("approachConnections") for a in actors))
+        cfg.parts, cfg.replace_parts = ["population"], True
+        self.run_generator(cfg)
+        self.assertEqual((data / "nodes_0.json").read_bytes(), nodes)
+
+    def test_extend_transit_preserves_rail_and_people(self):
+        cfg = config(self.root, self.inp, include_rail=True, transit_providers=["bus"])
+        self.run_generator(cfg)
+        data = cfg.output_dir / "data"
+        before = {p.name: p.read_bytes() for p in data.glob("*.json")
+                  if p.name.startswith(("persons_", "cars_", "rail_links_", "subway_stations_"))}
+        (self.inp / "output_plans.xml").unlink()
+        cfg.parts, cfg.extend = ["transit"], True
+        self.run_generator(cfg)
+        for name, content in before.items():
+            self.assertEqual((data / name).read_bytes(), content)
+        for name in ("transit_map.json", "transit_routes.json"):
+            entries = json.loads((data / name).read_text())
+            self.assertEqual({e["stopType"] for e in entries}, {"bus", "subway"})
+        cfg.replace_parts = True
+        self.run_generator(cfg)
+        entries = json.loads((data / "transit_map.json").read_text())
+        self.assertEqual(len({e["id"] for e in entries}), len(entries))
+
+    def test_extend_failed_replacement_leaves_original_unchanged(self):
+        from unittest.mock import patch
+        cfg = config(self.root, self.inp)
+        self.run_generator(cfg)
+        out = cfg.output_dir
+        before = {p.relative_to(out): p.read_bytes() for p in out.rglob("*") if p.is_file()}
+        cfg.parts, cfg.extend = ["population"], True
+        with self.assertRaises(FileExistsError):
+            self.run_generator(cfg)
+        cfg.replace_parts = True
+        with patch.object(g.PopulationConverter, "convert", side_effect=ValueError("broken population")):
+            with self.assertRaisesRegex(ValueError, "broken population"):
+                self.run_generator(cfg)
+        self.assertEqual(before, {p.relative_to(out): p.read_bytes() for p in out.rglob("*") if p.is_file()})
+
+    def test_extend_sqlite_scenario(self):
+        cfg = config(self.root, self.inp, output_format="sqlite", parts=["network"])
+        self.run_generator(cfg)
+        cfg.parts, cfg.extend = ["population"], True
+        self.run_generator(cfg)
+        data = cfg.output_dir / "data"
+        self.assertTrue((data / "persons_0.db").is_file())
+        self.assertFalse((data / "nodes_0.json").exists())
+        manifest = json.loads((cfg.output_dir / "simulation.json").read_text())
+        for source in manifest["actorsDataSources"]:
+            self.assertTrue(Path(source["dataSource"]["info"]["path"]).is_file())
+
     def test_osm_signals_include_single_approach_and_survive_network_reuse(self):
         self.add_signals()
         cfg = config(self.root, self.inp, include_signals=False)

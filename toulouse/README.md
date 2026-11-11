@@ -8,15 +8,16 @@ Converts the native MATSim Toulouse scenario (eqasim export) into the JSON actor
 field names, the same `PersonState.originalPlan` elements, the same explicit unresolved-mode
 policy, routed `Bus` actors, `transit_map.json` / `transit_routes.json`, and the same
 `simulation.json` keys. Only the *input side* differs, because Toulouse ships native MATSim XML —
-not OSM + GTFS + eqasim CSV/GeoPackage — so the network, population and transit parsers are
-Toulouse-specific. Traffic light locations can additionally be extracted from a local OSM
+not OSM + GTFS + eqasim CSV/GeoPackage. The network, population and transit parsers now live in
+[`../scenario_common/matsim.py`](../scenario_common/matsim.py), shared with the native
+[São Paulo MATSim entry point](../sao-paulo/MATSIM.md). Traffic light locations can additionally be extracted from a local OSM
 XML/XML.gz file and matched to the MATSim road network (see "Traffic lights from OSM").
 
 ## Folder layout
 
 ```
 tools/toulouse/
-├── generate_hybrid_input.py   the converter (all logic)
+├── generate_hybrid_input.py   compatibility entry point into scenario_common/matsim.py
 ├── generate_tl_1pct_meso.sh   wrapper: full scenario with sensible defaults, env-configurable
 ├── README.md                  this file
 ├── tests/test_converter.py    regression tests on a tiny synthetic MATSim scenario
@@ -26,6 +27,42 @@ tools/toulouse_raw_unused/     rest of the eqasim export + convert_pt_to_walk.py
 ```
 
 ## Run it
+
+### Generate parts and extend an existing scenario
+
+Both city generators accept `--parts network population transit rail signals`. A fresh
+scenario must include `network`; only selected parts and their required inputs are read.
+`transit` selects buses, and `rail` separately selects metro, tram and trains.
+
+```bash
+cd tools/toulouse
+# Start with the road network; no population or schedule is needed.
+python3 generate_hybrid_input.py --input-dir input --output output --scenario tl_parts \
+  --parts network
+# Add people, keeping the road network and its IDs.
+python3 generate_hybrid_input.py --input-dir input --output output --scenario tl_parts \
+  --extend --parts population --sample 0.01 --unsupported-mode walk
+# Add buses and rail; no source population/network is needed.
+python3 generate_hybrid_input.py --input-dir input --output output --scenario tl_parts \
+  --extend --parts transit rail
+# Replace only the population and its private vehicles.
+python3 generate_hybrid_input.py --input-dir input --output output --scenario tl_parts \
+  --extend --parts population --replace-parts --sample 0.02 --unsupported-mode replan
+```
+
+`--extend` requires explicit `--parts` and an existing generator output with
+`simulation.json`, `effective_config.json`, `scenario_metadata.json` and
+`data/id_registry.json`. Existing selected parts are refused unless `--replace-parts`
+is supplied. Unselected actors, custom manifest settings and the other transit mode's
+indexes are retained. The network cannot be replaced in an extension.
+
+JSON and SQLite scenarios are supported. Extensions inherit the existing output format,
+simulation horizon/origin, seed, road settings, CRS and manifest path prefix. Input paths
+and selected-part options come from the new command. Changes are built in a sibling
+copy and published after successful conversion; allow free disk space for that copy
+and, for SQLite, temporary JSON. Use an idle scenario without simultaneous writers.
+Signal updates also rewire road nodes. Runs without `--extend` still require an empty
+output directory.
 
 Two equivalent entry points; both write `output/<scenario>/`, which must be new or empty. They
 generate the road network, the people, **and public transport** (buses via `--transit`, train /
@@ -437,3 +474,15 @@ engine smoke test yet.
 * `--bbox`, `--skip-network`, `--input-format`: not ported from São Paulo.
 * Calibration: a successful conversion says nothing about whether the simulated traffic is
   realistic. Bus counts are not scaled with `--sample`.
+
+## Small centre demonstration
+
+For exactly 100 real directed links near Capitole, 30 people per mode (walk/bike/car),
+four synthetic traffic lights and a 15-minute MESO horizon, use
+`python3 tools/toulouse/generate_center_demo.py` from the platform root.
+The [demo guide](../../demos/toulouse-center/README.md) covers installation into HTC UI,
+HTC Bus Live and the complete small SimEDaPE experiment.
+
+For a full day with morning/evening demand peaks and complete five-minute link series, use
+`python3 tools/toulouse/generate_day_demo.py` and the
+[full-day guide](../../demos/toulouse-day/README.md).

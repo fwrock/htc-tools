@@ -70,6 +70,7 @@ from pyproj import CRS, Transformer
 from scipy.spatial import cKDTree
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from scenario_common.parts import add_part_arguments, selected, prepare, extend_scenario
 from scenario_common.traffic_signals import (
     build_signal_actor, clear_signal_nodes, validate_signal_config, wire_signal_nodes,
 )
@@ -388,6 +389,10 @@ class Config:
     osm_file: Optional[str] = None
     rail_osm_file: Optional[str] = None
 
+    parts: Optional[List[str]] = None
+    extend: bool = False
+    replace_parts: bool = False
+
     def validate(self) -> None:
         validate_signal_config(self)
         if not self.scenario_name or Path(self.scenario_name).name != self.scenario_name or self.scenario_name in (".", ".."):
@@ -408,20 +413,20 @@ class Config:
         datetime.fromisoformat(self.start_real_time)
         if self.bbox and not (-90 <= self.bbox[0] < self.bbox[2] <= 90 and -180 <= self.bbox[1] < self.bbox[3] <= 180):
             raise ValueError("Invalid WGS84 bbox")
-        if self.input_format == "matsim" and not self.population_crs:
+        if selected(self, "population") and self.input_format == "matsim" and not self.population_crs:
             raise ValueError("MATSim requires --population-crs from global.coordinateSystem")
         if self.population_crs:
             CRS.from_user_input(self.population_crs)
-        if self.include_transit and not self.service_date:
+        if selected(self, "transit") and not self.service_date:
             raise ValueError("--transit requires --service-date YYYY-MM-DD")
         if self.service_date:
             datetime.strptime(self.service_date, "%Y-%m-%d")
-        if self.unsupported_mode == "replan" and not (self.include_transit or self.include_rail):
+        if selected(self, "population") and self.unsupported_mode == "replan" and not (self.include_transit or self.include_rail):
             raise ValueError("replan requires --transit and/or --rail")
         valid_modes = set(PopulationConverter.MC_MODE_TO_CONCRETE)
         if not self.mc_included_modes or set(self.mc_included_modes) - valid_modes:
             raise ValueError(f"mc-modes must be drawn from {sorted(valid_modes)}")
-        if self.enable_dynamic_mode_choice or self.unsupported_mode == "replan":
+        if selected(self, "population") and (self.enable_dynamic_mode_choice or self.unsupported_mode == "replan"):
             if "bus" in self.mc_included_modes and not self.include_transit:
                 raise ValueError("bus mode choice requires --transit")
             if "subway" in self.mc_included_modes and not self.include_rail:
@@ -3313,27 +3318,33 @@ class HybridInputGenerator:
     # ------------------------------------------------------------------
     def run(self) -> None:
         cfg = self.cfg
+        extending = getattr(self, "_extending", False)
+        if not extending:
+            prepare(cfg)
+            if cfg.extend:
+                extend_scenario(self)
+                return
         cfg.validate()
         network_settings = {"bbox": list(cfg.bbox) if cfg.bbox else None,
                             "micro_ratio": cfg.micro_ratio, "micro_strategy": cfg.micro_strategy,
                             "random_seed": cfg.random_seed}
         network_config = cfg.output_dir / "data" / "network_config.json"
-        if cfg.skip_network:
+        if cfg.skip_network and not extending:
             if not network_config.exists() or json.loads(network_config.read_text()) != network_settings:
                 raise ValueError("--skip-network requires a matching network_config.json; regenerate in a fresh scenario")
-        elif cfg.output_dir.exists() and any(cfg.output_dir.iterdir()):
+        elif not extending and cfg.output_dir.exists() and any(cfg.output_dir.iterdir()):
             raise FileExistsError(f"Output is not empty: {cfg.output_dir}; use a fresh scenario name or --skip-network")
-        if cfg.input_format == "eqasim":
+        if selected(cfg, "population") and cfg.input_format == "eqasim":
             for name in ("persons.csv", "activities.gpkg", "trips.csv"):
                 if not (cfg.input_dir / name).is_file():
                     raise FileNotFoundError(cfg.input_dir / name)
-        elif not any((cfg.input_dir / name).is_file() for name in
+        elif selected(cfg, "population") and not any((cfg.input_dir / name).is_file() for name in
                      ([cfg.matsim_plans_file] if cfg.matsim_plans_file else ["output_plans.xml.gz", "output_plans.xml"])):
             raise FileNotFoundError("MATSim plans missing; check --matsim-plans")
-        if cfg.include_transit:
+        if selected(cfg, "transit"):
             for provider in cfg.transit_providers:
                 GtfsTransitConverter(cfg, None, cfg.output_dir, ScenarioIdRegistry())._active_services(cfg.input_dir / provider)
-        skipping = cfg.skip_network
+        skipping = cfg.skip_network or extending
         n_steps = (
             (2 if not skipping else 0)
             + 2
@@ -3371,21 +3382,22 @@ class HybridInputGenerator:
             self.stats.update(osm.stats)
             osm_file = None  # not needed
 
-            _REGEN_PATTERNS = [
-                "persons_*.json", "cars_*.json", "bikes_*.json",
-                "motorcycles_*.json",
-            ]
-            _REGEN_PATTERNS += ["bus_stops_*.json", "bus_stations_*.json", "buses_*.json",
-                                "subway_stations_*.json", "rail_links_*.json", "traffic_signals_*.json",
-                                "transit_map.json", "transit_routes.json"]
-            deleted = sum(
-                1
-                for pat in _REGEN_PATTERNS
-                for fp in data_dir.glob(pat)
-                if fp.unlink() or True
-            )
-            if deleted:
-                print(f"  Removed {deleted} stale actor file(s)")
+            if not extending:
+                _REGEN_PATTERNS = [
+                    "persons_*.json", "cars_*.json", "bikes_*.json",
+                    "motorcycles_*.json",
+                ]
+                _REGEN_PATTERNS += ["bus_stops_*.json", "bus_stations_*.json", "buses_*.json",
+                                    "subway_stations_*.json", "rail_links_*.json", "traffic_signals_*.json",
+                                    "transit_map.json", "transit_routes.json"]
+                deleted = sum(
+                    1
+                    for pat in _REGEN_PATTERNS
+                    for fp in data_dir.glob(pat)
+                    if fp.unlink() or True
+                )
+                if deleted:
+                    print(f"  Removed {deleted} stale actor file(s)")
         else:
             # ── Step 1: OSM network ──
             step += 1
@@ -3411,18 +3423,19 @@ class HybridInputGenerator:
             # Free heavy OSM data no longer needed (keeps KD-tree for nearest-node)
             osm.free_heavy_data()
 
-        # ── Step 3: Population ──
-        step += 1
-        print(f"\n[{step}/{n_steps}] Converting population …")
-        pop = PopulationConverter(cfg, osm, data_dir, ids)
-        pop.convert()
-        self.stats.update(pop.stats)
-        self.stats["persons"] = pop.stats.get("persons_emitted", 0)
+        if selected(cfg, "population"):
+            # ── Step 3: Population ──
+            step += 1
+            print(f"\n[{step}/{n_steps}] Converting population …")
+            pop = PopulationConverter(cfg, osm, data_dir, ids)
+            pop.convert()
+            self.stats.update(pop.stats)
+            self.stats["persons"] = pop.stats.get("persons_emitted", 0)
 
         # ── Step 4: Bus Transit (optional) ──
         step += 1
         gtfs: Optional[GtfsTransitConverter] = None
-        if cfg.include_transit:
+        if selected(cfg, "transit"):
             print(f"\n[{step}/{n_steps}] Converting GTFS bus transit …")
             gtfs = GtfsTransitConverter(cfg, osm, data_dir, ids)
             gtfs.convert()
@@ -3432,7 +3445,7 @@ class HybridInputGenerator:
 
         # ── Step 5: Rail Transit (optional) ──
         rail_conv: Optional[RailTransitConverter] = None
-        if cfg.include_rail:
+        if selected(cfg, "rail"):
             step += 1
             print(f"\n[{step}/{n_steps}] Extracting rail/subway from OSM …")
             rail_file = self._resolve_input(cfg.rail_osm_file) if cfg.rail_osm_file else osm_file
@@ -3447,9 +3460,9 @@ class HybridInputGenerator:
             rail_conv.convert()
             self.stats.update({f"rail_{k}": v for k, v in rail_conv.stats.items()})
 
-        if cfg.include_transit and not gtfs.stats.get("buses", 0):
+        if selected(cfg, "transit") and not gtfs.stats.get("buses", 0):
             raise ValueError("GTFS selection produced no routed buses; check date, bbox, stop snapping and feed")
-        if cfg.include_rail and not rail_conv.stats.get("rail_links", 0):
+        if selected(cfg, "rail") and not rail_conv.stats.get("rail_links", 0):
             raise ValueError("OSM selection produced no rail links; include complete route relation members")
         # ── Transit map (lightweight index for mode choice) ──
         if gtfs is not None or rail_conv is not None:
@@ -3464,14 +3477,14 @@ class HybridInputGenerator:
             print(f"  transit_routes.json written ({n_routes:,} routes)")
 
         # ── Step 6: Traffic Signals (optional) ──
-        if cfg.include_signals:
+        if selected(cfg, "signals"):
             step += 1
             print(f"\n[{step}/{n_steps}] Generating traffic signals …")
             sig_gen = TrafficSignalGenerator(cfg, osm, data_dir, ids)
             sig_gen.generate()
             wire_signal_nodes(data_dir)
             self.stats.update({f"signal_{k}": v for k, v in sig_gen.stats.items()})
-        elif skipping:
+        elif skipping and not extending:
             clear_signal_nodes(data_dir, {ids.id_for("node", n) for n in osm._signal_node_ids})
 
         ids.save(data_dir / "id_registry.json")
@@ -4063,6 +4076,7 @@ Examples:
     p.add_argument("--mc-avg-car-speed",         type=float, default=13.89,
                    metavar="MS", help="(travel-time) Average car speed m/s [13.89]")
 
+    add_part_arguments(p)
     preliminary = argparse.ArgumentParser(add_help=False)
     preliminary.add_argument("--config", type=Path)
     config_path = preliminary.parse_known_args()[0].config
@@ -4134,6 +4148,7 @@ Examples:
             sys.exit(1)
 
     cfg = Config(
+        parts=args.parts, extend=args.extend, replace_parts=args.replace_parts,
         declare_ownership = args.declare_ownership,
         input_dir         = input_dir,
         output_dir        = output_dir,
